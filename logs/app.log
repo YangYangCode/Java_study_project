@@ -1,0 +1,26 @@
+2024-11-12T15:42:16.376+08:00  INFO 3328 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 3328 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-11-12T15:42:16.381+08:00  INFO 3328 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-11-12T15:42:17.583+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-12T15:42:17.585+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-11-12T15:42:17.607+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2024-11-12T15:42:17.625+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-11-12T15:42:17.627+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-11-12T15:42:17.634+08:00  INFO 3328 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-11-12T15:42:18.368+08:00  INFO 3328 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-11-12T15:42:18.393+08:00  INFO 3328 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-11-12T15:42:18.393+08:00  INFO 3328 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-11-12T15:42:18.761+08:00  INFO 3328 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-11-12T15:42:18.774+08:00  INFO 3328 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-11-12T15:42:18.774+08:00  INFO 3328 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2299 ms
+2024-11-12T15:42:18.993+08:00  INFO 3328 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-11-12T15:42:19.083+08:00  INFO 3328 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-11-12T15:42:19.134+08:00  INFO 3328 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-11-12T15:42:19.588+08:00  INFO 3328 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-11-12T15:42:19.628+08:00  INFO 3328 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-11-12T15:42:19.822+08:00  INFO 3328 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3f322610
+2024-11-12T15:42:19.824+08:00  INFO 3328 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-11-12T15:42:20.367+08:00  INFO 3328 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-11-12T15:42:20.374+08:00  INFO 3328 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-11-12T15:42:20.424+08:00  WARN 3328 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-11-12T15:42:21.016+08:00  INFO 3328 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-11-12T15:42:21.024+08:00  INFO 3328 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 5.137 seconds (process running for 5.889)
