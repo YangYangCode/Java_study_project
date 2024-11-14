@@ -24,3 +24,7 @@
 2024-11-12T15:42:20.424+08:00  WARN 3328 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
 2024-11-12T15:42:21.016+08:00  INFO 3328 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
 2024-11-12T15:42:21.024+08:00  INFO 3328 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 5.137 seconds (process running for 5.889)
+2024-11-12T17:33:12.465+08:00  INFO 3328 --- [Java_study_project] [RMI TCP Connection(120)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-11-12T17:33:12.655+08:00  INFO 3328 --- [Java_study_project] [RMI TCP Connection(120)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-11-12T17:33:12.687+08:00  INFO 3328 --- [Java_study_project] [RMI TCP Connection(120)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-11-12T17:33:12.699+08:00  INFO 3328 --- [Java_study_project] [RMI TCP Connection(120)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
