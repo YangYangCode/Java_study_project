@@ -9,7 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,12 +37,15 @@ public class Room {
 	
 	// 有空再加，未實作先空白
 	
-	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "room_id")
 	private List<Class> classes = new ArrayList<>();	// 可用活動
 	
-	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "room_id")
 	private List<Equipment> equipments;					// 可用器材
-	
-//	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
-//	private AppointmentForm appointmentForm;			// 預約表
+		
+	// 需修改
+	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
+	private AppointmentForm appointmentForm;			// 預約表
 }

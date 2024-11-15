@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 
+import org.hibernate.Length;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,6 +15,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class ActivitySchedule {
@@ -40,13 +45,18 @@ public class ActivitySchedule {
 //	@Column(name = "number_of_can_register")
 	private Integer numberOfCanRegister;	// 可報名人數
 	
-//	@Column(name = "number_of_have_signed")
-	private Integer numberOfHaveSigned;	// 已報名人數
+//	@Column(name = "number_of_have_signed")		// 拿掉?
+	private Integer numberOfHaveSigned; // = memberHaveSigned.lenght();	// 已報名人數
 			
 //	@Column(name = "class_time")
 	private DateTimeFormatter classTime = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");	// 課程時間
 	
 	// by using 活動編碼 (新增OneToOne)
-//	private Information information;		// 詳細內容 
-//	private List<Member> member_have_signed = new ArrayList<>();	// 已報名會員清單
+	@OneToOne(mappedBy = "ActivitySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "activitySchedule_id")
+	private Information information;		// 詳細內容 
+	
+	@OneToMany(mappedBy = "ActivitySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "activitySchedule_id")
+	private List<Member> memberHaveSigned = new ArrayList<>();	// 已報名會員清單
 }

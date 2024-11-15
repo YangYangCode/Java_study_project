@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 public class Equipment {
 	
@@ -49,4 +50,7 @@ public class Equipment {
 	
 	@Column(columnDefinition = "Integer default 0")
 	private int equipment_number;	// 器材數量
+	
+	@ManyToMany
+	private Room room;
 }
