@@ -10,8 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,15 +37,18 @@ public class Room {
 	
 	// 有空再加，未實作先空白
 	
+	// 依賴於這個 Room 的 classes table
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "room_id")
 	private List<Class> classes = new ArrayList<>();	// 可用活動
 	
+	// 依賴於這個 Room 的 equipments table
 	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "room_id")
 	private List<Equipment> equipments;					// 可用器材
 		
 	// 需修改
-	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "room", cascade = CascadeType.ALL)
+	@JoinColumn(name= "room_id")
 	private AppointmentForm appointmentForm;			// 預約表
 }

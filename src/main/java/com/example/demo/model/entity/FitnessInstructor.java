@@ -10,8 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class FitnessInstructor {
@@ -29,7 +29,7 @@ public class FitnessInstructor {
 	@JoinColumn(name= "FitnessInstructor_id")
 	private List<Class> classes = new ArrayList<>();	// 授課類型
 	
-	// 需修改
-	@ManyToMany(mappedBy = "room", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name= "FitnessInstructor_id")
 	private AppointmentForm appointmentForm;			// 排程表
 }
