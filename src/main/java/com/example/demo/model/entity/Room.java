@@ -38,17 +38,17 @@ public class Room {
 	// 有空再加，未實作先空白
 	
 	// 依賴於這個 Room 的 classes table
-	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "room_id")
-	private List<Class> classes = new ArrayList<>();	// 可用活動
+	private List<Class> classes = new ArrayList<>();		// 可用活動
 	
 	// 依賴於這個 Room 的 equipments table
-	@OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "room_id")
-	private List<Equipment> equipments;					// 可用器材
+	private List<Equipment> equipments= new ArrayList<>();	// 可用器材
 		
 	// 需修改
-	@OneToOne(mappedBy = "room", cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name= "room_id")
-	private AppointmentForm appointmentForm;			// 預約表
+	private AppointmentForm appointmentForm;				// 預約表
 }

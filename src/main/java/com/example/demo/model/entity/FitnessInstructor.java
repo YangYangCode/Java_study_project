@@ -25,11 +25,11 @@ public class FitnessInstructor {
 	private String fitnessInstructorName;		// 教練姓名
 	
 	// 有空再改成ManyToMany (可直接查詢class有哪些授課老師)
-	@OneToMany(mappedBy = "FitnessInstructor", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name= "FitnessInstructor_id")
 	private List<Class> classes = new ArrayList<>();	// 授課類型
 	
-	@OneToOne(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name= "FitnessInstructor_id")
 	private AppointmentForm appointmentForm;			// 排程表
 }
