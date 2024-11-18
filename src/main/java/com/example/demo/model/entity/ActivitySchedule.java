@@ -1,5 +1,6 @@
 package com.example.demo.model.entity;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class ActivitySchedule {
 	private Integer numberOfHaveSigned; // = memberHaveSigned.lenght();	// 已報名人數
 			
 //	@Column(name = "class_time")
-	private String classTime;	// 課程時間
+	private LocalDateTime classTime; // 課程時間
 	
 	// by using 活動編碼 (新增OneToOne)
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)

@@ -6,11 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
-public class Equipment {
-	
-	/**
-	  	1. 有氧運動設備 (Cardio Equipment)
+	/** 
+		1. 有氧運動設備 (Cardio Equipment)
 			跑步機 (Treadmill)：用於跑步或快走，提升心肺功能和耐力。
 			橢圓機 (Elliptical Trainer)：低衝擊的有氧運動設備，對膝蓋和關節友好。
 			健身車 (Stationary Bike)：包括立式和臥式健身車，有助於提升腿部耐力和心肺健康。
@@ -36,11 +33,15 @@ public class Equipment {
 			健身球 (Exercise Balls)：用於核心訓練，幫助增強腹部、背部和臀部的力量。
 			AB滑輪 (Ab Rollers)：專門針對腹部肌肉的訓練工具。
 			平衡球 (Balance Balls)：有助於增強核心穩定性，適用於功能性訓練。
-			6. 團體課程設備 (Group Fitness Equipment)
+		6. 團體課程設備 (Group Fitness Equipment)
 			踏板 (Step Platforms)：用於有氧訓練課程，如踏板操。
 			跳繩 (Jump Ropes)：用於提高心肺功能和敏捷性。
 			拳擊沙包 (Punching Bags)：適用於拳擊和格鬥訓練，幫助提高力量和耐力。
-	 * */
+	 */
+
+
+@Entity
+public class Equipment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補

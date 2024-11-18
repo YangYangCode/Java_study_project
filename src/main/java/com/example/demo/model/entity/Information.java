@@ -14,6 +14,8 @@ public class Information {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
 	private Integer informationId;
 	
+	private String info;
+	
 //	// 這裡 A 類別依賴於 B 類別的主鍵
 //    @OneToOne(mappedBy = "AS_infomation")
 //    private ActivitySchedule activitySchedule;  // 這表示 依賴於 activity 主鍵
