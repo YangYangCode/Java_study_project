@@ -19,7 +19,7 @@ public class FitnessInstructor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
 //	@Column(name= "FitnessInstructor_id")
-	private Integer FitnessInstructorId;		// *教練邊號
+	private Long FitnessInstructorId;		// *教練邊號
 	
 	@Column(name = "fitnessInstructor_name", nullable = false)
 	private String fitnessInstructorName;		// 教練姓名

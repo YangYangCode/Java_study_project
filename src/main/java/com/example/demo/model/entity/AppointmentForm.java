@@ -10,5 +10,5 @@ public class AppointmentForm {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 時間排表
-	private Integer AppointmentFormId;
+	private Long AppointmentFormId;
 }

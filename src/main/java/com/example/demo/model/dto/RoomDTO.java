@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class RoomDTO {
-	private Integer roomId;		// *房號
+	private Long roomId;		// *房號
 	private String roomName;	// 房名
 	private Integer	roomSize;	// 大小(人數)
 	

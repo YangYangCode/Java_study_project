@@ -12,7 +12,7 @@ public class Information {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
-	private Integer informationId;
+	private Long informationId;
 	
 	private String info;
 	

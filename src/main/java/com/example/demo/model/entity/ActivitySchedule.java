@@ -20,7 +20,7 @@ public class ActivitySchedule {
 	
 	@Id
 	@Column(name = "activitySchedule_id", nullable = false)	// 活動編號
-	private Integer activityScheduleId;
+	private Long activityScheduleId;
 	
 	@ManyToOne
 	@JoinColumn(name = "room_id")  // 外鍵列，指向 該類別 主鍵

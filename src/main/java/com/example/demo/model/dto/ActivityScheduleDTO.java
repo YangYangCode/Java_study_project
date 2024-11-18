@@ -7,7 +7,7 @@ import com.example.demo.model.entity.FitnessInstructor;
 import com.example.demo.model.entity.Room;
 
 public class ActivityScheduleDTO {
-	private Integer activityScheduleId;
+	private Long activityScheduleId;
 	private Room room ;
 	private FitnessInstructor fitnessInstructor ;
 	private Class Class ;

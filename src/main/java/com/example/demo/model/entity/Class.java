@@ -11,7 +11,7 @@ public class Class {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
-	private Integer classId;
+	private Long classId;
 	
 	@Column(name = "class_name", nullable = false)
 	private String className;		// 課程名稱

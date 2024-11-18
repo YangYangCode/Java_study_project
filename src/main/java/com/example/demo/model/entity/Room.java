@@ -26,7 +26,7 @@ public class Room {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
 //	@Column(name= "room_id")
-	private Integer roomId;		// *房號
+	private Long roomId;		// *房號
 	
 	@Column(name= "room_name", nullable = false)
 	private String roomName;	// 房名

@@ -1,6 +1,6 @@
 package com.example.demo.model.dto;
 
 public class InformationDTO {
-	private Integer informationId;
+	private Long informationId;
 	private String info;
 }

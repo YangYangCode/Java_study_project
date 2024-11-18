@@ -45,12 +45,12 @@ public class Equipment {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
-	private int equipment_id;		// 器材編號
+	private Long equipment_id;		// 器材編號
 	
 	@Column(nullable = false)
 	private String equipment_Name;	// 器材名稱
 	
 	@Column(columnDefinition = "Integer default 0")
-	private int equipment_number;	// 器材數量
+	private Integer equipment_number;	// 器材數量
 	
 }
