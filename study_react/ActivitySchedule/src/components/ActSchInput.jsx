@@ -67,7 +67,7 @@ const ActSchInput = ({ ActSch, setActSch, onAdd }) => {
         placeholder="已報名人員列表"
       />
 
-      <button onClick={onAdd}>新增活動</button>
+      <button onClick={onAdd} >新增活動</button>
 
     </div>
   );
