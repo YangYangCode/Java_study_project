@@ -98,15 +98,16 @@ const ActSchInput = ({ ActSch, setActSch, onAdd, FromInput, handleChange, Fitnes
           value={ActSch.numberOfCanRegister}
           placeholder="請輸入可報名人數"
           type="number" min={1} max={50}
+          style={{ width: "150px" }} // 使用 CSS 控制寬度
         />
       </li>
 
-      <li style={{ display: "inline", marginRight: "15px" }}>
-        <input
+      <li >
+          <textarea id="paragraphInput" name="paragraphInput" rows="6" cols="150" 
           onChange={(e) => changeActSch(e.target.value, "information")} // 更新information
           value={ActSch.information}
           placeholder="請輸入課程細節(information)"
-        />
+          />
       </li>
       
     </ul>

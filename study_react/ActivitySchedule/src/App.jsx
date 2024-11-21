@@ -26,7 +26,14 @@ function App() {
   // ActivitySchedules
   const [ActSchs, setActSchs] = useState(f_data)  // 假資料
   const [ActSch, setActSch] = useState('');  // 用於修改、新增的ActSch
-  const [FromInput,setFromInput] = useState('');
+
+  const [FromInput,setFromInput] = useState('');  // From 表單
+  const [roomInput,setRoomInput] = useState('');  // From 表單 room
+  const [fitnInput,setFitnInput] = useState('');  // From 表單 FitnessInstructor (Fitn)
+  const [classInput,setClassInput] = useState('');  // From 表單 class
+  const [timeInput,setTimeInput] = useState('');  // From 表單 Time
+  const [canNumInput,setCanNumInput] = useState('');  // From 表單 可報名人數
+  const [infoInput,setInfoInput] = useState('');  // From 表單 information
 
   const [openModal, setOpenModal] = useState(false);  // 控制模態視窗開關
   const [modalContent, setModalContent] = useState('');  // 儲存模態視窗內容
@@ -45,14 +52,38 @@ function App() {
   };
 
 
-  const handleChange = (event) => {
+  const handleChange = (event) => {       // 原本
     // console.log(event.target.value);
     setFromInput(event.target.value);
   };
+  const handleRoomChange = (event) => {  // room
+    // console.log(event.target.value);
+    setFromInput(event.target.value);
+  };
+  const handleFitnChange = (event) => {  // FitnessInstructor
+    // console.log(event.target.value);
+    setFromInput(event.target.value);
+  };
+  const handleClassChange = (event) => {  // class
+    // console.log(event.target.value);
+    setFromInput(event.target.value);
+  };
+  const handleTimeChange = (event) => {   // Time
+    // console.log(event.target.value);
+    setTimeInput(event.target.value);
+  };
+  const handleCanNumChange = (event) => { // 可報名人數
+      // console.log(event.target.value);
+      setCanNumInput(event.target.value);
+  };
+  const handleInfoChange = (event) => {   // information
+      // console.log(event.target.value);
+      setInfoInput(event.target.value);
+  };
 
 
-  const Titels = [
-    { field: 'id', headerName: 'ID', width: 50, align: 'center' },
+  const Titels = [    // 定義 Table titel
+    { field: 'id', headerName: 'ID', width: 50, align: 'center', headerAlign: 'center' },
     { field: 'room', headerName: '教室', width: 70, align: 'center', align: 'center', headerAlign: 'center' },
     { field: 'FitnessInstructor', headerName: '講師', width: 70, align: 'center', headerAlign: 'center' },
     { field: 'classTime', headerName: '課程時間', width: 150, align: 'center', headerAlign: 'center' },
@@ -111,6 +142,7 @@ function App() {
     setActSch('');  // 將 ActivitySchedule 清空
   };
 
+  
   return (
     <>
       <h1>ActivitySchedules</h1>
