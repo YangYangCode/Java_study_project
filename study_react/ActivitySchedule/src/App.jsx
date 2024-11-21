@@ -19,10 +19,14 @@ function App() {
       classTime: "2024,10,25 17-00-00", information: "information", memberHaveSigned: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     },
   ]
+  const rooms = ['101', '102', '103', '104', '105', '201', '202', '203', '204', '205']
+  const FitnessInstructors = ['陳01', '陳02', '陳03', '陳04', '陳05', '陳06', '陳07', '陳08', '陳09', '陳10']
+  const classes = ['空中瑜珈', '瑜珈', '飛輪', '有氧', '啞鈴', '體操', '舞蹈', '伸展', 'TRX訓練', '普拉提斯']
 
   // ActivitySchedules
   const [ActSchs, setActSchs] = useState(f_data)  // 假資料
   const [ActSch, setActSch] = useState('');  // 用於修改、新增的ActSch
+  const [FromInput,setFromInput] = useState('');
 
   const [openModal, setOpenModal] = useState(false);  // 控制模態視窗開關
   const [modalContent, setModalContent] = useState('');  // 儲存模態視窗內容
@@ -38,6 +42,12 @@ function App() {
   const handleCloseModal = () => {
     setOpenModal(false);
     setModalContent('');
+  };
+
+
+  const handleChange = (event) => {
+    // console.log(event.target.value);
+    setFromInput(event.target.value);
   };
 
 
@@ -106,9 +116,21 @@ function App() {
       <h1>ActivitySchedules</h1>
       <p />
       <div>
-        <ActSchInput ActSch={ActSch} setActSch={setActSch} onAdd={handleAdd} />
+        <ActSchInput 
+                    // onClick
+                    ActSch={ActSch} 
+                    setActSch={setActSch} 
+                    onAdd={handleAdd} 
+                    FromInput={FromInput}
+                    handleChange={handleChange}
+
+                    // class
+                    FitnessInstructors={FitnessInstructors} 
+                    rooms={rooms}
+                    classes={classes}  />
         <ActSchList Titels={Titels} ActSchs={ActSchs} />
-        {/* 顯示模態視窗 */}
+        
+        {/* Model 視窗 */}
         <TableModal
           openModal={openModal}
           handleOpenModal={handleOpenModal}
@@ -116,7 +138,6 @@ function App() {
           CloseModal={handleCloseModal}
         />
       </div>
-
     </>
   )
 
