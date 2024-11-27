@@ -3,8 +3,8 @@ package com.example.demo.model.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.demo.model.entity.AppointmentForm;
-import com.example.demo.model.entity.Class;
+import com.example.demo.model.entity.MemberBookingForm;
+import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.Equipment;
 
 import lombok.AllArgsConstructor;
@@ -17,8 +17,8 @@ public class RoomDTO {
 	private String roomName;	// 房名
 	private Integer	roomSize;	// 大小(人數)
 	
-	private List<Class> classes = new ArrayList<>();		// 可用活動
+	private List<ClassType> classes = new ArrayList<>();		// 可用活動
 	private List<Equipment> equipments= new ArrayList<>();	// 可用器材
 	
-	private AppointmentForm appointmentForm;				// 預約表
+	private MemberBookingForm appointmentForm;				// 預約表
 }

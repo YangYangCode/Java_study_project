@@ -16,7 +16,6 @@ public class Information {
 	
 	private String info;
 	
-//	// 這裡 A 類別依賴於 B 類別的主鍵
-//    @OneToOne(mappedBy = "AS_infomation")
-//    private ActivitySchedule activitySchedule;  // 這表示 依賴於 activity 主鍵
+    @OneToOne(mappedBy = "information")
+    private ActivitySchedule activitySchedule;
 }

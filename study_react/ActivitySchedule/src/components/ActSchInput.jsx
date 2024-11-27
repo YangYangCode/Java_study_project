@@ -15,6 +15,8 @@ const ActSchInput = ({ ActSch, setActSch, onAdd, FromInput, handleChange, Fitnes
 
       <button onClick={onAdd} >新增活動</button>
 
+      <p/>
+      
       <li style={{ display: "inline", marginRight: "15px" }}>
         <FormControl sx={{ m: 1, minWidth: 150 }}>
           <InputLabel id="ActSchformRoomsInput">教室</InputLabel>
