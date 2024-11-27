@@ -1,11 +1,10 @@
 package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.ActivitySchedule;
 
-@Repository
-public interface ActivityScheduleRepository extends JpaRepository<ActivitySchedule, Long>  {
+
+public interface ActivityScheduleRepository extends JpaRepository<ActivitySchedule, Long> {
 
 }
