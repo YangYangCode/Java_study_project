@@ -17,6 +17,8 @@ import com.example.demo.model.entity.FitnesslnstructorBookingForm;
 public class FitnessInstructorDTO {
 	private Long id;		// *教練邊號
 	private String name;		// 教練姓名
+	private String username;
+	private String password;
 	 	
 	private Set<ActivityScheduleDTO> activitySchedules = new HashSet<>();
 	private Set<ClassTypeDTO> classTypes = new HashSet<>(); 	// 可帶課程類型

@@ -27,6 +27,7 @@ public class ActivityScheduleDTO {
 	private ClassRoomDTO classRoom ;	// 課程教室
 	private ClassTypeDTO classType ;	// 課程類型
 	private Set<FitnessInstructorDTO> fitnessInstructors = new HashSet<>();		// 教練們 
+	private ActivityManagerDTO activityManager;
 	
 	private InformationDTO information;	// 詳細資訊
 	

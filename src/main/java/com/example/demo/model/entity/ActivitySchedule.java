@@ -13,6 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -57,5 +58,9 @@ public class ActivitySchedule {
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "infomation_id")
 	private Information information;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "activityManager_id")
+	private ActivityManager activityManager;
 
 }

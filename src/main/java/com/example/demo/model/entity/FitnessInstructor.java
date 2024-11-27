@@ -3,6 +3,8 @@ package com.example.demo.model.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.example.demo.model.User;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -21,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class FitnessInstructor {
+public class FitnessInstructor extends User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補

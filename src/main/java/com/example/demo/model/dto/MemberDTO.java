@@ -14,6 +14,8 @@ import lombok.Data;
 public class MemberDTO {
 	private Long id;	// *會員邊號
 	private String name;	// 會員名稱
+	private String username;
+	private String password;
 	
 	private Set<ActivityScheduleDTO> activitySchedules = new HashSet<>(); // 參加的活動
 	private MemberBookingFormDTO memberBookingForm;
