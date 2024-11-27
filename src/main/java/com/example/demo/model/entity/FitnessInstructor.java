@@ -13,7 +13,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class FitnessInstructor {
 	
@@ -22,7 +28,7 @@ public class FitnessInstructor {
 	private Long id;		// *教練邊號
 	
 	@Column(nullable = false)
-	private String Name;		// 教練姓名
+	private String name;		// 教練姓名
 	
 	@ManyToMany(mappedBy = "fitnessInstructors")
 	private Set<ActivitySchedule> activitySchedules = new HashSet<>(); 		

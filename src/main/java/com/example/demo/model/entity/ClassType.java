@@ -13,16 +13,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class ClassType {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 自動生成，從1開始，每次+1，過號不補
-	private Long classId;
+	private Long id;
 	
-	@Column(name = "class_name", nullable = false)
-	private String className;		// 課程名稱
+	@Column(nullable = false)
+	private String name;		// 課程名稱
 	
 	@ManyToMany(mappedBy = "classTypes")
 	private Set<ClassRoom> classRooms = new HashSet<>();	

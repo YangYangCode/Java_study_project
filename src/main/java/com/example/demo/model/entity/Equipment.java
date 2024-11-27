@@ -5,6 +5,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 	/** 
 		1. 有氧運動設備 (Cardio Equipment)
@@ -39,7 +42,9 @@ import jakarta.persistence.Id;
 			拳擊沙包 (Punching Bags)：適用於拳擊和格鬥訓練，幫助提高力量和耐力。
 	 */
 
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Equipment {
 	

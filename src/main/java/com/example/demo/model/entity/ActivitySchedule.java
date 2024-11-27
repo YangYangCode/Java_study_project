@@ -14,7 +14,13 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class ActivitySchedule {
 	
@@ -28,7 +34,7 @@ public class ActivitySchedule {
 	
 	private Integer maxSignNumber;	// 可報名人數
 	
-//	private Integer currentSignNumber; // = memberHadSigned.lenght();	// 已報名人數 - 移到Dto產生
+//	private Integer currentSignNumber; // = memberHadSigned.size();	// 已報名人數 - 移到Dto產生
 	
 	
 //	關聯
