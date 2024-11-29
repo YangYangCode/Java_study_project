@@ -44,7 +44,7 @@ public class ClassRoom {
 	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
 	
 	@OneToMany(mappedBy = "classRoom")
-	private List<ActivitySchedule> activitySchedule;
+	private List<ActivitySchedule> activitySchedules;
 	
 	
 	

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.FitnesslnstructorBookingForm;
 
-@Repository
+@Repository		// 教練預約表
 public interface FitnesslnstructorBookingFormRepository extends JpaRepository<FitnesslnstructorBookingForm, Long> {
 
 }

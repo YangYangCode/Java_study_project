@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Information;
 
-@Repository
+@Repository		// 活動的詳細內容
 public interface InformationRepository extends JpaRepository<Information, Long> {
 
 }

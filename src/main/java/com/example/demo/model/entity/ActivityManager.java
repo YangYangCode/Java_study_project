@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.example.demo.model.User;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +29,7 @@ public class ActivityManager extends User {
 	@Column(nullable = false)
 	private String name;		// 管理者姓名
 	
-	@OneToMany
+	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "activitySchedule_id")
 	private List<ActivitySchedule> activitySchedules;
 }

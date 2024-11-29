@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.ClassRoom;
 
-@Repository
+@Repository		// 教室
 public interface ClassRoomRepository extends JpaRepository<ClassRoom, Long> {
 
 }

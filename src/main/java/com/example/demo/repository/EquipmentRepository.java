@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.Equipment;
 
-@Repository
+@Repository		// 器材
 public interface EquipmentRepository extends JpaRepository<Equipment, Long> {
 
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.entity.ActivityManager;
 
-@Repository
+@Repository		// 活動管理員
 public interface ActivityManagerRepository extends JpaRepository<ActivityManager, Long> {
 
 }
