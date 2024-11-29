@@ -10,7 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +28,7 @@ public class ActivityManager extends User {
 	@Column(nullable = false)
 	private String name;		// 管理者姓名
 	
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name = "activitySchedule_id")
 	private List<ActivitySchedule> activitySchedules;
 }

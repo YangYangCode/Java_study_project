@@ -9,16 +9,15 @@ import com.example.demo.model.entity.MemberBookingForm;
 
 import lombok.Data;
 
+import com.example.demo.model.UserDTO;
 import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.FitnesslnstructorBookingForm;
 
 @Data
-public class FitnessInstructorDTO {
+public class FitnessInstructorDTO extends UserDTO {
 	private Long id;		// *教練邊號
 	private String name;		// 教練姓名
-	private String username;
-	private String password;
 	 	
 	private Set<ActivityScheduleDTO> activitySchedules = new HashSet<>();
 	private Set<ClassTypeDTO> classTypes = new HashSet<>(); 	// 可帶課程類型

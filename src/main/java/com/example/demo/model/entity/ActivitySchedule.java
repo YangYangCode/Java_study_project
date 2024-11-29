@@ -59,7 +59,7 @@ public class ActivitySchedule {
 	@JoinColumn(name = "infomation_id")
 	private Information information;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "activityManager_id")
 	private ActivityManager activityManager;
 
