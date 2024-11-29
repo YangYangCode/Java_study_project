@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.example.demo.model.entity.MemberBookingForm;
+import com.example.demo.model.dto.BookingFormDTO;
 
 import lombok.Data;
 
@@ -21,6 +21,6 @@ public class FitnessInstructorDTO extends UserDTO {
 	 	
 	private Set<ActivityScheduleDTO> activitySchedules = new HashSet<>();
 	private Set<ClassTypeDTO> classTypes = new HashSet<>(); 	// 可帶課程類型
-	private FitnesslnstructorBookingFormDTO fitnesslnstructorBookingForm;		// 預約表
+	private BookingFormDTO BookingForm;		// 預約表
 	
 }

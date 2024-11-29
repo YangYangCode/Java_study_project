@@ -6,7 +6,7 @@ import java.util.Set;
 
 import com.example.demo.model.UserDTO;
 import com.example.demo.model.entity.ActivitySchedule;
-import com.example.demo.model.entity.MemberBookingForm;
+import com.example.demo.model.dto.BookingFormDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,5 +17,5 @@ public class MemberDTO extends UserDTO {
 	private String name;	// 會員名稱
 	
 	private Set<ActivityScheduleDTO> activitySchedules = new HashSet<>(); // 參加的活動
-	private MemberBookingFormDTO memberBookingForm;
+	private BookingFormDTO BookingForm;
 }

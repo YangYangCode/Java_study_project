@@ -15,6 +15,6 @@ public class ClassRoomDTO {
 	private Integer	classRoomSize;	// 大小(人數)
 	
 	private Set<ClassTypeDTO> classTypes = new HashSet<>(); 	// 可用課程類型
-	private ClassRoomBookingFormDTO classRoomBookingForm;		// 預約表
+	private BookingFormDTO BookingForm;		// 預約表
 	
 }
