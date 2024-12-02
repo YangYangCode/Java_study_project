@@ -1,19 +1,25 @@
 package com.example.demo.service;
 
+import java.util.List;
+import java.util.Optional;
+
+import com.example.demo.model.dto.ClassRoomDTO;
+
 // 教室CRDU邏輯
 public interface ClassRoomService {
 	// 查詢所有教室
-	
+	List<ClassRoomDTO> findAllClassRooms();
 	
 	// 查詢單一教室Booking
-	
+	// 在BookingForm
 	
 	// 新增教室
-	
+	Optional<ClassRoomDTO> addClassRoom(ClassRoomDTO classRoomDTO);
 	
 	// 修改教室
-	
+	Optional<ClassRoomDTO> updateClassRoom(ClassRoomDTO classRoomDTO, Long id);
 	
 	// 刪除教室
+	Optional<ClassRoomDTO> deleteClassRoom(Long id);
 	
 }

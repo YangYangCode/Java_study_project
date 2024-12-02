@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
+import com.example.demo.model.dto.MemberDTO;
 
 // 活動CRDU邏輯
 public interface ActivityScheduleService {
@@ -18,7 +19,7 @@ public interface ActivityScheduleService {
 	ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
 	
 	// 修改活動
-	ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
+	ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long ActivityScheduleId);
 	
 	// 刪除活動
 	ActivityScheduleDTO deleteActivitySchedule(Long ActivityScheduleId);
@@ -31,6 +32,9 @@ public interface ActivityScheduleService {
 	
 	// 根據課程類型取得活動
 	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long ClassTypeId);
+	
+	// 取得參加成員列表
+	List<ActivityScheduleDTO> findMemberListByActivitySchedule(Long ActivityScheduleId, MemberDTO members);
 	
 	
 	// 根據 時間區段 取得活動 ? - 用條件篩選得到
