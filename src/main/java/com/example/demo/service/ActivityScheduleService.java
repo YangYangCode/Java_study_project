@@ -16,13 +16,13 @@ public interface ActivityScheduleService {
 	Optional<ActivityScheduleDTO> getActivityScheduleById(Long ActivityScheduleId);
 	
 	// 新增活動
-	ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
+	void saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
 	
 	// 修改活動
-	ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long ActivityScheduleId);
+	void upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long ActivityScheduleId);
 	
 	// 刪除活動
-	ActivityScheduleDTO deleteActivitySchedule(Long ActivityScheduleId);
+	void deleteActivitySchedule(Long ActivityScheduleId);
 	
 	// 根據活動新增人員取得活動
 	List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long ActivityManagerId);
@@ -34,7 +34,7 @@ public interface ActivityScheduleService {
 	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long ClassTypeId);
 	
 	// 取得參加成員列表
-	List<ActivityScheduleDTO> findMemberListByActivitySchedule(Long ActivityScheduleId, MemberDTO members);
+	List<MemberDTO> findMemberListByActivitySchedule(Long ActivityScheduleId);
 	
 	
 	// 根據 時間區段 取得活動 ? - 用條件篩選得到

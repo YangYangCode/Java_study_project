@@ -11,13 +11,13 @@ public interface ClassTypeService {
 	List<ClassTypeDTO> findAllClassTypes();
 	
 	// 新增課程
-	Optional<ClassTypeDTO> addClassType(ClassTypeDTO classTypeDTO);
+	void addClassType(ClassTypeDTO classTypeDTO);
 	
 	// 修改課程
-	Optional<ClassTypeDTO> updateClassType(ClassTypeDTO classTypeDTO, Long id);
+	void updateClassType(ClassTypeDTO classTypeDTO, Long id);
 	
 	// 刪除課程
-	Optional<ClassTypeDTO> deleteClassType(Long id);
+	void deleteClassType(Long id);
 	
 }
 

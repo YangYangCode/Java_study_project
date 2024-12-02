@@ -13,10 +13,10 @@ public interface BookingFormService {
 	List<BookingFormDTO> findAllBookings();		// 放 type ?	
 	
 	// 新增
-	Optional<BookingFormDTO> addBooking(BookingFormDTO bookingFormDTO);
+	void addBooking(BookingFormDTO bookingFormDTO);
 	
 	// 修改，刪除
-	Optional<BookingFormDTO> upDateBooking(BookingFormDTO bookingFormDTO, Long id);
+	void upDateBooking(BookingFormDTO bookingFormDTO, Long id);
 	
 	
 }

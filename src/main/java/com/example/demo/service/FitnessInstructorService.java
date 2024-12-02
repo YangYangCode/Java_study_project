@@ -13,13 +13,16 @@ public interface FitnessInstructorService {
 	// 查詢單一教練Booking
 	// 在BookingForm
 	
+	// 查詢單一教練
+	Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id);
+	
 	// 新增教練
-	Optional<FitnessInstructorDTO> addFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);
+	void addFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);
 	
 	// 修改教練
-	Optional<FitnessInstructorDTO> updateFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO, Long id);
+	void updateFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO, Long id);
 	
 	// 刪除教練
-	Optional<FitnessInstructorDTO> deleteFitnessInstructor(Long id);
+	void deleteFitnessInstructor(Long id);
 }
 

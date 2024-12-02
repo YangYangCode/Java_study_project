@@ -13,13 +13,16 @@ public interface ClassRoomService {
 	// 查詢單一教室Booking
 	// 在BookingForm
 	
+	// 查詢單一教室
+	Optional<ClassRoomDTO> findClassRoomById(Long id);
+	
 	// 新增教室
-	Optional<ClassRoomDTO> addClassRoom(ClassRoomDTO classRoomDTO);
+	void addClassRoom(ClassRoomDTO classRoomDTO);
 	
 	// 修改教室
-	Optional<ClassRoomDTO> updateClassRoom(ClassRoomDTO classRoomDTO, Long id);
+	void updateClassRoom(ClassRoomDTO classRoomDTO, Long id);
 	
 	// 刪除教室
-	Optional<ClassRoomDTO> deleteClassRoom(Long id);
+	void deleteClassRoom(Long id);
 	
 }
