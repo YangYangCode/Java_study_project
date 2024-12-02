@@ -41,7 +41,7 @@ public class ActivitySchedule {
 //	關聯
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "member_id")) 	
-	private Set<Member> signedMemberList = new HashSet<>(); 			
+	private Set<Member> signedMemberList; 			
 	
 	@ManyToOne
 	@JoinColumn(name = "classroom_id")
@@ -53,7 +53,7 @@ public class ActivitySchedule {
 	
 	@ManyToMany
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "FitnessInstructor_id")) 	
-	private Set<FitnessInstructor> fitnessInstructors = new HashSet<>(); 		
+	private Set<FitnessInstructor> fitnessInstructors; 		
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "infomation_id")

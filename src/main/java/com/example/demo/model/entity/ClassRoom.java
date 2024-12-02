@@ -37,7 +37,7 @@ public class ClassRoom {
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	private Set<ClassType> classTypes = new HashSet<>(); 	// 可用課程類型
+	private Set<ClassType> classTypes; 	// 可用課程類型
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "class_room_booking_form_id")

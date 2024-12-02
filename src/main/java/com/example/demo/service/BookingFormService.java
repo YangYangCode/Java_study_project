@@ -10,13 +10,13 @@ public interface BookingFormService {
 	// (先取得類型 instanceof) 再CRDU
 	
 	// 查詢
-	List<BookingFormDTO> findAllBookings();		// 放 type ?	
+	List<BookingFormDTO> getAllBookings(Object type);		
 	
 	// 新增
-	void addBooking(BookingFormDTO bookingFormDTO);
+	void saveBooking(Object type, BookingFormDTO bookingFormDTO);
 	
 	// 修改，刪除
-	void upDateBooking(BookingFormDTO bookingFormDTO, Long id);
+	void upDateBooking(Object type, BookingFormDTO bookingFormDTO, Long id);
 	
 	
 }

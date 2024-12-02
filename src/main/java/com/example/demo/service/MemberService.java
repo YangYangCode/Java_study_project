@@ -9,10 +9,10 @@ public interface MemberService {
 	// 在BookingForm
 	
 	// 新增會員
-	void addMember(MemberDTO memberDTO);
+	MemberDTO saveMember(MemberDTO memberDTO);
 	
 	// 修改會員
-	void Member(MemberDTO memberDTO, Long id);
+	MemberDTO updateMember(MemberDTO memberDTO, Long id);
 	
 	// 刪除會員
 	void deleteMember(Long id);

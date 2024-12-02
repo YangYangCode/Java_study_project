@@ -8,7 +8,7 @@ import com.example.demo.model.dto.FitnessInstructorDTO;
 // 教練
 public interface FitnessInstructorService {
 	// 查詢所有教練
-	List<FitnessInstructorDTO> findAllFitnessInstructors();
+	List<FitnessInstructorDTO> getAllFitnessInstructors();
 	
 	// 查詢單一教練Booking
 	// 在BookingForm
@@ -17,10 +17,10 @@ public interface FitnessInstructorService {
 	Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id);
 	
 	// 新增教練
-	void addFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);
+	FitnessInstructorDTO saveFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);
 	
 	// 修改教練
-	void updateFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO, Long id);
+	FitnessInstructorDTO updateFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO, Long id);
 	
 	// 刪除教練
 	void deleteFitnessInstructor(Long id);

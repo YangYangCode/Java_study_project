@@ -33,7 +33,7 @@ public class Member extends User {
 	private String name;	// 會員名稱
 	
 	@ManyToMany(mappedBy = "signedMemberList")
-	private Set<ActivitySchedule> activitySchedules = new HashSet<>(); // 參加的活動
+	private Set<ActivitySchedule> activitySchedules; // 參加的活動
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private MemberBookingForm memberBookingForm;

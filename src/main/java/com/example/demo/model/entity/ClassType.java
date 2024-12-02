@@ -31,10 +31,10 @@ public class ClassType {
 	private String name;		// 課程名稱
 	
 	@ManyToMany(mappedBy = "classTypes")
-	private Set<ClassRoom> classRooms = new HashSet<>();	
+	private Set<ClassRoom> classRooms;	
 	
 	@ManyToMany(mappedBy = "classTypes")
-	private Set<FitnessInstructor> fitnessInstructors = new HashSet<>();
+	private Set<FitnessInstructor> fitnessInstructors;
 	
 	@OneToMany(mappedBy = "classType")
 	private List<ActivitySchedule> activitySchedule;

@@ -20,13 +20,13 @@ public class ActivityScheduleDTO {
 	private Date date;
 	private String classTime;
 	
-	private Set<MemberDTO> signedMemberList = new HashSet<>(); 	// 會員列表
+	private Set<MemberDTO> signedMemberList; 	// 會員列表
 	private Integer maxSignNumber;
 	private Integer currentSignNumber = signedMemberList.size(); 		// 已報名人數 - 會員列表數量
 	
 	private ClassRoomDTO classRoom ;	// 課程教室
 	private ClassTypeDTO classType ;	// 課程類型
-	private Set<FitnessInstructorDTO> fitnessInstructors = new HashSet<>();		// 教練們 
+	private Set<FitnessInstructorDTO> fitnessInstructors;	// 教練們 
 	private ActivityManagerDTO activityManager;
 	
 	private InformationDTO information;	// 詳細資訊

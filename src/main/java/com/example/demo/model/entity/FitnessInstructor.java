@@ -33,11 +33,11 @@ public class FitnessInstructor extends User {
 	private String name;		// 教練姓名
 	
 	@ManyToMany(mappedBy = "fitnessInstructors")
-	private Set<ActivitySchedule> activitySchedules = new HashSet<>(); 		
+	private Set<ActivitySchedule> activitySchedules; 		
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	private Set<ClassType> classTypes = new HashSet<>(); 	// 可帶課程類型
+	private Set<ClassType> classTypes; 	// 可帶課程類型
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "fitnesslnstructor_booking_form_id")

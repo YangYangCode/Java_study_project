@@ -8,19 +8,19 @@ import com.example.demo.service.BookingFormService;
 public class BookingFormServiceImpl implements BookingFormService{
 
 	@Override
-	public List<BookingFormDTO> findAllBookings() {
+	public List<BookingFormDTO> getAllBookings(Object type) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void addBooking(BookingFormDTO bookingFormDTO) {
+	public void saveBooking(Object type, BookingFormDTO bookingFormDTO) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void upDateBooking(BookingFormDTO bookingFormDTO, Long id) {
+	public void upDateBooking(Object type, BookingFormDTO bookingFormDTO, Long id) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -9,32 +9,38 @@ import com.example.demo.model.dto.MemberDTO;
 // 活動CRDU邏輯
 public interface ActivityScheduleService {
 	// 取得所有活動		all active	
-	List<ActivityScheduleDTO> findAllActivitySchedules();
+	List<ActivityScheduleDTO> getAllActivitySchedules();
 	
 	// 取得單一活動		a active
 	// 取得活動詳細內容	active info
-	Optional<ActivityScheduleDTO> getActivityScheduleById(Long ActivityScheduleId);
+	Optional<ActivityScheduleDTO> getActivityScheduleById(Long activityScheduleId);
 	
 	// 新增活動
-	void saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
+	ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
 	
 	// 修改活動
-	void upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long ActivityScheduleId);
+	ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long activityScheduleId);
 	
 	// 刪除活動
-	void deleteActivitySchedule(Long ActivityScheduleId);
+	void deleteActivitySchedule(Long activityScheduleId);
 	
 	// 根據活動新增人員取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long ActivityManagerId);
+	List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId);
 		
 	// 根據指導教練取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long FitnessInstructorId);
+	List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
 	
 	// 根據課程類型取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long ClassTypeId);
+	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
+	
+	// 根據教室取得活動
+	List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId);
+	
+	// 新增參加成員
+	void addMember(Long activityScheduleId, MemberDTO memberDTO);
 	
 	// 取得參加成員列表
-	List<MemberDTO> findMemberListByActivitySchedule(Long ActivityScheduleId);
+	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);
 	
 	
 	// 根據 時間區段 取得活動 ? - 用條件篩選得到

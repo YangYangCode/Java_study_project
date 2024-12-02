@@ -8,13 +8,13 @@ import com.example.demo.model.dto.ClassTypeDTO;
 // 課程類型
 public interface ClassTypeService {
 	// 查詢所有課程類型
-	List<ClassTypeDTO> findAllClassTypes();
+	List<ClassTypeDTO> getAllClassTypes();
 	
 	// 新增課程
-	void addClassType(ClassTypeDTO classTypeDTO);
+	ClassTypeDTO saveClassType(ClassTypeDTO classTypeDTO);
 	
 	// 修改課程
-	void updateClassType(ClassTypeDTO classTypeDTO, Long id);
+	ClassTypeDTO updateClassType(ClassTypeDTO classTypeDTO, Long id);
 	
 	// 刪除課程
 	void deleteClassType(Long id);
