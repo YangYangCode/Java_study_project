@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -70,28 +71,28 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 
 	@Override
 	public List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId) {
-		return activityScheduleRepository.findByActivityManager(activityManagerId).stream()
+		return activityScheduleRepository.findByActivityManagerId(activityManagerId).stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId) {
-		return activityScheduleRepository.findByFitnessInstructor(fitnessInstructorId).stream()
+		return activityScheduleRepository.findByFitnessInstructorsId(fitnessInstructorId).stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId) {
-		return activityScheduleRepository.findByClassType(classTypeId).stream()
+		return activityScheduleRepository.findByClassTypeId(classTypeId).stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId) {
-		return activityScheduleRepository.findByClassRoom(classRoomId).stream()
+		return activityScheduleRepository.findByClassRoomId(classRoomId).stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 	}
@@ -100,9 +101,10 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	public void addMember(Long activityScheduleId, MemberDTO memberDTO) {
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-		activitySchedule.getSignedMemberList().add(modelMapper.map(memberDTO, Member.class));
+		Set<Member> memberList = activitySchedule.getSignedMemberList();
+		memberList.add(modelMapper.map(memberDTO, Member.class));
+		activitySchedule.setSignedMemberList(memberList);
 		activityScheduleRepository.save(activitySchedule);
-		
 	}
 
 	@Override

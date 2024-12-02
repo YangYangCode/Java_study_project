@@ -11,11 +11,11 @@ import com.example.demo.model.entity.ActivitySchedule;
 @Repository		// 活動
 public interface ActivityScheduleRepository extends JpaRepository<ActivitySchedule, Long> {
 
-	List<ActivitySchedule> findByClassRoom(Long classRoomId);
+	List<ActivitySchedule> findByClassRoomId(Long classRoomId);
 	
-	List<ActivitySchedule> findByFitnessInstructor(Long fitnessInstructorId);
+	List<ActivitySchedule> findByFitnessInstructorsId(Long fitnessInstructorId);
 	
-	List<ActivitySchedule> findByClassType(Long ClassTypeId);
+	List<ActivitySchedule> findByClassTypeId(Long ClassTypeId);
 	
-	List<ActivitySchedule> findByActivityManager(Long activityManagerId);
+	List<ActivitySchedule> findByActivityManagerId(Long activityManagerId);
 }
