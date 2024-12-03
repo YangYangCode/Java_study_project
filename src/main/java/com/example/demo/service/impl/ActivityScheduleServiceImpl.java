@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.MemberDTO;
@@ -15,6 +16,7 @@ import com.example.demo.model.entity.Member;
 import com.example.demo.repository.ActivityScheduleRepository;
 import com.example.demo.service.ActivityScheduleService;
 
+@Service
 public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 
 	@Autowired

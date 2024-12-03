@@ -5,12 +5,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ClassTypeDTO;
 import com.example.demo.model.entity.ClassType;
 import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.service.ClassTypeService;
 
+@Service
 public class ClassTypeServiceImpl implements ClassTypeService{
 
 	@Autowired

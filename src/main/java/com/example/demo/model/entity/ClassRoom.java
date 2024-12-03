@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,9 +37,12 @@ public class ClassRoom {
 	@Column(columnDefinition = "Integer default 0")
 	private Integer	classRoomSize;	// 大小(人數)
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	private Set<ClassType> classTypes; 	// 可用課程類型
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+	@Column(name = "class_type_id")
+	private Set<ClassType> classTypeIds; 	// 可用課程類型
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "class_room_booking_form_id")

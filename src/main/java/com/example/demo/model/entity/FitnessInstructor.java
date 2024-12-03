@@ -6,7 +6,9 @@ import java.util.Set;
 import com.example.demo.model.User;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,12 +34,19 @@ public class FitnessInstructor extends User {
 	@Column(nullable = false)
 	private String name;		// 教練姓名
 	
-	@ManyToMany(mappedBy = "fitnessInstructors")
-	private Set<ActivitySchedule> activitySchedules; 		
+	// 在ActivitySchedule
+//	@ManyToMany(mappedBy = "fitnessInstructors")
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name= "fitness_instructor_id"))
+	@Column(name = "activity_schedule_id")
+	private Set<ActivitySchedule> activityScheduleIds; 		
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	private Set<ClassType> classTypes; 	// 可帶課程類型
+//	@ManyToMany(cascade = CascadeType.ALL)
+//	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name= "fitness_instructor_id"))
+	@Column(name = "class_type_id")
+	private Set<ClassType> classTypeIds; 	// 可帶課程類型
 	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "fitnesslnstructor_booking_form_id")

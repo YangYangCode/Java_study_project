@@ -4,7 +4,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,11 +32,17 @@ public class ClassType {
 	@Column(nullable = false)
 	private String name;		// 課程名稱
 	
-	@ManyToMany(mappedBy = "classTypes")
-	private Set<ClassRoom> classRooms;	
+//	@ManyToMany(mappedBy = "classTypes")
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+	@Column(name = "class_room_id")
+	private Set<ClassRoom> classRoomIds;	
 	
-	@ManyToMany(mappedBy = "classTypes")
-	private Set<FitnessInstructor> fitnessInstructors;
+//	@ManyToMany(mappedBy = "classTypes")
+	@ElementCollection
+	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+	@Column(name = "fitness_instructor_id")
+	private Set<FitnessInstructor> fitnessInstructorIds;
 	
 	@OneToMany(mappedBy = "classType")
 	private List<ActivitySchedule> activitySchedule;

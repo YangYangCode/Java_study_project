@@ -4,28 +4,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.model.entity.ActivityManager;
 import com.example.demo.model.entity.ClassRoom;
 import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.Member;
-import com.example.demo.repository.ActivityManagerRepository;
 import com.example.demo.repository.ClassRoomRepository;
 import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.repository.MemberRepository;
 
 @SpringBootTest
-public class AddMemberServiceTest {
+public class Add_AS_Manager_Test {
 
 	@Autowired
-	ActivityManagerRepository activityManagerRepository;
+	MemberRepository memberRepository;
 	
 	@Test
 	void add() {
-		ActivityManager activityManager = new ActivityManager();
-		activityManager.setName("Yang");
-		activityManager.setUsername("YangYang");
-		activityManager.setPassword("1234");
-		activityManagerRepository.save(activityManager);
+		Member member_1 = new Member();
+		member_1.setName("會員a");
+		member_1.setUsername("member_a");
+		member_1.setPassword("1234");
+		memberRepository.save(member_1);
 	}
 	
 }

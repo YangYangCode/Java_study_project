@@ -2,9 +2,12 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.example.demo.model.dto.BookingFormDTO;
 import com.example.demo.service.BookingFormService;
 
+@Service
 public class BookingFormServiceImpl implements BookingFormService{
 
 	@Override

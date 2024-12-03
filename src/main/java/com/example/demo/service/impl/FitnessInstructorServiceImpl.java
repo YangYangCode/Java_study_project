@@ -6,12 +6,14 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.FitnessInstructorDTO;
 import com.example.demo.model.entity.FitnessInstructor;
 import com.example.demo.repository.FitnessInstructorRepository;
 import com.example.demo.service.FitnessInstructorService;
 
+@Service
 public class FitnessInstructorServiceImpl implements FitnessInstructorService{
 
 	@Autowired
