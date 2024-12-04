@@ -24,24 +24,26 @@ public interface ActivityScheduleService {
 	// 刪除活動
 	void deleteActivitySchedule(Long activityScheduleId);
 	
-	// 根據活動新增人員取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId);
-		
-	// 根據指導教練取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
-	
-	// 根據課程類型取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
-	
-	// 根據教室取得活動
-	List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId);
-	
 	// 新增參加成員
-	void addMember(Long activityScheduleId, MemberDTO memberDTO);
+	void addMember(Long activityScheduleId, Long memberId);
 	
 	// 取得參加成員列表
 	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);
-	
-	
-	// 根據 時間區段 取得活動 ? - 用條件篩選得到
+
 }
+
+
+// 根據活動新增人員取得活動		// 放AS_mamager
+//List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId);
+	
+// 根據指導教練取得活動		// 放fint
+//List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
+
+// 根據課程類型取得活動		// 放classtype
+//List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
+
+// 根據教室取得活動			// 放classroom
+//List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId);
+
+
+// 根據 時間區段 取得活動 ? - 用條件篩選得到

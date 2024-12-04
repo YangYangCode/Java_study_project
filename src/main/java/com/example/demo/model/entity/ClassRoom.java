@@ -40,16 +40,18 @@ public class ClassRoom {
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@ElementCollection
-	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+	@CollectionTable(name="class_room_class_type", joinColumns = @JoinColumn(name= "class_room_id")) // 活動id 欄名稱、主表的對應值
 	@Column(name = "class_type_id")
-	private Set<ClassType> classTypeIds; 	// 可用課程類型
+	private Set<Long> classTypeIds; 	// 可用課程類型
+	
+	@OneToMany(mappedBy = "classRoom", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	private List<ActivitySchedule> activitySchedules;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "class_room_booking_form_id")
 	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
 	
-	@OneToMany(mappedBy = "classRoom")
-	private List<ActivitySchedule> activitySchedules;
+	
 	
 	
 	

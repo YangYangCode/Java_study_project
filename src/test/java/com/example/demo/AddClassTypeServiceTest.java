@@ -18,7 +18,7 @@ public class AddClassTypeServiceTest {
 		ClassRoom classRoom_1 = new ClassRoom();
 		classRoom_1.setName("101");
 		classRoom_1.setClassRoomSize(20);
-		classRoom_1.setClassTypes(null);
+//		classRoom_1.setClassTypes(null);
 		classRoomRepository.save(classRoom_1);
 	}
 	

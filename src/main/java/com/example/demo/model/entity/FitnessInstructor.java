@@ -34,21 +34,20 @@ public class FitnessInstructor extends User {
 	@Column(nullable = false)
 	private String name;		// 教練姓名
 	
-	// 在ActivitySchedule
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "fitnesslnstructor_booking_form_id")
+	private FitnesslnstructorBookingForm fitnesslnstructorBookingForm;		// 預約表
+	
 //	@ManyToMany(mappedBy = "fitnessInstructors")
 	@ElementCollection
-	@CollectionTable(joinColumns = @JoinColumn(name= "fitness_instructor_id"))
+	@CollectionTable(name="fitness_instructor_activity_schedule", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
 	@Column(name = "activity_schedule_id")
-	private Set<ActivitySchedule> activityScheduleIds; 		
+	private Set<Long> activityScheduleIds; 		
 	
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@ElementCollection
-	@CollectionTable(joinColumns = @JoinColumn(name= "fitness_instructor_id"))
+	@CollectionTable(name="fitness_instructor_class_type", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
 	@Column(name = "class_type_id")
-	private Set<ClassType> classTypeIds; 	// 可帶課程類型
-	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "fitnesslnstructor_booking_form_id")
-	private FitnesslnstructorBookingForm fitnesslnstructorBookingForm;		// 預約表
+	private Set<Long> classTypeIds; 	// 可帶課程類型
 }

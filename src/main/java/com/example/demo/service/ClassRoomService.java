@@ -10,9 +10,6 @@ public interface ClassRoomService {
 	// 查詢所有教室
 	List<ClassRoomDTO> getAllClassRooms();
 	
-	// 查詢單一教室Booking
-	// 在BookingForm
-	
 	// 查詢單一教室
 	Optional<ClassRoomDTO> findClassRoomById(Long id);
 	
@@ -24,5 +21,7 @@ public interface ClassRoomService {
 	
 	// 刪除教室
 	void deleteClassRoom(Long id);
+	
+	// 查詢教室Booking		// 在BookingForm
 	
 }

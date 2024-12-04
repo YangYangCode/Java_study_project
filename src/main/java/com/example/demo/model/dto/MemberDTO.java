@@ -16,6 +16,6 @@ public class MemberDTO extends UserDTO {
 	private Long id;	// *會員邊號
 	private String name;	// 會員名稱
 	
-	private Set<ActivityScheduleDTO> activitySchedules; // 參加的活動
+	private Set<Long> activityScheduleIds; // 參加的活動
 	private BookingFormDTO BookingForm;
 }

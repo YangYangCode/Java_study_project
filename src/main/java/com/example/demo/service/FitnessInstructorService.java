@@ -10,9 +10,6 @@ public interface FitnessInstructorService {
 	// 查詢所有教練
 	List<FitnessInstructorDTO> getAllFitnessInstructors();
 	
-	// 查詢單一教練Booking
-	// 在BookingForm
-	
 	// 查詢單一教練
 	Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id);
 	
@@ -24,5 +21,7 @@ public interface FitnessInstructorService {
 	
 	// 刪除教練
 	void deleteFitnessInstructor(Long id);
+	
+	// 查詢單一教練Booking		// 在BookingForm
 }
 

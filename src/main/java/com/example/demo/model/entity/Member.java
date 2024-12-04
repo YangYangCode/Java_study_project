@@ -15,7 +15,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,12 +33,14 @@ public class Member extends User {
 	@Column(nullable = false)
 	private String name;	// 會員名稱
 	
-//	@ManyToMany(mappedBy = "signedMemberList")
-	@ElementCollection
-	@CollectionTable(joinColumns = @JoinColumn(name= "member_id"))
-	@Column(name = "activity_schedule_id")
-	private Set<ActivitySchedule> activityScheduleIds; // 參加的活動
-	
 	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private MemberBookingForm memberBookingForm;
+	
+//	@ManyToMany(mappedBy = "signedMemberList")
+	@ElementCollection
+	@CollectionTable(name="member_activity_schedule", joinColumns = @JoinColumn(name= "member_id")) // 活動id 欄名稱、主表的對應值
+	@Column(name = "activity_schedule_id")
+	private Set<Long> activityScheduleIds; // 參加的活動
+	
+
 }

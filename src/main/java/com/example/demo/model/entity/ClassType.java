@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -32,19 +33,20 @@ public class ClassType {
 	@Column(nullable = false)
 	private String name;		// 課程名稱
 	
+	@OneToMany(mappedBy = "classType", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	private List<ActivitySchedule> activitySchedule;
+	
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection
-	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
 	@Column(name = "class_room_id")
-	private Set<ClassRoom> classRoomIds;	
+	private Set<Long> classRoomIds;	
 	
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection
 	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
 	@Column(name = "fitness_instructor_id")
-	private Set<FitnessInstructor> fitnessInstructorIds;
+	private Set<Long> fitnessInstructorIds;
 	
-	@OneToMany(mappedBy = "classType")
-	private List<ActivitySchedule> activitySchedule;
-	
+
 }

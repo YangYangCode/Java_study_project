@@ -1,6 +1,7 @@
 package com.example.demo.model.dto;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.example.demo.model.entity.ClassRoomBookingForm;
@@ -14,7 +15,8 @@ public class ClassRoomDTO {
 	private String name;		
 	private Integer	classRoomSize;	// 大小(人數)
 	
-	private Set<ClassTypeDTO> classTypes; 	// 可用課程類型
+	private Set<ClassTypeDTO> classTypeIds; 	// 可用課程類型
+	private List<ActivityScheduleDTO> activitySchedules;
 	private BookingFormDTO BookingForm;		// 預約表
 	
 }
