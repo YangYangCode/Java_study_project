@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -44,10 +45,9 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		}
 		// modelMapper, entity -> DTO
 		return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
-		
 	}
 
-	@Override
+	@Override	//要修改
 	public ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO) {
 		// DTO -> entity
 		ActivitySchedule activitySchedule = modelMapper.map(activityScheduleDTO, ActivitySchedule.class);
@@ -56,7 +56,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
 	}
 
-	@Override
+	@Override	//要修改
 	public ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO,Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
@@ -67,7 +67,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
 	}
 
-	@Override
+	@Override	//要修改
 	public void deleteActivitySchedule(Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
@@ -78,12 +78,10 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	
 
 	@Override
-	public void addMember(Long activityScheduleId, Long memberId) {
+	public void addMember(Long activityScheduleId, Long memberId, String memberName) {
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-		Set<Long> memberList = activitySchedule.getSignedMemberIds();	
-		memberList.add(memberId);
-		activitySchedule.setSignedMemberIds(memberList);
+		activitySchedule.getSignedMembers().put(memberId, memberName);
 		activityScheduleRepository.save(activitySchedule);
 	}
 
@@ -91,15 +89,26 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	public List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId) {
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-		List<MemberDTO> memberList = activitySchedule.getSignedMemberIds().stream()
-				.map(memberId -> {Member member = memberRepository.findById(memberId)	// memberId -> Member entity
+		List<MemberDTO> memberList = activitySchedule.getSignedMembers().keySet().stream().map(memberId -> {
+				Member member = memberRepository.findById(memberId)	// memberId -> Member entity
 					.orElseThrow(() -> new RuntimeException(String.format("Member, id: %d 不存在。", memberId)));
 	            return modelMapper.map(member, MemberDTO.class);	// 將 Member 轉換為 MemberDTO
-					})
+				})
 				.collect(Collectors.toList());
 		return memberList;
 	}
 	
+	/*
+	@Override
+	public void addMember(Long activityScheduleId, Long memberId, String memberName) {
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		Map<Long, String> memberList = activitySchedule.getSignedMembers();	
+		memberList.put(memberId, memberName);
+		activitySchedule.setSignedMembers(memberList);
+		activityScheduleRepository.save(activitySchedule);
+	}
+	*/
 
 }
 

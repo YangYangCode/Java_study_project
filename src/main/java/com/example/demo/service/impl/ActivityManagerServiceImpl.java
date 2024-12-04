@@ -22,14 +22,14 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 	@Autowired
 	private ActivityManagerRepository activityManagerRepository;
 
-	@Override
+	@Override	// 查詢所有管理員
 	public List<ActivityManagerDTO> getAllActivityManagers() {
 		return activityManagerRepository.findAll().stream()
 				.map(activityManager -> modelMapper.map(activityManager ,ActivityManagerDTO.class))
 				.collect(Collectors.toList());
 	}
 
-	@Override
+	@Override	// 查詢單一管理員
 	public Optional<ActivityManagerDTO> findActivityManagerById(Long id) {
 		// 使用 id 找到 entity
 		Optional<ActivityManager> optactivityManager = activityManagerRepository.findById(id);
@@ -40,7 +40,7 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 		return Optional.of(modelMapper.map(optactivityManager.get(), ActivityManagerDTO.class));
 	}
 
-	@Override
+	@Override	// 新增管理員
 	public ActivityManagerDTO saveActivityManager(ActivityManagerDTO activityManagerDTO) {
 		// DTO -> entity
 		ActivityManager activityManager = modelMapper.map(activityManagerDTO, ActivityManager.class);
@@ -49,7 +49,7 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 		return modelMapper.map(activityManager, ActivityManagerDTO.class);
 	}
 
-	@Override
+	@Override	// 修改管理員
 	public ActivityManagerDTO updateActivityManager(ActivityManagerDTO activityManagerDTO, Long id) {
 		// 使用 id 找到 entity
 		ActivityManager activityManager = activityManagerRepository.findById(id)
@@ -60,7 +60,7 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 		return modelMapper.map(activityManager, ActivityManagerDTO.class);
 	}
 
-	@Override
+	@Override	// 刪除管理員
 	public void deleteActivityManager(Long id) {
 		// 使用 id 找到 entity
 		ActivityManager activityManager = activityManagerRepository.findById(id)

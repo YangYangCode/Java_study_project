@@ -14,6 +14,8 @@ public interface MemberService {
 	// 刪除會員
 	void deleteMember(Long id);
 	
+	// 新增活動
+	
 	// 查詢單一會員Booking		// 在BookingForm
 	
 }

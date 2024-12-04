@@ -22,6 +22,13 @@ public interface FitnessInstructorService {
 	// 刪除教練
 	void deleteFitnessInstructor(Long id);
 	
+	// 新增可帶課程
+	
+	// 刪除可帶課程
+	
+	// 新增活動
+	
+	
 	// 查詢單一教練Booking		// 在BookingForm
 }
 

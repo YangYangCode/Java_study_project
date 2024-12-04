@@ -25,7 +25,7 @@ public interface ActivityScheduleService {
 	void deleteActivitySchedule(Long activityScheduleId);
 	
 	// 新增參加成員
-	void addMember(Long activityScheduleId, Long memberId);
+	void addMember(Long activityScheduleId, Long memberId, String memberName);
 	
 	// 取得
 	
