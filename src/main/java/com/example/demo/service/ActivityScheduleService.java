@@ -27,6 +27,8 @@ public interface ActivityScheduleService {
 	// 新增參加成員
 	void addMember(Long activityScheduleId, Long memberId);
 	
+	// 取得
+	
 	// 取得參加成員列表
 	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);
 

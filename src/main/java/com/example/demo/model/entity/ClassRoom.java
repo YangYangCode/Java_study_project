@@ -2,6 +2,7 @@ package com.example.demo.model.entity;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -15,6 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
@@ -41,8 +43,9 @@ public class ClassRoom {
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@ElementCollection
 	@CollectionTable(name="class_room_class_type", joinColumns = @JoinColumn(name= "class_room_id")) // 活動id 欄名稱、主表的對應值
-	@Column(name = "class_type_id")
-	private Set<Long> classTypeIds; 	// 可用課程類型
+	@MapKeyColumn(name = "class_type_id")
+	@Column(name = "class_type_name")
+	private Map<Long, String> classTypeIds; 	// 可用課程類型
 	
 	@OneToMany(mappedBy = "classRoom", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;

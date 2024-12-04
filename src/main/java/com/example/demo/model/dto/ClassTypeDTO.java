@@ -2,6 +2,7 @@ package com.example.demo.model.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.example.demo.model.entity.MemberBookingForm;
@@ -18,8 +19,8 @@ public class ClassTypeDTO {
 	private String name;	// 活動類別
 	
 	private List<ActivityScheduleDTO> activitySchedule;
-	private Set<Long> classRoomIds;	
-	private Set<Long> fitnessInstructorIds;
+	private Map<Long, String> classRoomIds;	
+	private Map<Long, String> fitnessInstructorIds;
 	
 	
 }

@@ -2,6 +2,7 @@ package com.example.demo.model.entity;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -15,6 +16,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,14 +41,16 @@ public class ClassType {
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection
 	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
-	@Column(name = "class_room_id")
-	private Set<Long> classRoomIds;	
+	@MapKeyColumn(name = "class_room_id")
+	@Column(name = "class_room_name")
+	private Map<Long, String> classRoomIds;	
 	
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection
 	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
-	@Column(name = "fitness_instructor_id")
-	private Set<Long> fitnessInstructorIds;
+	@MapKeyColumn(name = "fitness_instructor_id")
+	@Column(name = "fitness_instructor_name")
+	private Map<Long, String> fitnessInstructorIds;
 	
 
 }
