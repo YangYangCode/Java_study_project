@@ -1,6 +1,7 @@
 package com.example.demo.model.entity;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import com.example.demo.model.User;
@@ -16,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,6 +50,7 @@ public class FitnessInstructor extends User {
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@ElementCollection
 	@CollectionTable(name="fitness_instructor_class_type", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
-	@Column(name = "class_type_id")
-	private Set<Long> classTypeIds; 	// 可帶課程類型
+	@MapKeyColumn(name = "class_type_id")
+	@Column(name = "class_type_name")
+	private Map<Long, String> classTypes; 	// 可帶課程類型
 }

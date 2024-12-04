@@ -45,7 +45,7 @@ public class ClassRoom {
 	@CollectionTable(name="class_room_class_type", joinColumns = @JoinColumn(name= "class_room_id")) // 活動id 欄名稱、主表的對應值
 	@MapKeyColumn(name = "class_type_id")
 	@Column(name = "class_type_name")
-	private Map<Long, String> classTypeIds; 	// 可用課程類型
+	private Map<Long, String> classTypes; 	// 可用課程類型
 	
 	@OneToMany(mappedBy = "classRoom", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;

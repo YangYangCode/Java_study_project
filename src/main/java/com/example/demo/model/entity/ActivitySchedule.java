@@ -61,7 +61,7 @@ public class ActivitySchedule {
 	@CollectionTable(name="activity_schedule_member", joinColumns = @JoinColumn(name= "activity_schedule_id"))
 	@MapKeyColumn(name = "member_id")
 	@Column(name = "member_name")		// Table 中 member_id 欄名稱
-	private Map<Long, String> signedMemberIds; 
+	private Map<Long, String> signedMembers; 
 	
 //	@ManyToMany
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "fitness_instructor_id")) 	
@@ -69,6 +69,6 @@ public class ActivitySchedule {
 	@CollectionTable(name="activity_schedule_member", joinColumns = @JoinColumn(name= "activity_schedule_id"))
 	@MapKeyColumn(name = "fitness_instructor_id")
 	@Column(name = "fitness_instructor_name")
-	private Map<Long, String> fitnessInstructorIds; 
+	private Map<Long, String> fitnessInstructors; 
 
 }

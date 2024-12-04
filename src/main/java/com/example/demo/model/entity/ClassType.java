@@ -43,14 +43,14 @@ public class ClassType {
 	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
 	@MapKeyColumn(name = "class_room_id")
 	@Column(name = "class_room_name")
-	private Map<Long, String> classRoomIds;	
+	private Map<Long, String> classRooms;	
 	
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection
 	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
 	@MapKeyColumn(name = "fitness_instructor_id")
 	@Column(name = "fitness_instructor_name")
-	private Map<Long, String> fitnessInstructorIds;
+	private Map<Long, String> fitnessInstructors;
 	
 
 }
