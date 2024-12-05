@@ -22,6 +22,15 @@ public interface ClassRoomService {
 	// 刪除教室
 	void deleteClassRoom(Long id);
 	
+	
+	// 新增課程類型
+	
+	
+	// 刪除課程類型
+	
+	
+	// 活動關聯?
+	
 	// 查詢教室Booking		// 在BookingForm
 	
 }

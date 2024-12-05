@@ -19,5 +19,14 @@ public interface ClassTypeService {
 	// 刪除課程
 	void deleteClassType(Long id);
 	
+	
+	// 教室新增
+	
+	// 教室刪除
+	
+	// 教練新增
+	
+	// 教練刪除
+	
 }
 

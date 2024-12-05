@@ -16,6 +16,8 @@ public interface MemberService {
 	
 	// 新增活動
 	
+	// 刪除活動
+	
 	// 查詢單一會員Booking		// 在BookingForm
 	
 }

@@ -16,8 +16,8 @@ public class ActivityScheduleDTO {
 	
 	private ClassRoomDTO classRoom ;	// 課程教室
 	private ClassTypeDTO classType ;	// 課程類型
-	private ActivityManagerDTO activityManager;
-	private InformationDTO information;	// 詳細資訊
+	private Long activityManagerId;	// 活動管理員 id
+	private String information;			// 詳細資訊
 	
 	private Map<Long, String> signedMembers; 	// 會員列表
 	private Map<Long, String> fitnessInstructors;	// 教練們 

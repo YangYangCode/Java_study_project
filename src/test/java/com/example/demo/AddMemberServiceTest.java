@@ -17,15 +17,15 @@ import com.example.demo.repository.MemberRepository;
 public class AddMemberServiceTest {
 
 	@Autowired
-	ActivityManagerRepository activityManagerRepository;
+	MemberRepository memberRepository;
 	
 	@Test
 	void add() {
-		ActivityManager activityManager = new ActivityManager();
-		activityManager.setName("Yang");
-		activityManager.setUsername("YangYang");
-		activityManager.setPassword("1234");
-		activityManagerRepository.save(activityManager);
+		Member member_1 = new Member();
+		member_1.setName("會員_a");
+		member_1.setUsername("membera");
+		member_1.setPassword("1234");
+		memberRepository.save(member_1);
 	}
 	
 }

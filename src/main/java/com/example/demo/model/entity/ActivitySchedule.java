@@ -29,11 +29,8 @@ public class ActivitySchedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 活動編號
 	private Long id;
-	
 	private Date date;	// 日期
-	
 	private String classTime; 	// 時間
-	
 	private Integer maxSignNumber;	// 可報名人數
 
 	
@@ -51,7 +48,7 @@ public class ActivitySchedule {
 	@JoinColumn(name = "activity_manager_id")
 	private ActivityManager activityManager;
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "infomation_id")
 	private Information information;
 	

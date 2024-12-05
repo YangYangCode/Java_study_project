@@ -5,21 +5,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.model.entity.ClassRoom;
+import com.example.demo.model.entity.ClassType;
 import com.example.demo.repository.ClassRoomRepository;
+import com.example.demo.repository.ClassTypeRepository;
 
 @SpringBootTest
 public class AddClassTypeServiceTest {
 
 	@Autowired
-	ClassRoomRepository classRoomRepository;
+	ClassTypeRepository classTypeRepository;
 	
 	@Test
 	void add() {
-		ClassRoom classRoom_1 = new ClassRoom();
-		classRoom_1.setName("101");
-		classRoom_1.setClassRoomSize(20);
-//		classRoom_1.setClassTypes(null);
-		classRoomRepository.save(classRoom_1);
+		ClassType classType_1 = new ClassType();
+		classType_1.setName("瑜珈");
+		classTypeRepository.save(classType_1);
 	}
 	
 }

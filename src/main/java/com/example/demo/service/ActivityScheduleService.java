@@ -24,14 +24,24 @@ public interface ActivityScheduleService {
 	// 刪除活動
 	void deleteActivitySchedule(Long activityScheduleId);
 	
-	// 新增參加成員
+	
+	// 活動新增、更新報名成員
 	void addMember(Long activityScheduleId, Long memberId, String memberName);
 	
-	// 取得
+	
+	// 活動刪除報名成員
+	
+	
+	// 活動新增教練
+	
+	
+	// 活動刪除教練
+	
 	
 	// 取得參加成員列表
 	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);
-
+	
+	
 }
 
 

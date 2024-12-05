@@ -28,6 +28,8 @@ public interface FitnessInstructorService {
 	
 	// 新增活動
 	
+	// 刪除活動
+	
 	
 	// 查詢單一教練Booking		// 在BookingForm
 }
