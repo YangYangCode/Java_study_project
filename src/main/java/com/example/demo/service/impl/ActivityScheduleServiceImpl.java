@@ -237,6 +237,60 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 				.collect(Collectors.toList());
 		return memberList;
 	}
+
+
+	@Override
+	public Map<Long, String> addFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId) {
+		// find entity by id
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnessInstructorId)
+				.orElseThrow(() -> new RuntimeException(String.format("fitnessInstructor, id: %d 不存在。", fitnessInstructorId)));
+		// add fitnessInstructor
+		activitySchedule.getFitnessInstructors().put(fitnessInstructor.getId(), fitnessInstructor.getName());
+		// save activitySchedule
+		activityScheduleRepository.save(activitySchedule);
+		return activitySchedule.getFitnessInstructors();
+	}
+
+
+	@Override
+	public Map<Long, String> deleteFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId) {
+		// find entity by id
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		// delete fitnessInstructor
+		activitySchedule.getFitnessInstructors().remove(fitnessInstructorId);
+		activityScheduleRepository.save(activitySchedule);
+		return activitySchedule.getFitnessInstructors();
+	}
+
+
+	@Override
+	public Map<Long, String> addMember(Long activityScheduleId, Long memberId) {
+		// find entity by id
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		Member member = memberRepository.findById(memberId)
+				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+		// add member
+		activitySchedule.getSignedMembers().put(member.getId(), member.getName());
+		// save activitySchedule
+		activityScheduleRepository.save(activitySchedule);
+		return activitySchedule.getSignedMembers();
+	}
+
+
+	@Override
+	public Map<Long, String> deleteMember(Long activityScheduleId, Long memberId) {
+		// find entity by id
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		// delete member
+		activitySchedule.getSignedMembers().remove(memberId);
+		activityScheduleRepository.save(activitySchedule);
+		return activitySchedule.getSignedMembers();
+	}
 	
 
 }

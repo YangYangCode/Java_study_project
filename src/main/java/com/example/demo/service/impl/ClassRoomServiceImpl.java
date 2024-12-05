@@ -1,6 +1,7 @@
 package com.example.demo.service.impl;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ClassRoomDTO;
 import com.example.demo.model.entity.ClassRoom;
+import com.example.demo.model.entity.ClassType;
 import com.example.demo.repository.ClassRoomRepository;
+import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.service.ClassRoomService;
 
 @Service
@@ -21,6 +24,9 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 	
 	@Autowired
 	private ClassRoomRepository classRoomRepository;
+	
+	@Autowired
+	private ClassTypeRepository classTypeRepository;
 	
 	
 	@Override	// 找到所有教室
@@ -67,5 +73,35 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", id)));
 		classRoomRepository.deleteById(id);
 	}
+
+	@Override	// 教室新增課程
+	public Map<Long, String> addClassType(Long classRoomId, Long classTypeId) {
+		// find entity by id
+		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
+				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
+		ClassType classType = classTypeRepository.findById(classTypeId)
+				.orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", classTypeId)));
+		// add classType
+		classRoom.getClassTypes().put(classType.getId(), classType.getName());
+		// save classRoom
+		classRoomRepository.save(classRoom);
+		
+		return classRoom.getClassTypes();
+	}
+
+	@Override	// 教室刪除課程
+	public Map<Long, String> deleteClassType(Long classRoomId, Long classTypeId) {
+		// find entity by id
+		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
+				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
+		// delete classType
+		classRoom.getClassTypes().remove(classTypeId);
+		classRoomRepository.save(classRoom);
+		return classRoom.getClassTypes();
+	}
+
+	
+	
+	
 
 }

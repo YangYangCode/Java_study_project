@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
@@ -25,18 +26,20 @@ public interface ActivityScheduleService {
 	void deleteActivitySchedule(Long activityScheduleId);
 	
 	
+	// 活動新增教練
+	Map<Long, String> addFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId);
+	
+	// 活動刪除教練
+	Map<Long, String> deleteFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId);
+	
 	// 活動新增、更新報名成員
 	void addMember(Long activityScheduleId, Long memberId, String memberName);
 	
+	// 新增活動報名成員
+	Map<Long, String> addMember(Long activityScheduleId, Long memberId);
 	
-	// 活動刪除報名成員
-	
-	
-	// 活動新增教練
-	
-	
-	// 活動刪除教練
-	
+	// 刪除活動報名成員
+	Map<Long, String> deleteMember(Long activityScheduleId, Long memberId);
 	
 	// 取得參加成員列表
 	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);

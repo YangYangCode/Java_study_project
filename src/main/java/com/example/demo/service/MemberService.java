@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.Optional;
+import java.util.Set;
 
 import com.example.demo.model.dto.MemberDTO;
 
@@ -15,8 +16,10 @@ public interface MemberService {
 	void deleteMember(Long id);
 	
 	// 新增活動
+	Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId);
 	
 	// 刪除活動
+	Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId);
 	
 	// 查詢單一會員Booking		// 在BookingForm
 	

@@ -1,5 +1,7 @@
 package com.example.demo.service.impl;
 
+import java.util.Set;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,18 @@ public class MemberServiceImpl implements MemberService{
 				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", id)));
 		memberRepository.deleteById(id);
 		
+	}
+
+	@Override
+	public Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -22,10 +22,7 @@ public interface ActivityManagerService {
 	// 刪除管理員
 	void deleteActivityManager(Long id);
 	
-	// 管理員新增、刪除活動 關聯?	-> AS中實做 (mappingBy)
-		// 1.取得		2.活動加入list		3.儲存
-	
-	
+	// 管理員新增、刪除活動 關聯 -> AS中實做 (因mappingBy)
 	
 	
 }

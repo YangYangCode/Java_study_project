@@ -1,6 +1,5 @@
 package com.example.demo.model.entity;
 
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,8 +14,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.MapKeyColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
