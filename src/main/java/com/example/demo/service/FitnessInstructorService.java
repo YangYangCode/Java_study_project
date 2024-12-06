@@ -13,7 +13,7 @@ public interface FitnessInstructorService {
 	List<FitnessInstructorDTO> getAllFitnessInstructors();
 	
 	// 查詢單一教練
-	Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id);
+	FitnessInstructorDTO findFitnessInstructorById(Long id);
 	
 	// 新增教練
 	FitnessInstructorDTO saveFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);
@@ -36,6 +36,9 @@ public interface FitnessInstructorService {
 	
 	// 刪除活動
 	Set<Long> deleteActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
+	
+	// 根據指導教練取得活動		// 放fint
+	//List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
 	
 	// 查詢單一教練Booking		// 在BookingForm
 }

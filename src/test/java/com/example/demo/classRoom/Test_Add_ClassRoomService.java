@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.classRoom;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,7 @@ import com.example.demo.model.entity.ClassRoom;
 import com.example.demo.repository.ClassRoomRepository;
 
 @SpringBootTest
-public class AddClassRoomServiceTest {
+public class Test_Add_ClassRoomService {
 
 	@Autowired
 	ClassRoomRepository classRoomRepository;
@@ -18,7 +18,6 @@ public class AddClassRoomServiceTest {
 		ClassRoom classRoom_1 = new ClassRoom();
 		classRoom_1.setName("101");
 		classRoom_1.setClassRoomSize(20);
-//		classRoom_1.setClassTypes(null);
 		classRoomRepository.save(classRoom_1);
 	}
 	

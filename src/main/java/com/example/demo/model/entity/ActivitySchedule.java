@@ -9,6 +9,7 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -54,7 +55,7 @@ public class ActivitySchedule {
 	
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "member_id")) 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="activity_schedule_member", joinColumns = @JoinColumn(name= "activity_schedule_id"))
 	@MapKeyColumn(name = "member_id")
 	@Column(name = "member_name")		// Table 中 member_id 欄名稱
@@ -62,8 +63,8 @@ public class ActivitySchedule {
 	
 //	@ManyToMany
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "fitness_instructor_id")) 	
-	@ElementCollection
-	@CollectionTable(name="activity_schedule_member", joinColumns = @JoinColumn(name= "activity_schedule_id"))
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name="activity_schedule_fitness_instructor", joinColumns = @JoinColumn(name= "activity_schedule_id"))
 	@MapKeyColumn(name = "fitness_instructor_id")
 	@Column(name = "fitness_instructor_name")
 	private Map<Long, String> fitnessInstructors; 

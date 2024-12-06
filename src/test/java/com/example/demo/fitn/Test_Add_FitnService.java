@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.fitn;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.repository.FitnessInstructorRepository;
 
 @SpringBootTest
-public class AddFitnServiceTest {
+public class Test_Add_FitnService {
 
 	@Autowired
 	private FitnessInstructorRepository fitnessInstructorRepository;
@@ -20,7 +20,7 @@ public class AddFitnServiceTest {
 	@Test
 	void add() {
 		FitnessInstructor fitnessInstructor_1 = new FitnessInstructor();
-		fitnessInstructor_1.setName("一二三");
+		fitnessInstructor_1.setName("王教練");
 		fitnessInstructor_1.setUsername("fitn");
 		fitnessInstructor_1.setPassword("1234");
 		fitnessInstructorRepository.save(fitnessInstructor_1);

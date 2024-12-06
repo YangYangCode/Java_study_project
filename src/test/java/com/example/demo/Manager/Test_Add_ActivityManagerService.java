@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Manager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +14,18 @@ import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.repository.MemberRepository;
 
 @SpringBootTest
-public class AddMemberServiceTest {
+public class Test_Add_ActivityManagerService {
 
 	@Autowired
-	MemberRepository memberRepository;
+	ActivityManagerRepository activityManagerRepository;
 	
 	@Test
 	void add() {
-		Member member_1 = new Member();
-		member_1.setName("會員_a");
-		member_1.setUsername("membera");
-		member_1.setPassword("1234");
-		memberRepository.save(member_1);
+		ActivityManager AM_1 = new ActivityManager();
+		AM_1.setName("陳Manager");
+		AM_1.setUsername("manager");
+		AM_1.setPassword("1234");
+		activityManagerRepository.save(AM_1);
 	}
 	
 }

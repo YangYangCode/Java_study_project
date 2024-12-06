@@ -10,6 +10,7 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -35,18 +36,20 @@ public class ClassType {
 	@Column(nullable = false)
 	private String name;		// 課程名稱
 	
-	@OneToMany(mappedBy = "classType", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@OneToMany(mappedBy = "classType", 
+			fetch = FetchType.EAGER, 
+			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedule;
 	
 //	@ManyToMany(mappedBy = "classTypes")
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
 	@MapKeyColumn(name = "class_room_id")
 	@Column(name = "class_room_name")
 	private Map<Long, String> classRooms;	
 	
 //	@ManyToMany(mappedBy = "classTypes")
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
 	@MapKeyColumn(name = "fitness_instructor_id")
 	@Column(name = "fitness_instructor_name")

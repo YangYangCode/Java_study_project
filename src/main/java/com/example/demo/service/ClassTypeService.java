@@ -12,6 +12,9 @@ public interface ClassTypeService {
 	// 查詢所有課程類型
 	List<ClassTypeDTO> getAllClassTypes();
 	
+	// 查詢單一課程
+	ClassTypeDTO findClassTypeById(Long id);
+	
 	// 新增課程
 	ClassTypeDTO saveClassType(ClassTypeDTO classTypeDTO);
 	
@@ -32,5 +35,9 @@ public interface ClassTypeService {
 	
 	// 教練刪除
 	Map<Long, String> deleteFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
+	
+	// 根據課程類型取得活動		// 放classtype
+	//List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
+	
 }
 

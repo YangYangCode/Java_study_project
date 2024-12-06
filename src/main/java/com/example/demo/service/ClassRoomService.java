@@ -13,7 +13,7 @@ public interface ClassRoomService {
 	List<ClassRoomDTO> getAllClassRooms();
 	
 	// 查詢單一教室
-	Optional<ClassRoomDTO> findClassRoomById(Long id);
+	ClassRoomDTO findClassRoomById(Long id);
 	
 	// 新增教室
 	ClassRoomDTO saveClassRoom(ClassRoomDTO classRoomDTO);
@@ -30,6 +30,10 @@ public interface ClassRoomService {
 	// 刪除課程類型
 	Map<Long,String> deleteClassType(Long classRoomId, Long classTypeId);
 
+	
+	// 根據教室取得活動			// 放classroom
+	//List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId); 
+	
 	
 	// 活動關聯?	mappingBy，不需要
 	

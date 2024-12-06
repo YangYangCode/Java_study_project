@@ -11,6 +11,7 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -37,7 +38,7 @@ public class Member extends User {
 	private MemberBookingForm memberBookingForm;
 	
 //	@ManyToMany(mappedBy = "signedMemberList")
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="member_activity_schedule", joinColumns = @JoinColumn(name= "member_id")) // 活動id 欄名稱、主表的對應值
 	@Column(name = "activity_schedule_id")
 	private Set<Long> activityScheduleIds; // 參加的活動

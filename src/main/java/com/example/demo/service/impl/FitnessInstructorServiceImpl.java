@@ -41,14 +41,12 @@ public class FitnessInstructorServiceImpl implements FitnessInstructorService{
 				.collect(Collectors.toList());
 	}
 
-	@Override
-	public Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id) {
-		Optional<FitnessInstructor> optFitnessInstructor = fitnessInstructorRepository.findById(id);
-		if(optFitnessInstructor.isEmpty()) {
-			return Optional.empty();
-		}
-		// modelMapper, entity -> DTO
-		return Optional.of(modelMapper.map(optFitnessInstructor.get(), FitnessInstructorDTO.class));
+	@Override // 找到教練 by id
+	public FitnessInstructorDTO findFitnessInstructorById(Long id) {
+	    FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException(String.format("FitnessInstructor, id: %d 不存在。", id)));
+	    // 使用 ModelMapper 將 Entity 映射為 DTO
+	    return modelMapper.map(fitnessInstructor, FitnessInstructorDTO.class);
 	}
 
 	@Override

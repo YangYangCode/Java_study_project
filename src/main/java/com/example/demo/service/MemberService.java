@@ -6,6 +6,9 @@ import java.util.Set;
 import com.example.demo.model.dto.MemberDTO;
 
 public interface MemberService {
+	// 查詢單一會員
+	MemberDTO findMemberById(Long id);
+	
 	// 新增會員
 	MemberDTO saveMember(MemberDTO memberDTO);
 	

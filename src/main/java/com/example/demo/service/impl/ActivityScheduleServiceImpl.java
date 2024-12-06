@@ -21,11 +21,12 @@ import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.FitnessInstructor;
 import com.example.demo.model.entity.Information;
 import com.example.demo.model.entity.Member;
-import com.example.demo.repository.ActivityManagerRepository;
 import com.example.demo.repository.ActivityScheduleRepository;
 import com.example.demo.repository.FitnessInstructorRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.service.ActivityScheduleService;
+import com.example.demo.service.FitnessInstructorService;
+import com.example.demo.service.MemberService;
 
 @Service
 public class ActivityScheduleServiceImpl implements ActivityScheduleService{
@@ -40,10 +41,16 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	private MemberRepository memberRepository;
 	
 	@Autowired
+	private MemberService memberService;
+	
+	@Autowired
 	private FitnessInstructorRepository fitnessInstructorRepository;
+	
+	@Autowired
+	private FitnessInstructorService fitnessInstructorService;
 
 	
-	@Override
+	@Override	// 取得所有活動
 	public List<ActivityScheduleDTO> getAllActivitySchedules() {
 		return activityScheduleRepository.findAll().stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
@@ -51,7 +58,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	}
 
 	
-	@Override
+	@Override	// 取得指定活動
 	public Optional<ActivityScheduleDTO> getActivityScheduleById(Long activityScheduleId) {
 		Optional<ActivitySchedule> optActivitySchedule = activityScheduleRepository.findById(activityScheduleId);
 		if(optActivitySchedule.isEmpty()) {
@@ -62,20 +69,10 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	}
 
 	
-	@Override
+	@Override	// 新增活動
 	public ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO) {	
 		// DTO -> entity
 		ActivitySchedule activitySchedule = modelMapper.map(activityScheduleDTO, ActivitySchedule.class);
-		
-		/*
-		// AM List新增此活動	// 有mappingBy，不需儲存
-		Long activityManageId = activityScheduleDTO.getActivityManagerId();
-		ActivityManager activityManager = activityManagerRepository.findById(activityManageId)
-				.orElseThrow(() -> new RuntimeException(String.format("ActivityManage, id: %d 不存在。", activityManageId)));
-		activityManager.getActivitySchedules().add(activitySchedule);
-		// AM 更新儲存
-		activityManagerRepository.save(activityManager);
-		 */
 		
 	// classRoom
 		ClassRoom classRoom = modelMapper.map(activityScheduleDTO.getClassRoom(), ClassRoom.class);
@@ -83,12 +80,16 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	// classType
 		ClassType classType = modelMapper.map(activityScheduleDTO.getClassType(), ClassType.class);
 		activitySchedule.setClassType(classType);
-	// FitnessInstructors	
-		activitySchedule.setFitnessInstructors(activityScheduleDTO.getFitnessInstructors());
+	// activityMamager
+		ActivityManager activityManager = modelMapper.map(activityScheduleDTO.getActivityManager(), ActivityManager.class);
+		activitySchedule.setActivityManager(activityManager);
 	// info
-		Information information = new Information();
-		information.setInfo(activityScheduleDTO.getInformation());	// information(entity) set DTO 中的資料
+		Information information = modelMapper.map(activityScheduleDTO.getInformation(), Information.class);
 		activitySchedule.setInformation(information);
+	// 教練表
+		activitySchedule.setFitnessInstructors(activityScheduleDTO.getFitnessInstructors());
+	// 成員表
+		activitySchedule.setSignedMembers(activityScheduleDTO.getSignedMembers());
 		
 		// 儲存活動
 		activitySchedule =  activityScheduleRepository.save(activitySchedule);
@@ -98,25 +99,17 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	// 連動更新
 		// 教練方新增
 		activityScheduleDTO.getFitnessInstructors().keySet().forEach(fitnId -> {
-			// fitnId -> fitn entity
-			FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnId)
-			        .orElseThrow(() -> new RuntimeException(String.format("FitnessInstructor, id: %d 不存在。", fitnId)));
-			// fitn entity add activityId
-			fitnessInstructor.getActivityScheduleIds().add(activityScheduleId);
-//			fitnessInstructor.setActivityScheduleIds(activityScheduleIds);
-		    fitnessInstructorRepository.save(fitnessInstructor);
+			fitnessInstructorService.addActivitySchedule(fitnId, activityScheduleId);
 		});
-		
-		// 會員方新增	// 建立新活動時沒有參與會員
-		
-		// 預約表變更
+
+	// 預約表變更
 		
 		// return entity -> DTO
 		return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
 	}
 
 	
-	@Override	
+	@Override	// 更新活動
 	public ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO,Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
@@ -132,48 +125,11 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		// FitnessInstructors	
 		activitySchedule.setFitnessInstructors(activityScheduleDTO.getFitnessInstructors());
 		// info
-		Information information = new Information();
-		information.setInfo(activityScheduleDTO.getInformation());	// information(entity) set DTO 中的資料
+		Information information = modelMapper.map(activityScheduleDTO.getInformation(), Information.class);
 		activitySchedule.setInformation(information);
 		
-		// 教練更改
-		// 新舊教練名單
-		Set<Long> oldFint =  activitySchedule.getFitnessInstructors().keySet();
-		Set<Long> newFint =  activityScheduleDTO.getFitnessInstructors().keySet();
-		// 取交集
-		Set<Long> crosses = new HashSet<>(oldFint); // 复制
-		crosses.retainAll(newFint); // 求交集
-		// 去除交集
-		oldFint.removeAll(crosses);
-		newFint.removeAll(crosses);
-		
-		// 修改教練 - 去除
-		if(!oldFint.isEmpty()) {
-			// 教練方刪除
-			oldFint.forEach(fitnId -> {
-				// fitnId -> fitn entity
-				FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnId)
-				        .orElseThrow(() -> new RuntimeException(String.format("FitnessInstructor, id: %d 不存在。", fitnId)));
-				// fitn entity delete activityId
-				fitnessInstructor.getActivityScheduleIds().remove(activityScheduleId);
-//				fitnessInstructor.setActivityScheduleIds(activityScheduleIds);
-			    fitnessInstructorRepository.save(fitnessInstructor);
-			});
-		}
-		
-		// 修改教練 - 新增
-		if(!newFint.isEmpty()) {
-			// 教練方新增
-			newFint.forEach(fitnId -> {
-				// fitnId -> fitn entity
-				FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnId)
-				        .orElseThrow(() -> new RuntimeException(String.format("FitnessInstructor, id: %d 不存在。", fitnId)));
-				// fitn entity add activityId
-				fitnessInstructor.getActivityScheduleIds().add(activityScheduleId);
-//				fitnessInstructor.setActivityScheduleIds(activityScheduleIds);
-			    fitnessInstructorRepository.save(fitnessInstructor);
-			});
-		}
+		// 教練人員更改
+		fitnModify(activitySchedule, activityScheduleDTO);
 		
 		// 儲存活動
 		activityScheduleRepository.save(activitySchedule);
@@ -182,32 +138,20 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	}
 
 	
-	@Override
+	@Override	// 刪除活動
 	public void deleteActivitySchedule(Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		
 		// FitnessInstructors 教練方修改 - 刪除活動資訊
-		Set<Long> fintIds =  activitySchedule.getFitnessInstructors().keySet();
-		fintIds.forEach(fitnId -> {
-			// fitnId -> fitn entity
-			FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnId)
-			        .orElseThrow(() -> new RuntimeException(String.format("FitnessInstructor, id: %d 不存在。", fitnId)));
-			// fitn entity delete activityId
-			fitnessInstructor.getActivityScheduleIds().remove(activityScheduleId);
-//			fitnessInstructor.setActivityScheduleIds(activityScheduleIds);
-		    fitnessInstructorRepository.save(fitnessInstructor);
+		activitySchedule.getFitnessInstructors().keySet().forEach(fitnId -> {
+			fitnessInstructorService.deleteActivitySchedule(fitnId, activityScheduleId);
 		});
 		
 		// signedMembers 會員方修改 - 刪除活動資訊
-		Set<Long> memberIds =  activitySchedule.getSignedMembers().keySet();
-		memberIds.forEach(memberId -> {
-			// memberId -> member entity
-			Member member = memberRepository.findById(memberId)
-					.orElseThrow(() -> new RuntimeException(String.format("Member, id: %d 不存在。", memberId)));
-			// member entity delete activityId
-			member.getActivityScheduleIds().remove(activityScheduleId);
-			memberRepository.save(member);
+		activitySchedule.getSignedMembers().keySet().forEach(memberId -> {
+			memberService.deleteActivitySchedule(memberId, activityScheduleId);
 		});
 		
 		// 預約表變更
@@ -215,15 +159,6 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		activityScheduleRepository.deleteById(activityScheduleId);
 	}
 	
-
-	@Override
-	public void addMember(Long activityScheduleId, Long memberId, String memberName) {
-		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
-				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-		activitySchedule.getSignedMembers().put(memberId, memberName);
-		activityScheduleRepository.save(activitySchedule);
-	}
-
 	
 	@Override
 	public List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId) {
@@ -240,7 +175,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 
 
 	@Override
-	public Map<Long, String> addFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId) {
+	public Map<Long, String> addFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId) {
 		// find entity by id
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
@@ -255,7 +190,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 
 
 	@Override
-	public Map<Long, String> deleteFitnessInstructor(Long fitnessInstructorId, Long activityScheduleId) {
+	public Map<Long, String> deleteFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId) {
 		// find entity by id
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
@@ -293,46 +228,38 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	}
 	
 
+	private void fitnModify(ActivitySchedule activitySchedule,ActivityScheduleDTO activityScheduleDTO) {
+		// 新舊教練名單
+		Set<Long> oldFint =  activitySchedule.getFitnessInstructors().keySet();
+		Set<Long> newFint =  activityScheduleDTO.getFitnessInstructors().keySet();
+		// 取交集
+		Set<Long> crosses = new HashSet<>(oldFint); // 复制
+		crosses.retainAll(newFint); // 求交集
+		// 去除交集
+		oldFint.removeAll(crosses);
+		newFint.removeAll(crosses);
+		
+		Long activityScheduleId =  activitySchedule.getId();
+		
+		// 修改教練 - 去除
+		if(!oldFint.isEmpty()) {
+			oldFint.forEach(fitnId -> {
+				fitnessInstructorService.deleteActivitySchedule(fitnId, activityScheduleId);
+			});
+		}
+		
+		// 修改教練 - 新增
+		if(!newFint.isEmpty()) {
+			// 教練方新增
+			newFint.forEach(fitnId -> {
+				fitnessInstructorService.addActivitySchedule(fitnId, activityScheduleId);
+			});
+		}
+		
+	}
+	
+	
+	
 }
 
 
-/**
-@Override
-public void addMember(Long activityScheduleId, Long memberId, String memberName) {
-	ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
-			.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-	Map<Long, String> memberList = activitySchedule.getSignedMembers();	
-	memberList.put(memberId, memberName);
-	activitySchedule.setSignedMembers(memberList);
-	activityScheduleRepository.save(activitySchedule);
-}
-
-
-@Override
-public List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId) {
-	return activityScheduleRepository.findByActivityManagerId(activityManagerId).stream()
-			.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
-			.collect(Collectors.toList());
-}
-
-@Override
-public List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId) {
-	return activityScheduleRepository.findByFitnessInstructorsId(fitnessInstructorId).stream()
-			.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
-			.collect(Collectors.toList());
-}
-
-@Override
-public List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId) {
-	return activityScheduleRepository.findByClassTypeId(classTypeId).stream()
-			.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
-			.collect(Collectors.toList());
-}
-
-@Override
-public List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId) {
-	return activityScheduleRepository.findByClassRoomId(classRoomId).stream()
-			.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
-			.collect(Collectors.toList());
-}
-*/

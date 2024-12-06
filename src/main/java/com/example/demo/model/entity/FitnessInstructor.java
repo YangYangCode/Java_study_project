@@ -10,6 +10,7 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -38,14 +39,14 @@ public class FitnessInstructor extends User {
 	private FitnesslnstructorBookingForm fitnesslnstructorBookingForm;		// 預約表
 	
 //	@ManyToMany(mappedBy = "fitnessInstructors")
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="fitness_instructor_activity_schedule", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
 	@Column(name = "activity_schedule_id")
 	private Set<Long> activityScheduleIds; 		
 	
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="fitness_instructor_class_type", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
 	@MapKeyColumn(name = "class_type_id")
 	@Column(name = "class_type_name")

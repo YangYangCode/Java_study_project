@@ -10,6 +10,7 @@ import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -41,21 +42,20 @@ public class ClassRoom {
 	
 //	@ManyToMany(cascade = CascadeType.ALL)
 //	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="class_room_class_type", joinColumns = @JoinColumn(name= "class_room_id")) // 活動id 欄名稱、主表的對應值
 	@MapKeyColumn(name = "class_type_id")
 	@Column(name = "class_type_name")
 	private Map<Long, String> classTypes; 	// 可用課程類型
 	
-	@OneToMany(mappedBy = "classRoom", cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@OneToMany(mappedBy = "classRoom", 
+			fetch = FetchType.EAGER, 
+			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "class_room_booking_form_id")
 	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
-	
-	
-	
 	
 	
 	

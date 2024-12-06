@@ -38,6 +38,15 @@ public class ClassTypeServiceImpl implements ClassTypeService{
 				.map(classType -> modelMapper.map(classType, ClassTypeDTO.class))
 				.collect(Collectors.toList());
 	}
+	
+	@Override // 找到課程類型 by id
+	public ClassTypeDTO findClassTypeById(Long id) {
+	    ClassType classType = classTypeRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", id)));
+	    // 使用 ModelMapper 將 Entity 映射為 DTO
+	    return modelMapper.map(classType, ClassTypeDTO.class);
+	}
+	
 
 	@Override
 	public ClassTypeDTO saveClassType(ClassTypeDTO classTypeDTO) {

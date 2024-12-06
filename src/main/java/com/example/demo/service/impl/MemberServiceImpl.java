@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.MemberDTO;
+import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.Member;
+import com.example.demo.repository.ActivityScheduleRepository;
 import com.example.demo.repository.MemberRepository;
 import com.example.demo.service.MemberService;
 
@@ -19,6 +21,17 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private MemberRepository memberRepository;
+	
+	@Autowired
+	private ActivityScheduleRepository activityScheduleRepository;
+	
+	// 查詢單一會員
+	public MemberDTO findMemberById(Long id) {
+	    Member member = memberRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException(String.format("Member, id: %d 不存在。", id)));
+	    // 使用 ModelMapper 將 Entity 映射為 DTO
+	    return modelMapper.map(member, MemberDTO.class);
+	}	
 	
 	@Override
 	public MemberDTO saveMember(MemberDTO memberDTO) {
@@ -52,14 +65,27 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId) {
-		// TODO Auto-generated method stub
-		return null;
+		// find entity by id
+		Member member = memberRepository.findById(memberId)
+				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+		// add activitySchedule
+		member.getActivityScheduleIds().add(activitySchedule.getId());
+		// save member
+		memberRepository.save(member);
+		return member.getActivityScheduleIds();
 	}
 
 	@Override
 	public Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId) {
-		// TODO Auto-generated method stub
-		return null;
+		// find entity by id
+		Member member = memberRepository.findById(memberId)
+				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+		// delete activitySchedule
+		member.getActivityScheduleIds().remove(activityScheduleId);
+		memberRepository.save(member);
+		return member.getActivityScheduleIds();
 	}
 
 }

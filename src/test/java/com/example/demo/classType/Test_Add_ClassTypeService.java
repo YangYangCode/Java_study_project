@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.classType;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import com.example.demo.repository.ClassRoomRepository;
 import com.example.demo.repository.ClassTypeRepository;
 
 @SpringBootTest
-public class AddClassTypeServiceTest {
+public class Test_Add_ClassTypeService {
 
 	@Autowired
 	ClassTypeRepository classTypeRepository;

@@ -29,15 +29,12 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 				.collect(Collectors.toList());
 	}
 
-	@Override	// 查詢單一管理員
-	public Optional<ActivityManagerDTO> findActivityManagerById(Long id) {
-		// 使用 id 找到 entity
-		Optional<ActivityManager> optactivityManager = activityManagerRepository.findById(id);
-		if(optactivityManager.isEmpty()) {
-			return Optional.empty();
-		}
-		// 利用modelMapper 將 optactivityManager 轉 ActivityManagerDTO
-		return Optional.of(modelMapper.map(optactivityManager.get(), ActivityManagerDTO.class));
+	@Override // 找到活動管理員 by id
+	public ActivityManagerDTO findActivityManagerById(Long id) {
+	    ActivityManager activityManager = activityManagerRepository.findById(id)
+	            .orElseThrow(() -> new RuntimeException(String.format("ActivityManager, id: %d 不存在。", id)));
+	    // 使用 ModelMapper 將 Entity 映射為 DTO
+	    return modelMapper.map(activityManager, ActivityManagerDTO.class);
 	}
 
 	@Override	// 新增管理員
