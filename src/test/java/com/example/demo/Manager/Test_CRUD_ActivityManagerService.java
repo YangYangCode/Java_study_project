@@ -38,7 +38,7 @@ public class Test_CRUD_ActivityManagerService {
 		Long activityManagerId = activityManager.getId();
 		
 		// find
-		ActivityManagerDTO find =  activityManagerService.findActivityManagerById(activityManagerId);
+		Optional<ActivityManagerDTO>  find =  activityManagerService.findActivityManagerById(activityManagerId);
 		
 		// update
 		activityManager.setName("更新教練");

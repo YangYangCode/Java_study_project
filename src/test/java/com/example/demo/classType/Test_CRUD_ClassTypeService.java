@@ -34,7 +34,7 @@ public class Test_CRUD_ClassTypeService {
 		Long classTypeId = classType.getId();
 		
 		// find
-		ClassTypeDTO find =  classTypeService.findClassTypeById(classTypeId);
+		Optional<ClassTypeDTO> find =  classTypeService.findClassTypeById(classTypeId);
 		
 		// update
 		classType.setName("飛輪");

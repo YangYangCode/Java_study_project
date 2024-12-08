@@ -14,13 +14,13 @@ public interface ActivityScheduleService {
 	
 	// 取得單一活動		a active
 	// 取得活動詳細內容	active info
-	Optional<ActivityScheduleDTO> getActivityScheduleById(Long activityScheduleId);
+	Optional<ActivityScheduleDTO> findActivityScheduleById(Long activityScheduleId);
 	
 	// 新增活動
 	ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO);
 	
 	// 修改活動
-	ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long activityScheduleId);
+	ActivityScheduleDTO updateActivitySchedule(ActivityScheduleDTO activityScheduleDTO, Long activityScheduleId);
 	
 	// 刪除活動
 	void deleteActivitySchedule(Long activityScheduleId);

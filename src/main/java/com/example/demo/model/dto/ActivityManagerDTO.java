@@ -13,6 +13,6 @@ public class ActivityManagerDTO extends UserDTO {
 	private Long id;		// *邊號
 	private String name;		// 管理者姓名
 	
-	private List<ActivityScheduleDTO> activitySchedules;
+	private List<ActivityScheduleDTO> activitySchedules;	// 另外由entity get
 	
 }

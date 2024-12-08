@@ -1,20 +1,38 @@
 package com.example.demo.controller;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
+import com.example.demo.model.dto.MemberDTO;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.ActivityScheduleService;
+import org.springframework.web.bind.annotation.RequestBody;
+
+
+/**
+ * WEB API
+ * ------------------------------------------
+ * servlet-path: /activityschedule  (@RequestMapping)
+ * ------------------------------------------
+ * GET    "/"     獲取所有活動
+ * GET    "/{id}" 獲取該活動資訊
+ * PUT    "/{id}" 更新活動
+ * POST   "/"     新增活動
+ * DELETE "/{id}" 刪除活動
+ * ------------------------------------------
+ * */
 
 @RestController
 @RequestMapping("/activityschedule")
@@ -29,17 +47,42 @@ public class ActivityScheduleController {
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.getAllActivitySchedules()));
 	}
 	
-//	@PostMapping("/add/{}")
-//	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> addAllActivitySchedule(
-//			@PathVariable Date date, @PathVariable String classTime, @PathVariable Integer maxSignNumber,
-//			@PathVariable List<Long> signedMember, @PathVariable List<Long> fitnessInstructorsId, @PathVariable Long classRoomId, 
-//			@PathVariable Long classTypeId, @PathVariable Long activityManagerId, @PathVariable String information){
-//		
-//		
-//		
-//		
-//		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.getAllActivitySchedules()));
-//	}
+	// 取得特定活動排程
+	@GetMapping("/{id}")
+	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> getActivitySchedule(@PathVariable Long id) {
+	    Optional<ActivityScheduleDTO> optActivityScheduleDTO = activityScheduleService.findActivityScheduleById(id);
+	    if (optActivityScheduleDTO.isEmpty()) {
+	        return ResponseEntity.status(404).body(ApiResponse.error(404, "查無此活動"));
+	    }
+	    return ResponseEntity.ok(ApiResponse.success("查詢成功", optActivityScheduleDTO.get()));
+	}
+	
+	// 取得參與會員清單
+	@GetMapping("/{id}")
+	public ResponseEntity<ApiResponse<List<MemberDTO>>> getMemberListByActivitySchedule(@PathVariable Long id){
+		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.findMemberListByActivitySchedule(id)));
+	}
+	
+	// 新增活動
+	@PostMapping
+	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> addActivitySchedule(@RequestBody ActivityScheduleDTO activityScheduleDTO) {
+	    ActivityScheduleDTO newActivityScheduleDTO = activityScheduleService.saveActivitySchedule(activityScheduleDTO);
+	    return ResponseEntity.ok(ApiResponse.success("新增成功", newActivityScheduleDTO));
+	}
+	
+	// 修改活動資訊
+	@PutMapping("/{id}")
+	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> updateActivitySchedule(@PathVariable Long id, @RequestBody ActivityScheduleDTO activityScheduleDTO) {
+	    ActivityScheduleDTO updatedActivityScheduleDTO = activityScheduleService.updateActivitySchedule(activityScheduleDTO, id);
+	    return ResponseEntity.ok(ApiResponse.success("修改成功", updatedActivityScheduleDTO));
+	}
+
+	// 刪除活動
+	@DeleteMapping("/{id}")
+	public ResponseEntity<ApiResponse<Void>> deleteActivitySchedule(@PathVariable Long id) {
+	    activityScheduleService.deleteActivitySchedule(id);
+	    return ResponseEntity.ok(ApiResponse.success("刪除成功", null));
+	}
 	
 	
 	

@@ -13,7 +13,7 @@ public interface ClassTypeService {
 	List<ClassTypeDTO> getAllClassTypes();
 	
 	// 查詢單一課程
-	ClassTypeDTO findClassTypeById(Long id);
+	Optional<ClassTypeDTO> findClassTypeById(Long id);
 	
 	// 新增課程
 	ClassTypeDTO saveClassType(ClassTypeDTO classTypeDTO);

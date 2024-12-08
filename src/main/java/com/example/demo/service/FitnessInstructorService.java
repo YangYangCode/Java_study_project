@@ -13,7 +13,7 @@ public interface FitnessInstructorService {
 	List<FitnessInstructorDTO> getAllFitnessInstructors();
 	
 	// 查詢單一教練
-	FitnessInstructorDTO findFitnessInstructorById(Long id);
+	Optional<FitnessInstructorDTO> findFitnessInstructorById(Long id);
 	
 	// 新增教練
 	FitnessInstructorDTO saveFitnessInstructor(FitnessInstructorDTO fitnessInstructorDTO);

@@ -33,7 +33,7 @@ public class Test_CRUD_ClassRoomService {
 		Long classRoomId = classRoom.getId();
 		
 		// find
-		ClassRoomDTO find =  classRoomService.findClassRoomById(classRoomId);
+		Optional<ClassRoomDTO> find =  classRoomService.findClassRoomById(classRoomId);
 		
 		// update
 		classRoom.setClassRoomSize(15);

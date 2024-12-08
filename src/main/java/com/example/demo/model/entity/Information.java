@@ -1,5 +1,7 @@
 package com.example.demo.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,6 +23,7 @@ public class Information {
 	
 	private String info;
 	
+//	@JsonIgnore
     @OneToOne(mappedBy = "information")
     private ActivitySchedule activitySchedule;
 }

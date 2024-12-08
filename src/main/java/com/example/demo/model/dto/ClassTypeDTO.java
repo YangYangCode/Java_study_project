@@ -10,7 +10,7 @@ public class ClassTypeDTO {
 	private Long id;
 	private String name;	// 活動類別
 	
-	private List<ActivityScheduleDTO> activitySchedule;
+	private List<ActivityScheduleDTO> activitySchedule;		// 另外由entity get
 	private Map<Long, String> classRooms;	
 	private Map<Long, String> fitnessInstructors;
 	

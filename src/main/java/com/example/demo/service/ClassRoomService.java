@@ -13,7 +13,7 @@ public interface ClassRoomService {
 	List<ClassRoomDTO> getAllClassRooms();
 	
 	// 查詢單一教室
-	ClassRoomDTO findClassRoomById(Long id);
+	Optional<ClassRoomDTO> findClassRoomById(Long id);
 	
 	// 新增教室
 	ClassRoomDTO saveClassRoom(ClassRoomDTO classRoomDTO);

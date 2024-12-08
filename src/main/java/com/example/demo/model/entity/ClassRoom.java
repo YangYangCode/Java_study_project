@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -48,6 +50,7 @@ public class ClassRoom {
 	@Column(name = "class_type_name")
 	private Map<Long, String> classTypes; 	// 可用課程類型
 	
+//	@JsonIgnore
 	@OneToMany(mappedBy = "classRoom", 
 			fetch = FetchType.EAGER, 
 			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})

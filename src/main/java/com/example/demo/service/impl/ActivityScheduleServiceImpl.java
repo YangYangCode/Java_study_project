@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.ActivityScheduleDTO;
+import com.example.demo.model.dto.ClassRoomDTO;
+import com.example.demo.model.dto.ClassTypeDTO;
 import com.example.demo.model.dto.MemberDTO;
 import com.example.demo.model.entity.ActivityManager;
 import com.example.demo.model.entity.ActivitySchedule;
@@ -56,16 +60,16 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 	}
-
 	
-	@Override	// 取得指定活動
-	public Optional<ActivityScheduleDTO> getActivityScheduleById(Long activityScheduleId) {
-		Optional<ActivitySchedule> optActivitySchedule = activityScheduleRepository.findById(activityScheduleId);
-		if(optActivitySchedule.isEmpty()) {
-			return Optional.empty();
-		}
-		// modelMapper, entity -> DTO
-		return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
+	
+	@Override
+	public Optional<ActivityScheduleDTO> findActivityScheduleById(Long id) {
+	    Optional<ActivitySchedule> optActivitySchedule = activityScheduleRepository.findById(id);
+	    if (optActivitySchedule.isEmpty()) {
+	        return Optional.empty();
+	    }
+	    // 利用 modelMapper 將 ActivitySchedule 轉 ActivityScheduleDTO
+	    return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
 	}
 
 	
@@ -110,7 +114,7 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 
 	
 	@Override	// 更新活動
-	public ActivityScheduleDTO upDateActivitySchedule(ActivityScheduleDTO activityScheduleDTO,Long activityScheduleId) {
+	public ActivityScheduleDTO updateActivitySchedule(ActivityScheduleDTO activityScheduleDTO,Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));

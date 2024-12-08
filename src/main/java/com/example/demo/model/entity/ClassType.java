@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
@@ -36,6 +38,7 @@ public class ClassType {
 	@Column(nullable = false)
 	private String name;		// 課程名稱
 	
+//	@JsonIgnore
 	@OneToMany(mappedBy = "classType", 
 			fetch = FetchType.EAGER, 
 			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
@@ -54,6 +57,12 @@ public class ClassType {
 	@MapKeyColumn(name = "fitness_instructor_id")
 	@Column(name = "fitness_instructor_name")
 	private Map<Long, String> fitnessInstructors;
+
+	@Override
+	public String toString() {
+		return "ClassType [id=" + id + ", name=" + name + ", activitySchedule=" + activitySchedule + ", classRooms="
+				+ classRooms + ", fitnessInstructors=" + fitnessInstructors + "]";
+	}
 	
 
 }

@@ -36,12 +36,14 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 				.collect(Collectors.toList());
 	}
 
-	@Override	// 找到教室 by id
-	public ClassRoomDTO findClassRoomById(Long id) {
-		ClassRoom classRoom = classRoomRepository.findById(id)
-				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", id)));
-		// modelMapper, entity -> DTO
-		return modelMapper.map(classRoom, ClassRoomDTO.class);
+	@Override
+	public Optional<ClassRoomDTO> findClassRoomById(Long id) {
+	    Optional<ClassRoom> optClassRoom = classRoomRepository.findById(id);
+	    if (optClassRoom.isEmpty()) {
+	        return Optional.empty();
+	    }
+	    // 利用 modelMapper 將 ClassRoom 轉 ClassRoomDTO
+	    return Optional.of(modelMapper.map(optClassRoom.get(), ClassRoomDTO.class));
 	}
 
 	@Override

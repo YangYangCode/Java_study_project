@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -39,12 +40,14 @@ public class ClassTypeServiceImpl implements ClassTypeService{
 				.collect(Collectors.toList());
 	}
 	
-	@Override // 找到課程類型 by id
-	public ClassTypeDTO findClassTypeById(Long id) {
-	    ClassType classType = classTypeRepository.findById(id)
-	            .orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", id)));
-	    // 使用 ModelMapper 將 Entity 映射為 DTO
-	    return modelMapper.map(classType, ClassTypeDTO.class);
+	@Override
+	public Optional<ClassTypeDTO> findClassTypeById(Long id) {
+	    Optional<ClassType> optClassType = classTypeRepository.findById(id);
+	    if (optClassType.isEmpty()) {
+	        return Optional.empty();
+	    }
+	    // 利用 modelMapper 將 ClassType 轉 ClassTypeDTO
+	    return Optional.of(modelMapper.map(optClassType.get(), ClassTypeDTO.class));
 	}
 	
 

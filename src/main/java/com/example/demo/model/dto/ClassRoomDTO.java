@@ -12,7 +12,7 @@ public class ClassRoomDTO {
 	private Integer	classRoomSize;	// 大小(人數)
 	
 	private Map<Long, String> classTypes; 	// 可用課程類型
-	private List<ActivityScheduleDTO> activitySchedules;
+	private List<ActivityScheduleDTO> activitySchedules;	// 另外由entity get
 	private BookingFormDTO BookingForm;		// 預約表
 	
 }

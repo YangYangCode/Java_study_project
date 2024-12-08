@@ -36,7 +36,7 @@ public class Test_CRUD_FitnService {
 		Long fitnessInstructorId = fitnessInstructor.getId();
 		
 		// find
-		FitnessInstructorDTO find =  fitnessInstructorService.findFitnessInstructorById(fitnessInstructorId);
+		Optional<FitnessInstructorDTO> find =  fitnessInstructorService.findFitnessInstructorById(fitnessInstructorId);
 		
 		// update
 		fitnessInstructor.setName("更新教練");
