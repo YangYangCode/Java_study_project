@@ -9,6 +9,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.ClassTypeDTO;
 import com.example.demo.model.entity.ClassRoom;
 import com.example.demo.model.entity.ClassType;
@@ -127,6 +128,18 @@ public class ClassTypeServiceImpl implements ClassTypeService{
 		classType.getFitnessInstructors().remove(fitnessInstructorId);
 		classTypeRepository.save(classType);
 		return classType.getFitnessInstructors();
+	}
+
+	@Override
+	public List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId) {
+		// find entity by id
+		ClassType classType = classTypeRepository.findById(classTypeId)
+				.orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", classTypeId)));
+		// classType -> classTypeASList
+		List<ActivityScheduleDTO> ASList = classType.getActivitySchedule().stream()
+				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
+				.collect(Collectors.toList());
+		return ASList;
 	}
 
 }

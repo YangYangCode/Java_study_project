@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.ClassRoomDTO;
 import com.example.demo.model.dto.ClassTypeDTO;
 
@@ -37,7 +38,7 @@ public interface ClassTypeService {
 	Map<Long, String> deleteFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
 	
 	// 根據課程類型取得活動		// 放classtype
-	//List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
+	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
 	
 }
 

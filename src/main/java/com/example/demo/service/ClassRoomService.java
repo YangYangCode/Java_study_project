@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.ClassRoomDTO;
 import com.example.demo.model.dto.ClassTypeDTO;
 
@@ -30,12 +31,8 @@ public interface ClassRoomService {
 	// 刪除課程類型
 	Map<Long,String> deleteClassType(Long classRoomId, Long classTypeId);
 
-	
 	// 根據教室取得活動			// 放classroom
-	//List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId); 
-	
-	
-	// 活動關聯?	mappingBy，不需要
+	List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId); 
 	
 	
 	// 查詢教室Booking		// 在BookingForm

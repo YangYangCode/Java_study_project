@@ -6,17 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.model.dto.ActivityManagerDTO;
-import com.example.demo.model.dto.ClassRoomDTO;
-import com.example.demo.model.dto.ClassTypeDTO;
-import com.example.demo.model.dto.FitnessInstructorDTO;
 import com.example.demo.model.dto.MemberDTO;
-import com.example.demo.model.entity.ClassRoom;
-import com.example.demo.repository.ClassRoomRepository;
-import com.example.demo.service.ActivityManagerService;
-import com.example.demo.service.ClassRoomService;
-import com.example.demo.service.ClassTypeService;
-import com.example.demo.service.FitnessInstructorService;
 import com.example.demo.service.MemberService;
 
 @SpringBootTest
@@ -40,7 +30,7 @@ public class Test_CRUD_MemberService {
 	    Long memberId = member.getId();
 	    
 	    // find
-	    MemberDTO find = memberService.findMemberById(memberId);
+	    Optional<MemberDTO>  find = memberService.findMemberById(memberId);
 	    
 	    // update
 	    member.setName("更新會員");

@@ -10,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
 import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.ClassType;
@@ -127,6 +128,21 @@ public class FitnessInstructorServiceImpl implements FitnessInstructorService{
 		fitnessInstructor.getActivityScheduleIds().remove(activityScheduleId);
 		fitnessInstructorRepository.save(fitnessInstructor);
 		return fitnessInstructor.getActivityScheduleIds();
+	}
+
+	@Override
+	public List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId) {
+		// find entity by id
+		FitnessInstructor fitnessInstructor = fitnessInstructorRepository.findById(fitnessInstructorId)
+				.orElseThrow(() -> new RuntimeException(String.format("fitnessInstructor, id: %d 不存在。", fitnessInstructorId)));
+		// fitnessInstructor -> fitnASList
+		List<ActivityScheduleDTO> ASList = fitnessInstructor.getActivityScheduleIds().stream()
+				.map(ASId -> { ActivitySchedule activitySchedule = activityScheduleRepository.findById(ASId)
+						.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", ASId)));
+						return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
+						})
+				.collect(Collectors.toList());
+		return ASList;
 	}
 
 }

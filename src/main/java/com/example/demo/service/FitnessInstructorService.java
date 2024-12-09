@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
 
 // 教練
@@ -38,7 +39,7 @@ public interface FitnessInstructorService {
 	Set<Long> deleteActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
 	
 	// 根據指導教練取得活動		// 放fint
-	//List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
+	List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
 	
 	// 查詢單一教練Booking		// 在BookingForm
 }

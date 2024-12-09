@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.model.dto.ClassRoomDTO;
-import com.example.demo.model.entity.ClassRoom;
-import com.example.demo.repository.ClassRoomRepository;
 import com.example.demo.service.ClassRoomService;
 
 @SpringBootTest

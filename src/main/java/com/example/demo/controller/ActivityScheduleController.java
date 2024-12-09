@@ -28,8 +28,9 @@ import org.springframework.web.bind.annotation.RequestBody;
  * ------------------------------------------
  * GET    "/"     獲取所有活動
  * GET    "/{id}" 獲取該活動資訊
- * PUT    "/{id}" 更新活動
+ * GET	  "/{id}" 獲取活動參與成員
  * POST   "/"     新增活動
+ * PUT    "/{id}" 更新活動
  * DELETE "/{id}" 刪除活動
  * ------------------------------------------
  * */
@@ -42,6 +43,7 @@ public class ActivityScheduleController {
 	@Autowired
 	private ActivityScheduleService activityScheduleService;
 	
+	// 取得所有活動
 	@GetMapping
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getAllActivitySchedule(){
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.getAllActivitySchedules()));

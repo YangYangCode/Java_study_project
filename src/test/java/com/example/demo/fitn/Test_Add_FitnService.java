@@ -4,11 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.model.entity.ClassRoom;
-import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.FitnessInstructor;
-import com.example.demo.repository.ClassRoomRepository;
-import com.example.demo.repository.ClassTypeRepository;
 import com.example.demo.repository.FitnessInstructorRepository;
 
 @SpringBootTest

@@ -1,11 +1,15 @@
 package com.example.demo.service.impl;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.MemberDTO;
 import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.Member;
@@ -25,13 +29,15 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private ActivityScheduleRepository activityScheduleRepository;
 	
-	// 查詢單一會員
-	public MemberDTO findMemberById(Long id) {
-	    Member member = memberRepository.findById(id)
-	            .orElseThrow(() -> new RuntimeException(String.format("Member, id: %d 不存在。", id)));
-	    // 使用 ModelMapper 將 Entity 映射為 DTO
-	    return modelMapper.map(member, MemberDTO.class);
-	}	
+	@Override
+	public Optional<MemberDTO> findMemberById(Long id) {
+	    Optional<Member> optMember = memberRepository.findById(id);
+	    if (optMember.isEmpty()) {
+	        return Optional.empty();
+	    }
+	    // 利用 modelMapper 將 Member 轉 MemberDTO
+	    return Optional.of(modelMapper.map(optMember.get(), MemberDTO.class));
+	}
 	
 	@Override
 	public MemberDTO saveMember(MemberDTO memberDTO) {
@@ -88,4 +94,19 @@ public class MemberServiceImpl implements MemberService{
 		return member.getActivityScheduleIds();
 	}
 
+	@Override
+	public List<ActivityScheduleDTO> findActivityScheduleByMember(Long memberId) {
+	    // find entity by id
+	    Member member = memberRepository.findById(memberId)
+	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+	    // member -> memberASList
+	    List<ActivityScheduleDTO> ASList = member.getActivityScheduleIds().stream()
+	            .map(ASId -> {
+	                ActivitySchedule activitySchedule = activityScheduleRepository.findById(ASId)
+	                        .orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", ASId)));
+	                return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
+	            })
+	            .collect(Collectors.toList());
+	    return ASList;
+	}
 }
