@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,7 @@ import com.example.demo.service.FitnessInstructorService;
 
 @RestController
 @RequestMapping("/instructor")
+@CrossOrigin(origins = "http://localhost:5175", allowCredentials = "true")
 public class FitnessInstructorController {
 
 	@Autowired
@@ -56,8 +58,8 @@ public class FitnessInstructorController {
 	    return ResponseEntity.ok(ApiResponse.success("查詢成功", optFitnessInstructorDTO.get()));
 	}
 	
-	// 取得健身教練管理的活動
-	@GetMapping("/{id}/activities")
+	// 取得教練登入活動
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getActivityScheduleListByFitnessInstructor(@PathVariable Long id) {
 	    return ResponseEntity.ok(ApiResponse.success("查詢成功", fitnessInstructorService.findActivityScheduleByFitnessInstructor(id)));
 	}

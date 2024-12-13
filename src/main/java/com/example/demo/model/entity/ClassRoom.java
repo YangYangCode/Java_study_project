@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -50,15 +51,30 @@ public class ClassRoom {
 	@Column(name = "class_type_name")
 	private Map<Long, String> classTypes; 	// 可用課程類型
 	
-//	@JsonIgnore
-	@OneToMany(mappedBy = "classRoom", 
-			fetch = FetchType.EAGER, 
-			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@JsonIgnore
+	@OneToMany
+//	(mappedBy = "classRoom", 
+//			fetch = FetchType.EAGER, 
+//			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "class_room_booking_form_id")
 	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
+
+//	@Override
+//	public String toString() {
+//		return "ClassRoom {" +
+//				"id=" + id + 
+//				", name=" + name + 
+//				", classRoomSize=" + classRoomSize + 
+//				", classTypes="+ classTypes + 
+//				", activitySchedulesId=" + (activitySchedules != null ? activitySchedules.stream()
+//                        .map(activitySchedule -> activitySchedule.getId())
+//                        .collect(Collectors.toList()) : null) + 
+//				", classRoomBookingForm="+ classRoomBookingForm + 
+//				"}";
+//	}
 	
 	
 	

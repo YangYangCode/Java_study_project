@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,7 @@ import com.example.demo.service.MemberService;
 
 @RestController
 @RequestMapping("/member")
+@CrossOrigin(origins = "http://localhost:5175", allowCredentials = "true")
 public class MemberController {
 
 	@Autowired 
@@ -51,7 +53,7 @@ public class MemberController {
 	}
 	
 	// 取得會員參加的活動
-	@GetMapping("/{id}/activities")
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getActivityScheduleListByMember(@PathVariable Long id) {
 	    return ResponseEntity.ok(ApiResponse.success("查詢成功", memberService.findActivityScheduleByMember(id)));
 	}

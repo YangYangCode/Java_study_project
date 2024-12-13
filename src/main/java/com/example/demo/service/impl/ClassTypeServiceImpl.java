@@ -136,7 +136,7 @@ public class ClassTypeServiceImpl implements ClassTypeService{
 		ClassType classType = classTypeRepository.findById(classTypeId)
 				.orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", classTypeId)));
 		// classType -> classTypeASList
-		List<ActivityScheduleDTO> ASList = classType.getActivitySchedule().stream()
+		List<ActivityScheduleDTO> ASList = classType.getActivitySchedules().stream()
 				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
 				.collect(Collectors.toList());
 		return ASList;

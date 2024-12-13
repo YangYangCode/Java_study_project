@@ -40,18 +40,18 @@ public class ActivitySchedule {
 //	關聯
 			
 	@ManyToOne
-	@JoinColumn(name = "class_room_id")
-	@JsonIgnore
+//	@JoinColumn(name = "class_room_id")
+//	@JsonIgnore
 	private ClassRoom classRoom ;
 	
 	@ManyToOne
-	@JoinColumn(name = "class_type_id")  // 外鍵列，指向 該類別 主鍵
-	@JsonIgnore
+//	@JoinColumn(name = "class_type_id")  // 外鍵列，指向 該類別 主鍵
+//	@JsonIgnore
 	private ClassType classType ;
 	
 	@ManyToOne
-	@JoinColumn(name = "activity_manager_id")
-	@JsonIgnore
+//	@JoinColumn(name = "activity_manager_id")
+//	@JsonIgnore
 	private ActivityManager activityManager;
 	
 	@OneToOne(cascade = CascadeType.ALL)
@@ -74,17 +74,17 @@ public class ActivitySchedule {
 	@Column(name = "fitness_instructor_name")
 	private Map<Long, String> fitnessInstructors;
 
-	@Override
-	public String toString() {
-	    return "ActivitySchedule{" +
-	            "id=" + id +
-	            ", date=" + date +
-	            ", classTime='" + classTime + '\'' +
-	            ", maxSignNumber=" + maxSignNumber +
-	            ", classRoomId=" + (classRoom != null ? classRoom.getId() : null) +
-	            ", classTypeId=" + (classType != null ? classType.getId() : null) +
-	            ", activityManagerId=" + (activityManager != null ? activityManager.getId() : null) +
-	            '}';
-	}
+//	@Override
+//	public String toString() {
+//	    return "ActivitySchedule{" +
+//	            "id=" + id +
+//	            ", date=" + date +
+//	            ", classTime='" + classTime + '\'' +
+//	            ", maxSignNumber=" + maxSignNumber +
+//	            ", classRoomId=" + (classRoom != null ? classRoom.getId() : null) +
+//	            ", classTypeId=" + (classType != null ? classType.getId() : null) +
+//	            ", activityManagerId=" + (activityManager != null ? activityManager.getId() : null) +
+//	            '}';
+//	}
 
 }

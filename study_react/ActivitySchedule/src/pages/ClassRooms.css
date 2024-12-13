@@ -1,0 +1,31 @@
+.main {
+    width: 100%;
+    /* 放大寬度至 95% */
+    margin: 0 auto;
+    /* 保持置中 */
+}
+
+.class-room-list {
+    width: 95%;
+    /* 放大寬度至 95% */
+    margin: 0 auto;
+    /* 保持置中 */
+}
+
+.row {
+    width: 100%;
+    /* 將 row 寬度設為全寬 */
+    height: auto;
+    /* 如果需要，可以增加高度 */
+    font-size: 1.2em;
+    /* 放大文字大小 */
+}
+
+.mx-auto {
+    width: 100%;          /* 設定寬度為螢幕或父容器的 90% */
+    max-width: 1400px;   /* 設定最大寬度為 1400px */
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}

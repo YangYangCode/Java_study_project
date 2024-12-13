@@ -61,7 +61,7 @@ public class ClassTypeController {
 	}
 	
 	// 取得課程登入活動
-	@GetMapping("/{id}")
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getActivityScheduleListByClassType(@PathVariable Long id){
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", classTypeService.findActivityScheduleByClassType(id)));
 	}

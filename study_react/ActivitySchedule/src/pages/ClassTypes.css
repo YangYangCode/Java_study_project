@@ -1,0 +1,15 @@
+.class-type-lsit {
+    list-style: none;
+    /* 移除默认的列表样式 */
+    display: flex;
+    /* 将列表项排成一行 */
+    padding: 0;
+    /* 去掉列表的内边距 */
+    margin: 0;
+    /* 去掉列表的外边距 */
+}
+
+.class-type-lsit li {
+    margin-right: 10px;
+    /* 列表项之间的间距 */
+}

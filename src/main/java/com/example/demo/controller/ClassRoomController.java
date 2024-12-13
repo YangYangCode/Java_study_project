@@ -59,7 +59,7 @@ public class ClassRoomController {
 	}
 	
 	// 取得教室登入活動
-	@GetMapping("/{id}")
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getActivityScheduleListByClassRoom(@PathVariable Long id){
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", classRoomService.findActivityScheduleByClassRoom(id)));
 	}

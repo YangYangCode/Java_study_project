@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -38,11 +39,12 @@ public class ClassType {
 	@Column(nullable = false)
 	private String name;		// 課程名稱
 	
-//	@JsonIgnore
-	@OneToMany(mappedBy = "classType", 
-			fetch = FetchType.EAGER, 
-			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
-	private List<ActivitySchedule> activitySchedule;
+	@JsonIgnore
+	@OneToMany
+//	(mappedBy = "classType", 
+//			fetch = FetchType.EAGER, 
+//			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	private List<ActivitySchedule> activitySchedules;
 	
 //	@ManyToMany(mappedBy = "classTypes")
 	@ElementCollection(fetch = FetchType.EAGER)
@@ -58,11 +60,18 @@ public class ClassType {
 	@Column(name = "fitness_instructor_name")
 	private Map<Long, String> fitnessInstructors;
 
-	@Override
-	public String toString() {
-		return "ClassType [id=" + id + ", name=" + name + ", activitySchedule=" + activitySchedule + ", classRooms="
-				+ classRooms + ", fitnessInstructors=" + fitnessInstructors + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "ClassType {" +
+//				"id=" + id + 
+//				", name=" + name + 
+//				", activitySchedulesId=" + (activitySchedules != null ? activitySchedules.stream()
+//                        .map(activitySchedule -> activitySchedule.getId())
+//                        .collect(Collectors.toList()) : null) + 
+//				", classRooms="+ classRooms + 
+//				", fitnessInstructors=" + fitnessInstructors + 
+//				"}";
+//	}
 	
 
 }

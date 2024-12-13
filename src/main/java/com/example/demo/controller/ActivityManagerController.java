@@ -61,7 +61,7 @@ public class ActivityManagerController {
 	}
 	
 	// 取得管理員管理活動清單
-	@GetMapping("/{id}")
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getAMASList(@PathVariable Long id){
 		Optional<ActivityManagerDTO> optActivityManagerDTO = activityManagerService.findActivityManagerById(id);
 		if (optActivityManagerDTO.isEmpty()) {

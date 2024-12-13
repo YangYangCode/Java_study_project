@@ -29,8 +29,9 @@ public class ActivityManager extends User {
 	@Column(nullable = false)
 	private String name;		// 管理者姓名
 	
-	@OneToMany(mappedBy = "activityManager", 
-			fetch = FetchType.EAGER, 
-			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
+	@OneToMany
+//	(mappedBy = "activityManager", 
+//			fetch = FetchType.EAGER, 
+//			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 }

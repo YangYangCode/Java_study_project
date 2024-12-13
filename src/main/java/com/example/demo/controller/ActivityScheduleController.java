@@ -60,7 +60,7 @@ public class ActivityScheduleController {
 	}
 	
 	// 取得參與會員清單
-	@GetMapping("/{id}")
+	@GetMapping("/members/{id}")
 	public ResponseEntity<ApiResponse<List<MemberDTO>>> getMemberListByActivitySchedule(@PathVariable Long id){
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.findMemberListByActivitySchedule(id)));
 	}

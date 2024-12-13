@@ -70,7 +70,6 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 		ActivityManager activityManager = activityManagerRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException(String.format("ActivityManager, id: %d 不存在。", id)));
 		activityManagerRepository.deleteById(id);
-		
 	}
 
 	@Override
