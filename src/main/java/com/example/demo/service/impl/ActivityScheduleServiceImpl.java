@@ -69,7 +69,18 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	        return Optional.empty();
 	    }
 	    // 利用 modelMapper 將 ActivitySchedule 轉 ActivityScheduleDTO
-	    return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
+//	    return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
+	    
+	    // 利用 modelMapper 进行基本映射
+	    ActivityScheduleDTO dto = modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class);
+
+	    // 手动设置 information 字段
+	    ActivitySchedule activitySchedule = optActivitySchedule.get();
+	    if (activitySchedule.getInformation() != null) {
+	        dto.setInformation(activitySchedule.getInformation().getInfo());
+	    }
+
+	    return Optional.of(dto);
 	}
 
 	

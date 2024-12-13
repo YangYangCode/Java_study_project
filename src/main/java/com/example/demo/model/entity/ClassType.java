@@ -40,7 +40,7 @@ public class ClassType {
 	private String name;		// 課程名稱
 	
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 //	(mappedBy = "classType", 
 //			fetch = FetchType.EAGER, 
 //			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})

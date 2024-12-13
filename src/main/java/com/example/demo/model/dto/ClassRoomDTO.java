@@ -14,5 +14,11 @@ public class ClassRoomDTO {
 	private Map<Long, String> classTypes; 	// 可用課程類型
 	private List<ActivityScheduleDTO> activitySchedules;	// 另外由entity get
 	private BookingFormDTO BookingForm;		// 預約表
+	@Override
+	public String toString() {
+		return "ClassRoomDTO [id=" + id + ", name=" + name + ", classRoomSize=" + classRoomSize + ", classTypes="
+				+ classTypes + ", BookingForm=" + BookingForm + "]";
+	}
+	
 	
 }

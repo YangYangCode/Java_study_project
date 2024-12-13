@@ -13,6 +13,11 @@ public class ClassTypeDTO {
 	private List<ActivityScheduleDTO> activitySchedule;		// 另外由entity get
 	private Map<Long, String> classRooms;	
 	private Map<Long, String> fitnessInstructors;
+	@Override
+	public String toString() {
+		return "ClassTypeDTO [id=" + id + ", name=" + name + ", classRooms=" + classRooms + ", fitnessInstructors="
+				+ fitnessInstructors + "]";
+	}
 	
 	
 }

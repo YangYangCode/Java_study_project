@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { delete_member_by_id } from "../service/Service_9001_AS";
+import { get_activitySchedule_by_id } from "../service/Service_AS";
 
 
 function Test() {
@@ -8,7 +8,7 @@ function Test() {
 
     const handleDelete = async () => {
         try {
-            const testInfo = await delete_member_by_id(4);
+            const testInfo = await get_activitySchedule_by_id(2);
             console.log(testInfo);
             setTest(testInfo);
         } catch (error) {

@@ -29,7 +29,7 @@ public class ActivityManager extends User {
 	@Column(nullable = false)
 	private String name;		// 管理者姓名
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 //	(mappedBy = "activityManager", 
 //			fetch = FetchType.EAGER, 
 //			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})

@@ -52,7 +52,7 @@ public class ClassRoom {
 	private Map<Long, String> classTypes; 	// 可用課程類型
 	
 	@JsonIgnore
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 //	(mappedBy = "classRoom", 
 //			fetch = FetchType.EAGER, 
 //			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})

@@ -14,5 +14,11 @@ public class ActivityManagerDTO extends UserDTO {
 	private String name;		// 管理者姓名
 	
 	private List<ActivityScheduleDTO> activitySchedules;	// 另外由entity get
+
+	@Override
+	public String toString() {
+		return "ActivityManagerDTO [id=" + id + ", name=" + name + "]";
+	}
+
 	
 }

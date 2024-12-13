@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BookingForm from "../component/BookingForm";
-import { get_AS_list_by_member_id, get_membe_by_id } from "../service/Service_9001_AS";
+import { get_AS_list_by_member_id, get_membe_by_id } from "../service/Service_AS";
 
 
 function Member() {

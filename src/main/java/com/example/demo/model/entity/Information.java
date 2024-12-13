@@ -22,8 +22,5 @@ public class Information {
 	private Long informationId;
 	
 	private String info;
-	
-//	@JsonIgnore
-    @OneToOne(mappedBy = "information")
-    private ActivitySchedule activitySchedule;
+
 }
