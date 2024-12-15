@@ -29,7 +29,8 @@ public class MemberServiceImpl implements MemberService{
 	@Autowired
 	private ActivityScheduleRepository activityScheduleRepository;
 	
-	@Override
+	
+	@Override	// 找到指定會員
 	public Optional<MemberDTO> findMemberById(Long id) {
 	    Optional<Member> optMember = memberRepository.findById(id);
 	    if (optMember.isEmpty()) {
@@ -39,7 +40,7 @@ public class MemberServiceImpl implements MemberService{
 	    return Optional.of(modelMapper.map(optMember.get(), MemberDTO.class));
 	}
 	
-	@Override
+	@Override	// 新增會員
 	public MemberDTO saveMember(MemberDTO memberDTO) {
 		// DTO -> entity
 		Member member = modelMapper.map(memberDTO, Member.class);
@@ -49,7 +50,7 @@ public class MemberServiceImpl implements MemberService{
 		
 	}
 
-	@Override
+	@Override	// 修改會員
 	public MemberDTO updateMember(MemberDTO memberDTO, Long id) {
 		// 使用 id 找到 entity
 		Member member = memberRepository.findById(id)
@@ -60,38 +61,12 @@ public class MemberServiceImpl implements MemberService{
 		return modelMapper.map(member, MemberDTO.class);
 	}
 
-	@Override
+	@Override	// 刪除會員
 	public void deleteMember(Long id) {
 		// 使用 id 找到 entity
 		Member member = memberRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", id)));
 		memberRepository.deleteById(id);
-		
-	}
-
-	@Override
-	public Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId) {
-		// find entity by id
-		Member member = memberRepository.findById(memberId)
-				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
-		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
-				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-		// add activitySchedule
-		member.getActivityScheduleIds().add(activitySchedule.getId());
-		// save member
-		memberRepository.save(member);
-		return member.getActivityScheduleIds();
-	}
-
-	@Override
-	public Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId) {
-		// find entity by id
-		Member member = memberRepository.findById(memberId)
-				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
-		// delete activitySchedule
-		member.getActivityScheduleIds().remove(activityScheduleId);
-		memberRepository.save(member);
-		return member.getActivityScheduleIds();
 	}
 
 	@Override
@@ -100,13 +75,67 @@ public class MemberServiceImpl implements MemberService{
 	    Member member = memberRepository.findById(memberId)
 	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
 	    // member -> memberASList
-	    List<ActivityScheduleDTO> ASList = member.getActivityScheduleIds().stream()
-	            .map(ASId -> {
-	                ActivitySchedule activitySchedule = activityScheduleRepository.findById(ASId)
-	                        .orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", ASId)));
-	                return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
-	            })
-	            .collect(Collectors.toList());
+	    List<ActivityScheduleDTO> ASList = member.getActivitySchedules().stream()
+	    		.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
+				.collect(Collectors.toList());
 	    return ASList;
 	}
+
+	
+	@Override
+	public void signActivitySchedule(Long memberId, Long activityScheduleId) {
+		// find entity by id
+	    Member member = memberRepository.findById(memberId)
+	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+	    ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+	    member.getActivitySchedules().add(activitySchedule);
+	    memberRepository.save(member);
+//	    return findActivityScheduleByMember(memberId);
+	}
+	
+	
+//	@Override
+//	public Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId) {
+//		// find entity by id
+//		Member member = memberRepository.findById(memberId)
+//				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+//		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+//				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+//		// add activitySchedule
+//		member.getActivityScheduleIds().add(activitySchedule.getId());
+//		// save member
+//		memberRepository.save(member);
+//		return member.getActivityScheduleIds();
+//	}
+//
+//	@Override
+//	public Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId) {
+//		// find entity by id
+//		Member member = memberRepository.findById(memberId)
+//				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+//		// delete activitySchedule
+//		member.getActivityScheduleIds().remove(activityScheduleId);
+//		memberRepository.save(member);
+//		return member.getActivityScheduleIds();
+//	}
+//
+//	@Override
+//	public List<ActivityScheduleDTO> findActivityScheduleByMember(Long memberId) {
+//	    // find entity by id
+//	    Member member = memberRepository.findById(memberId)
+//	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+//	    // member -> memberASList
+//	    List<ActivityScheduleDTO> ASList = member.getActivityScheduleIds().stream()
+//	            .map(ASId -> {
+//	                ActivitySchedule activitySchedule = activityScheduleRepository.findById(ASId)
+//	                        .orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", ASId)));
+//	                return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
+//	            })
+//	            .collect(Collectors.toList());
+//	    return ASList;
+//	}
+	
+	
+	
 }

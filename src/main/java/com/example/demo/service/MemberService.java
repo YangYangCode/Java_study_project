@@ -20,14 +20,20 @@ public interface MemberService {
 	// 刪除會員
 	void deleteMember(Long id);
 	
-	// 新增活動
-	Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId);
-	
-	// 刪除活動
-	Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId);
-	
 	// 根據會員獲取活動
-	List<ActivityScheduleDTO> findActivityScheduleByMember(Long MemberId); 
+	List<ActivityScheduleDTO> findActivityScheduleByMember(Long memberId); 
+	
+	// 報名活動
+	void signActivitySchedule(Long memberId, Long activityScheduleId);
+	
+	
+//	// 新增活動
+//	Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId);
+//	
+//	// 刪除活動
+//	Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId);
+	
+
 	
 	
 	// 查詢單一會員Booking		// 在BookingForm

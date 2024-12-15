@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,7 @@ public class ActivityScheduleController {
 	
 	// 取得參與會員清單
 	@GetMapping("/members/{id}")
-	public ResponseEntity<ApiResponse<List<MemberDTO>>> getMemberListByActivitySchedule(@PathVariable Long id){
+	public ResponseEntity<ApiResponse<Map<Long, String>>> getMemberListByActivitySchedule(@PathVariable Long id){
 		return ResponseEntity.ok(ApiResponse.success("查詢成功", activityScheduleService.findMemberListByActivitySchedule(id)));
 	}
 	

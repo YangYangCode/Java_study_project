@@ -21,6 +21,16 @@ const CardItem = () => {
         },
     ]
 
+
+    const CardItem_ = ({ activity }) => (
+        <li className="border p-2 rounded-md shadow-md bg-gray-100">
+            <h3 className="font-bold">{activity.title}</h3>
+            <p>{activity.description}</p>
+            <small className="text-gray-500">{activity.time}</small>
+        </li>
+    );
+
+    
     return (
         <li>
                     {/* // 最小寬度 */}

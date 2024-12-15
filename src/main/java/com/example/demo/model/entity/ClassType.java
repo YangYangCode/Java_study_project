@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
@@ -46,32 +47,25 @@ public class ClassType {
 //			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 	
-//	@ManyToMany(mappedBy = "classTypes")
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
-	@MapKeyColumn(name = "class_room_id")
-	@Column(name = "class_room_name")
-	private Map<Long, String> classRooms;	
-	
-//	@ManyToMany(mappedBy = "classTypes")
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
-	@MapKeyColumn(name = "fitness_instructor_id")
-	@Column(name = "fitness_instructor_name")
-	private Map<Long, String> fitnessInstructors;
+	@ManyToMany(mappedBy = "classTypes", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
+	private Set<ClassRoom> classRooms;	
+//	@ElementCollection(fetch = FetchType.EAGER)
+//	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
+//	@MapKeyColumn(name = "class_room_id")
+//	@Column(name = "class_room_name")
+//	private Map<Long, String> classRooms;	
 
-//	@Override
-//	public String toString() {
-//		return "ClassType {" +
-//				"id=" + id + 
-//				", name=" + name + 
-//				", activitySchedulesId=" + (activitySchedules != null ? activitySchedules.stream()
-//                        .map(activitySchedule -> activitySchedule.getId())
-//                        .collect(Collectors.toList()) : null) + 
-//				", classRooms="+ classRooms + 
-//				", fitnessInstructors=" + fitnessInstructors + 
-//				"}";
-//	}
+	@ManyToMany(mappedBy = "classTypes", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
+	private Set<FitnessInstructor> fitnessInstructors;
+//	@ElementCollection(fetch = FetchType.EAGER)
+//	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
+//	@MapKeyColumn(name = "fitness_instructor_id")
+//	@Column(name = "fitness_instructor_name")
+//	private Map<Long, String> fitnessInstructors;
+
+
 	
 
 }

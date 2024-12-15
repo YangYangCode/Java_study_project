@@ -14,12 +14,14 @@ public class Test_Add_MemberService {
 	MemberRepository memberRepository;
 	
 	@Test
-	void add() {
-		Member member_1 = new Member();
-		member_1.setName("李會員");
-		member_1.setUsername("member");
-		member_1.setPassword("1234");
-		memberRepository.save(member_1);
+	void addMembers() {
+	    for (int i = 1; i <= 10; i++) {
+	        Member member = new Member();
+	        member.setName("會員" + i); // 動態生成名稱，例如 會員1, 會員2...
+	        member.setUsername("member" + i); // 動態生成用戶名，例如 member1, member2...
+	        member.setPassword("1234"); // 統一密碼
+	        memberRepository.save(member);
+	    }
 	}
 	
 }

@@ -23,7 +23,7 @@ public class Test_CRUD_ActivityManagerService {
 		String update_Name;
 		
 		// add
-		activityManager.setName("新教練");
+		activityManager.setName("新管理員");
 		activityManager = activityManagerService.saveActivityManager(activityManager);
 		add_Name = activityManager.getName();
 		
@@ -34,7 +34,7 @@ public class Test_CRUD_ActivityManagerService {
 		Optional<ActivityManagerDTO>  find =  activityManagerService.findActivityManagerById(activityManagerId);
 		
 		// update
-		activityManager.setName("更新教練");
+		activityManager.setName("更新管理員");
 		activityManagerService.updateActivityManager(activityManager, activityManagerId);
 		update_Name = activityManager.getName();
 		

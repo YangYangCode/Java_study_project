@@ -25,21 +25,23 @@ public interface FitnessInstructorService {
 	// 刪除教練
 	void deleteFitnessInstructor(Long id);
 	
-	
-	// 新增可帶課程
-	Map<Long, String> addClassType(Long fitnessInstructorId, Long classTypeId);
-	
-	// 刪除可帶課程
-	Map<Long, String> deleteClassType(Long fitnessInstructorId, Long classTypeId);
-	
-	// 新增活動
-	Set<Long> addActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
-	
-	// 刪除活動
-	Set<Long> deleteActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
-	
 	// 根據指導教練取得活動		// 放fint
 	List<ActivityScheduleDTO> findActivityScheduleByFitnessInstructor(Long fitnessInstructorId);
+	
+	
+//	// 新增可帶課程
+//	Map<Long, String> addClassType(Long fitnessInstructorId, Long classTypeId);
+//	
+//	// 刪除可帶課程
+//	Map<Long, String> deleteClassType(Long fitnessInstructorId, Long classTypeId);
+//	
+//	// 新增活動
+//	Set<Long> addActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
+//	
+//	// 刪除活動
+//	Set<Long> deleteActivitySchedule(Long fitnessInstructorId, Long activityScheduleId);
+	
+
 	
 	// 查詢單一教練Booking		// 在BookingForm
 }

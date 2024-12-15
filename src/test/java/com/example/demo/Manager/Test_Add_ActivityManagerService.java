@@ -14,12 +14,15 @@ public class Test_Add_ActivityManagerService {
 	ActivityManagerRepository activityManagerRepository;
 	
 	@Test
-	void add() {
-		ActivityManager AM_1 = new ActivityManager();
-		AM_1.setName("陳Manager");
-		AM_1.setUsername("manager");
-		AM_1.setPassword("1234");
-		activityManagerRepository.save(AM_1);
+	void addActivityManagers() {
+	    for (int i = 1; i <= 10; i++) {
+	        ActivityManager activityManager = new ActivityManager();
+	        activityManager.setName("管理員" + i); // 動態生成名稱，例如 管理員1, 管理員2...
+	        activityManager.setUsername("manager" + i); // 動態生成用戶名，例如 manager1, manager2...
+	        activityManager.setPassword("1234"); // 統一密碼
+	        activityManagerRepository.save(activityManager);
+	    }
 	}
+	
 	
 }

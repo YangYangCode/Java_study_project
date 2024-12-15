@@ -57,6 +57,13 @@ public class MemberController {
 	public ResponseEntity<ApiResponse<List<ActivityScheduleDTO>>> getActivityScheduleListByMember(@PathVariable Long id) {
 	    return ResponseEntity.ok(ApiResponse.success("查詢成功", memberService.findActivityScheduleByMember(id)));
 	}
+	
+	// 報名活動
+	@PostMapping("/sign/{memberId}/{ASId}")
+	public ResponseEntity<ApiResponse<Void>> signActivity(@PathVariable Long memberId, @PathVariable Long ASId){
+		memberService.signActivitySchedule(memberId, ASId);
+		return ResponseEntity.ok(ApiResponse.success("報名成功", null));
+	}
 
 	// 新增會員
 	@PostMapping
@@ -78,5 +85,7 @@ public class MemberController {
 	    memberService.deleteMember(id);
 	    return ResponseEntity.ok(ApiResponse.success("刪除成功", null));
 	}
+	
+
 	
 }

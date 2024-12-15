@@ -25,20 +25,23 @@ public interface ClassTypeService {
 	// 刪除課程
 	void deleteClassType(Long id);
 	
-	// 教室新增
-	Map<Long, String> addClassRoom(Long classTypeId, Long classRoomId);
-	
-	// 教室刪除
-	Map<Long,String> deleteClassRoom(Long classTypeId, Long classRoomId);
-	
-	// 教練新增
-	Map<Long, String> addFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
-	
-	// 教練刪除
-	Map<Long, String> deleteFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
-	
 	// 根據課程類型取得活動		// 放classtype
 	List<ActivityScheduleDTO> findActivityScheduleByClassType(Long classTypeId);
+	
+	
+//	// 教室新增
+//	Map<Long, String> addClassRoom(Long classTypeId, Long classRoomId);
+//	
+//	// 教室刪除
+//	Map<Long,String> deleteClassRoom(Long classTypeId, Long classRoomId);
+//	
+//	// 教練新增
+//	Map<Long, String> addFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
+//	
+//	// 教練刪除
+//	Map<Long, String> deleteFitnessInstructor(Long classTypeId, Long fitnessInstructorId);
+	
+
 	
 }
 

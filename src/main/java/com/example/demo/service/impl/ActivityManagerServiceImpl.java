@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.ActivityScheduleDTO;
+import com.example.demo.model.dto.ClassRoomDTO;
 import com.example.demo.model.entity.ActivityManager;
+import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.repository.ActivityManagerRepository;
 import com.example.demo.repository.ActivityScheduleRepository;
 import com.example.demo.service.ActivityManagerService;
@@ -30,19 +32,39 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 	@Override	// 查詢所有管理員
 	public List<ActivityManagerDTO> getAllActivityManagers() {
 		return activityManagerRepository.findAll().stream()
-				.map(activityManager -> modelMapper.map(activityManager ,ActivityManagerDTO.class))
+				.map(activityManager -> modelMapper.map(activityManager ,ActivityManagerDTO.class))				
+//				.map(activityManager -> {
+//					ActivityManagerDTO activityManagerDTO = modelMapper.map(activityManager ,ActivityManagerDTO.class);
+//					activityManagerDTO.setActivityScheduleIds(
+//						    activityManager.getActivitySchedules().stream()
+//						        .map(ActivitySchedule::getId) // 直接調用 getId()
+//						        .collect(Collectors.toSet())
+//						);
+//					return activityManagerDTO;
+//				})
 				.collect(Collectors.toList());
 	}
 
-	@Override
+	@Override	// 查詢指定管理員
 	public Optional<ActivityManagerDTO> findActivityManagerById(Long id) {
 	    Optional<ActivityManager> optActivityManager = activityManagerRepository.findById(id);
 	    if (optActivityManager.isEmpty()) {
 	        return Optional.empty();
 	    }
-	    // 利用 modelMapper 將 ActivityManager 轉 ActivityManagerDTO
+//	    ActivityManager activityManager = optActivityManager.get();
+//	    // 將 ActivityManager 映射為 DTO 並設置 ActivityScheduleIds
+//	    ActivityManagerDTO activityManagerDTO = modelMapper.map(activityManager, ActivityManagerDTO.class);
+//	    activityManagerDTO.setActivityScheduleIds(
+//	        activityManager.getActivitySchedules().stream()
+//	            .map(ActivitySchedule::getId) // 提取每個活動的 ID
+//	            .collect(Collectors.toSet())
+//	    );
+//	    return Optional.of(activityManagerDTO);
+	    
 	    return Optional.of(modelMapper.map(optActivityManager.get(), ActivityManagerDTO.class));
 	}
+	
+	
 
 	@Override	// 新增管理員
 	public ActivityManagerDTO saveActivityManager(ActivityManagerDTO activityManagerDTO) {
@@ -72,7 +94,7 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 		activityManagerRepository.deleteById(id);
 	}
 
-	@Override
+	@Override	// 管理員底下所有活動
 	public List<ActivityScheduleDTO> findActivityScheduleByActivityManager(Long activityManagerId) {
 		// 使用 id 找到 entity
 		ActivityManager activityManager = activityManagerRepository.findById(activityManagerId)

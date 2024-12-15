@@ -14,11 +14,13 @@ public class Test_Add_ClassRoomService {
 	ClassRoomRepository classRoomRepository;
 	
 	@Test
-	void add() {
-		ClassRoom classRoom_1 = new ClassRoom();
-		classRoom_1.setName("101");
-		classRoom_1.setClassRoomSize(20);
-		classRoomRepository.save(classRoom_1);
+	void addClassRooms() {
+	    for (int i = 1; i <= 10; i++) {
+	        ClassRoom classRoom = new ClassRoom();
+	        classRoom.setName("教室" + i); // 動態生成教室名稱，例如 教室1, 教室2...
+	        classRoom.setClassRoomSize(20 + i); // 動態生成教室大小，例如 21, 22...
+	        classRoomRepository.save(classRoom);
+	    }
 	}
 	
 }

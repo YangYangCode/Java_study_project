@@ -6,14 +6,14 @@ import java.util.Optional;
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.MemberDTO;
+import com.example.demo.model.entity.ActivitySchedule;
 
 // 活動CRDU邏輯
 public interface ActivityScheduleService {
 	// 取得所有活動		all active	
 	List<ActivityScheduleDTO> getAllActivitySchedules();
 	
-	// 取得單一活動		a active
-	// 取得活動詳細內容	active info
+	// 取得單一活動	an active	// 取得活動詳細內容	active info
 	Optional<ActivityScheduleDTO> findActivityScheduleById(Long activityScheduleId);
 	
 	// 新增活動
@@ -26,20 +26,20 @@ public interface ActivityScheduleService {
 	void deleteActivitySchedule(Long activityScheduleId);
 
 	// 取得參加成員列表
-	List<MemberDTO> findMemberListByActivitySchedule(Long activityScheduleId);
+	Map<Long, String> findMemberListByActivitySchedule(Long activityScheduleId);
 
 	
-	// 活動新增教練
-	Map<Long, String> addFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId);
-	
-	// 活動刪除教練
-	Map<Long, String> deleteFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId);
-	
-	// 新增活動報名成員
-	Map<Long, String> addMember(Long activityScheduleId, Long memberId);
-	
-	// 刪除活動報名成員
-	Map<Long, String> deleteMember(Long activityScheduleId, Long memberId);
+//	// 活動新增教練
+//	Map<Long, String> addFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId);
+//	
+//	// 活動刪除教練
+//	Map<Long, String> deleteFitnessInstructor(Long activityScheduleId, Long fitnessInstructorId);
+//	
+//	// 新增活動報名成員
+//	Map<Long, String> addMember(Long activityScheduleId, Long memberId);
+//	
+//	// 刪除活動報名成員
+//	Map<Long, String> deleteMember(Long activityScheduleId, Long memberId);
 	
 	
 }

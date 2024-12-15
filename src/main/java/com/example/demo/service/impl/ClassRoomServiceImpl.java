@@ -42,7 +42,7 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 				.collect(Collectors.toList());
 	}
 
-	@Override
+	@Override	// 找到指定教室
 	public Optional<ClassRoomDTO> findClassRoomById(Long id) {
 	    Optional<ClassRoom> optClassRoom = classRoomRepository.findById(id);
 	    if (optClassRoom.isEmpty()) {
@@ -52,7 +52,7 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 	    return Optional.of(modelMapper.map(optClassRoom.get(), ClassRoomDTO.class));
 	}
 
-	@Override
+	@Override	// 新增教室
 	public ClassRoomDTO saveClassRoom(ClassRoomDTO classRoomDTO) {
 		// DTO -> entity
 		ClassRoom classRoom = modelMapper.map(classRoomDTO, ClassRoom.class);
@@ -61,7 +61,7 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 		return modelMapper.map(classRoom, ClassRoomDTO.class);
 	}
 
-	@Override
+	@Override	// 修改教室
 	public ClassRoomDTO updateClassRoom(ClassRoomDTO classRoomDTO, Long id) {
 		// 使用 id 找到 entity
 		ClassRoom classRoom = classRoomRepository.findById(id)
@@ -72,40 +72,15 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 		return modelMapper.map(classRoom, ClassRoomDTO.class);
 	}
 
-	@Override
+	@Override	// 刪除教室
 	public void deleteClassRoom(Long id) {
 		// 使用 id 找到 entity
 		ClassRoom classRoom = classRoomRepository.findById(id)
 				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", id)));
 		classRoomRepository.deleteById(id);
 	}
-
-	@Override	// 教室新增課程
-	public Map<Long, String> addClassType(Long classRoomId, Long classTypeId) {
-		// find entity by id
-		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
-				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
-		ClassType classType = classTypeRepository.findById(classTypeId)
-				.orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", classTypeId)));
-		// add classType
-		classRoom.getClassTypes().put(classType.getId(), classType.getName());
-		// save classRoom
-		classRoomRepository.save(classRoom);
-		return classRoom.getClassTypes();
-	}
-
-	@Override	// 教室刪除課程
-	public Map<Long, String> deleteClassType(Long classRoomId, Long classTypeId) {
-		// find entity by id
-		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
-				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
-		// delete classType
-		classRoom.getClassTypes().remove(classTypeId);
-		classRoomRepository.save(classRoom);
-		return classRoom.getClassTypes();
-	}
-
-	@Override
+	
+	@Override	// 取得教室內舉辦活動
 	public List<ActivityScheduleDTO> findActivityScheduleByClassRoom(Long classRoomId) {
 		// find entity by id
 		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
@@ -116,6 +91,33 @@ public class ClassRoomServiceImpl implements ClassRoomService{
 				.collect(Collectors.toList());
 		return ASList;
 	}
+
+//	@Override	// 教室新增課程
+//	public Map<Long, String> addClassType(Long classRoomId, Long classTypeId) {
+//		// find entity by id
+//		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
+//				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
+//		ClassType classType = classTypeRepository.findById(classTypeId)
+//				.orElseThrow(() -> new RuntimeException(String.format("ClassType, id: %d 不存在。", classTypeId)));
+//		// add classType
+//		classRoom.getClassTypes().put(classType.getId(), classType.getName());
+//		// save classRoom
+//		classRoomRepository.save(classRoom);
+//		return classRoom.getClassTypes();
+//	}
+//
+//	@Override	// 教室刪除課程
+//	public Map<Long, String> deleteClassType(Long classRoomId, Long classTypeId) {
+//		// find entity by id
+//		ClassRoom classRoom = classRoomRepository.findById(classRoomId)
+//				.orElseThrow(() -> new RuntimeException(String.format("ClassRoom, id: %d 不存在。", classRoomId)));
+//		// delete classType
+//		classRoom.getClassTypes().remove(classTypeId);
+//		classRoomRepository.save(classRoom);
+//		return classRoom.getClassTypes();
+//	}
+
+
 
 	
 	

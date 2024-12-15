@@ -14,10 +14,12 @@ public class Test_Add_ClassTypeService {
 	ClassTypeRepository classTypeRepository;
 	
 	@Test
-	void add() {
-		ClassType classType_1 = new ClassType();
-		classType_1.setName("瑜珈");
-		classTypeRepository.save(classType_1);
+	void addClassTypes() {
+	    for (int i = 1; i <= 10; i++) {
+	        ClassType classType = new ClassType();
+	        classType.setName("課程" + i); // 動態生成課程名稱，例如 課程1, 課程2...
+	        classTypeRepository.save(classType);
+	    }
 	}
 	
 }
