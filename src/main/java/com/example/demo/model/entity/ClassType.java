@@ -42,30 +42,15 @@ public class ClassType {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER)
-//	(mappedBy = "classType", 
-//			fetch = FetchType.EAGER, 
-//			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 	
 	@ManyToMany(mappedBy = "classTypes", fetch = FetchType.EAGER)
 	@JsonBackReference	// 被管理方
 	private Set<ClassRoom> classRooms;	
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="class_type_class_room", joinColumns = @JoinColumn(name= "class_type_id"))
-//	@MapKeyColumn(name = "class_room_id")
-//	@Column(name = "class_room_name")
-//	private Map<Long, String> classRooms;	
 
 	@ManyToMany(mappedBy = "classTypes", fetch = FetchType.EAGER)
 	@JsonBackReference	// 被管理方
 	private Set<FitnessInstructor> fitnessInstructors;
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(joinColumns = @JoinColumn(name= "class_type_id"))
-//	@MapKeyColumn(name = "fitness_instructor_id")
-//	@Column(name = "fitness_instructor_name")
-//	private Map<Long, String> fitnessInstructors;
 
-
-	
 
 }

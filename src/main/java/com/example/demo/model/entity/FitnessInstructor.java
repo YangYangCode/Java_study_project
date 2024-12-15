@@ -46,21 +46,12 @@ public class FitnessInstructor extends User {
 	@ManyToMany(mappedBy = "fitnessInstructors", fetch = FetchType.EAGER)
 	@JsonBackReference	// 被管理方
 	private Set<ActivitySchedule> activitySchedules; 
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="fitness_instructor_activity_schedule", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
-//	@Column(name = "activity_schedule_id")
-//	private Set<Long> activityScheduleIds; 		
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@JsonManagedReference	// 管理方
 	private Set<ClassType> classTypes; 	// 可帶課程類型
-//	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="fitness_instructor_class_type", joinColumns = @JoinColumn(name= "fitness_instructor_id"))
-//	@MapKeyColumn(name = "class_type_id")
-//	@Column(name = "class_type_name")
-//	private Map<Long, String> classTypes; 	// 可帶課程類型
+	
 
 	@Override
 	public boolean equals(Object obj) {

@@ -50,35 +50,23 @@ public class ActivitySchedule {
 	
 //	關聯
 	
-	@ManyToOne		//	@JoinColumn(name = "activity_manager_id")	@JsonIgnore
+	@ManyToOne
 	private ActivityManager activityManager;
 			
-	@ManyToOne		//	@JoinColumn(name = "class_room_id")		@JsonIgnore
+	@ManyToOne
 	private ClassRoom classRoom ;
 	
-	@ManyToOne		//	@JoinColumn(name = "class_type_id")  	@JsonIgnore
+	@ManyToOne
 	private ClassType classType ;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "fitness_instructor_id"))
 	@JsonManagedReference	// 管理方
 	private Set<FitnessInstructor> fitnessInstructors;
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="activity_schedule_fitness_instructor", joinColumns = @JoinColumn(name= "activity_schedule_id"))
-//	@MapKeyColumn(name = "fitness_instructor_id")
-//	@Column(name = "fitness_instructor_name")
-//	private Map<Long, String> fitnessInstructors;
 	
 	@ManyToMany(mappedBy = "activitySchedules")
 	@JsonBackReference	// 被管理方
 	private Set<Member> signedMembers; 
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="activity_schedule_member", joinColumns = @JoinColumn(name= "activity_schedule_id"))
-//	@MapKeyColumn(name = "member_id")
-//	@Column(name = "member_name")		// Table 中 member_id 欄名稱
-//	private Map<Long, String> signedMembers; 
 
-	
-	
 
 }

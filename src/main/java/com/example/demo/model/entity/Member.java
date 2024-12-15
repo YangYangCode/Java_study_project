@@ -48,10 +48,6 @@ public class Member extends User {
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "activity_schedule_id")) 
 	@JsonManagedReference	// 管理方
 	private Set<ActivitySchedule> activitySchedules; // 參加的活動
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="member_activity_schedule", joinColumns = @JoinColumn(name= "member_id")) // 活動id 欄名稱、主表的對應值
-//	@Column(name = "activity_schedule_id")
-//	private Set<Long> activityScheduleIds; // 參加的活動
 	
 
 }

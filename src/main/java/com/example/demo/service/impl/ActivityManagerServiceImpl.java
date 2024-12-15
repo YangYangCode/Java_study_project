@@ -33,15 +33,6 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 	public List<ActivityManagerDTO> getAllActivityManagers() {
 		return activityManagerRepository.findAll().stream()
 				.map(activityManager -> modelMapper.map(activityManager ,ActivityManagerDTO.class))				
-//				.map(activityManager -> {
-//					ActivityManagerDTO activityManagerDTO = modelMapper.map(activityManager ,ActivityManagerDTO.class);
-//					activityManagerDTO.setActivityScheduleIds(
-//						    activityManager.getActivitySchedules().stream()
-//						        .map(ActivitySchedule::getId) // 直接調用 getId()
-//						        .collect(Collectors.toSet())
-//						);
-//					return activityManagerDTO;
-//				})
 				.collect(Collectors.toList());
 	}
 
@@ -51,16 +42,6 @@ public class ActivityManagerServiceImpl implements ActivityManagerService {
 	    if (optActivityManager.isEmpty()) {
 	        return Optional.empty();
 	    }
-//	    ActivityManager activityManager = optActivityManager.get();
-//	    // 將 ActivityManager 映射為 DTO 並設置 ActivityScheduleIds
-//	    ActivityManagerDTO activityManagerDTO = modelMapper.map(activityManager, ActivityManagerDTO.class);
-//	    activityManagerDTO.setActivityScheduleIds(
-//	        activityManager.getActivitySchedules().stream()
-//	            .map(ActivitySchedule::getId) // 提取每個活動的 ID
-//	            .collect(Collectors.toSet())
-//	    );
-//	    return Optional.of(activityManagerDTO);
-	    
 	    return Optional.of(modelMapper.map(optActivityManager.get(), ActivityManagerDTO.class));
 	}
 	

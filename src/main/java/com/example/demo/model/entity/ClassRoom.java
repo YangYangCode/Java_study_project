@@ -50,23 +50,12 @@ public class ClassRoom {
 	
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.EAGER)
-//	(mappedBy = "classRoom", 
-//			fetch = FetchType.EAGER, 
-//			cascade = {CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE})
 	private List<ActivitySchedule> activitySchedules;
 	
-	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "class_type_id"))
 	@JsonManagedReference	// 管理方
 	private Set<ClassType> classTypes; 	// 可用課程類型
-//	@ElementCollection(fetch = FetchType.EAGER)
-//	@CollectionTable(name="class_room_class_type", joinColumns = @JoinColumn(name= "class_room_id")) // 活動id 欄名稱、主表的對應值
-//	@MapKeyColumn(name = "class_type_id")
-//	@Column(name = "class_type_name")
-//	private Map<Long, String> classTypes; 	// 可用課程類型
-	
 
-
-		
 
 }

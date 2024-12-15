@@ -58,14 +58,22 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	@Override	// 取得所有活動
 	public List<ActivityScheduleDTO> getAllActivitySchedules() {
 		return activityScheduleRepository.findAll().stream()
-				.map(activitySchedule -> modelMapper.map(activitySchedule, ActivityScheduleDTO.class))
-				.collect(Collectors.toList());
-		// 教練轉型
-		
-		// 會員轉型
-		
-		
-		
+				.map(activitySchedule -> {
+	                // 转换 ActivitySchedule 到 DTO
+	                ActivityScheduleDTO dto = modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
+	                // 教练信息转换为 Map 并设置到 DTO 中
+	                Map<Long, String> fitnessInstructors = activitySchedule.getFitnessInstructors().stream()
+	                        .collect(Collectors.toMap(FitnessInstructor::getId, FitnessInstructor::getName));
+	                dto.setFitnessInstructors(fitnessInstructors);
+	                // 会员信息转换为 Map 并设置到 DTO 中
+	                Map<Long, String> signedMembers = activitySchedule.getSignedMembers().stream()
+	                        .collect(Collectors.toMap(Member::getId, Member::getName));
+	                dto.setSignedMembers(signedMembers);
+	                
+	                return dto;
+	            })
+	            .collect(Collectors.toList());
+
 	}
 	
 	
@@ -75,20 +83,26 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	    if (optActivitySchedule.isEmpty()) {
 	        return Optional.empty();
 	    }
-	    
-	    // 教練轉型
-	    
-	    
-	    // 利用 modelMapper 將 ActivitySchedule 轉 ActivityScheduleDTO
-	    return Optional.of(modelMapper.map(optActivitySchedule.get(), ActivityScheduleDTO.class));
+	    ActivitySchedule activitySchedule = optActivitySchedule.get();
+	    // 转换 ActivitySchedule 到 DTO
+	    ActivityScheduleDTO dto = modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
+	    // 教练信息转换为 Map 并设置到 DTO 中
+	    Map<Long, String> fitnessInstructors = activitySchedule.getFitnessInstructors().stream()
+	            .collect(Collectors.toMap(FitnessInstructor::getId, FitnessInstructor::getName));
+	    dto.setFitnessInstructors(fitnessInstructors);
+	    // 会员信息转换为 Map 并设置到 DTO 中
+	    Map<Long, String> signedMembers = activitySchedule.getSignedMembers().stream()
+	            .collect(Collectors.toMap(Member::getId, Member::getName));
+	    dto.setSignedMembers(signedMembers);
+	    return Optional.of(dto);
 	}
+	
 	
 	@Transactional
 	@Override	// 新增活動
 	public ActivityScheduleDTO saveActivitySchedule(ActivityScheduleDTO activityScheduleDTO) {	
-		// DTO -> entity
+	// DTO -> entity
 		ActivitySchedule activitySchedule = modelMapper.map(activityScheduleDTO, ActivitySchedule.class);
-		
 	// classRoom
 		ClassRoom classRoom = modelMapper.map(activityScheduleDTO.getClassRoom(), ClassRoom.class);
 		activitySchedule.setClassRoom(classRoom);
