@@ -5,32 +5,35 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const CardItem = () => {
+const CardItem = ({data}) => {
 
-    // 1. 製作Card
-
-    const f_data = [
-        {
-            id: 1, className: "空中瑜珈", infornation: "aaaaaaaaaa", image: "Image"
-        },
-        {
-            id: 2, className: "瑜珈", infornation: "bbbbbbbbbb", image: "Image"
-        },
-    ]
 
     return (
-                        // 最小寬度
-        <Card sx={{ minWidth: 275 }}>       
-            <CardContent>
-                <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                    {f_data[0].image}
-                </Typography>
-                    {f_data[0].className}
-            </CardContent>
-            <CardActions>
-                <Button size="small">information</Button>
-            </CardActions>
-        </Card>
+        <li>
+            <Card sx={{ width: 325 }}>
+                {/* CardContent for image and text */}
+                <CardContent sx={{ color: 'text.secondary', fontSize: 30 }} className="flex flex-col justify-center space-y-4">
+                    {/* Image or Placeholder */}
+                    <Typography
+                        gutterBottom
+                        sx={{
+                            fontSize: 50, // MUI 的 fontSize 設置
+                            color: 'text.secondary',
+                            textAlign: 'center', // Center text using MUI
+                        }}
+                    >
+                        {data.imageBase64 ? data.imageBase64 : "Image"}
+                    </Typography>
+                    {/* Display name */}
+                    <Typography sx={{ textAlign: 'center', fontSize: 30 }}>
+                        {data.name}
+                    </Typography>
+                </CardContent>
+                <CardActions sx={{ color: 'text.secondary', fontSize: 20 }} className="flex justify-center">
+                    <Button size="small" sx={{ fontSize: 20 }}>課程介紹</Button>
+                </CardActions>
+            </Card>
+        </li>
     );
 };
 
