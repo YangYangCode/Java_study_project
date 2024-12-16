@@ -5,63 +5,50 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const CardItem = () => {
+const CardItem = ({ activity }) => {  // 解構傳遞的 activity prop
 
-    // 1. 計算周一至周日
-    // 2. 製作Card
-
-    const f_data = [
-        {
-            id: 1, room: 101, FitnessInstructor: 29, class: "空中瑜珈", numberOfCanRegister: 20, numberOfHaveSigned: 6,
-            classTime: "2024,11,19 11-00-00", information: "information", memberHaveSigned: ["1", "2", "3", "4", "5", "6"]
-        },
-        {
-            id: 2, room: 101, FitnessInstructor: 40, class: "飛輪", numberOfCanRegister: 40, numberOfHaveSigned: 10,
-            classTime: "2024,10,25 17-00-00", information: "information", memberHaveSigned: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        },
-    ]
-
-
-    const CardItem_ = ({ activity }) => (
-        <li className="border p-2 rounded-md shadow-md bg-gray-100">
-            <h3 className="font-bold">{activity.title}</h3>
-            <p>{activity.description}</p>
-            <small className="text-gray-500">{activity.time}</small>
-        </li>
-    );
-
-    
     return (
-        <li>
-                    {/* // 最小寬度 */}
-            <Card sx={{ minWidth: 275 }}>
-                <CardContent>
-                    <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                        {f_data[0].classTime}
-                    </Typography>
+        <li className="list-none">
+            <div className="w-[175px] rounded-lg border border-gray-200 bg-white shadow-sm">
+                <div className="p-4">
 
-                    <Typography variant="h5" component="div">
-                    {f_data[0].class}
-                    </Typography>
+                    {/* <p className="text-lg text-center font-semibold mb-2">
+                        {activity.date}
+                    </p>
+                    <p className="text-lg text-center font-semibold mb-2">
+                        {activity.weekday}
+                    </p> */}
 
-                    
-                    <Typography variant="h5" component="div">
-                        {f_data[0].FitnessInstructor}
-                    </Typography>
+                    {/* Class Time */}
+                    <p className="text-lg text-center font-semibold mb-2">
+                        {activity.classTime}
+                    </p>
 
-                    <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-                        {f_data[0].memberHaveSigned.length}/{f_data[0].numberOfCanRegister}
-                    </Typography>
+                    {/* Class Type */}
+                    <h2 className="text-xl text-center font-semibold mb-2">
+                        {activity.classType.name}
+                    </h2>
 
-                    <Typography variant="body2">
-                        {f_data[0].room}
-                    </Typography>
+                    {/* Room */}
+                    <p className="text-xl text-center font-semibold mb-2">
+                        {activity.classRoom.name}
+                    </p>
 
-                </CardContent>
-                <CardActions>
-                    <Button size="small">information</Button>
-                </CardActions>
-            </Card>
+                    {/* Instructors */}
+                    <h3 className="text-sm text-center font-semibold mb-2">
+                        {Object.values(activity.fitnessInstructors).join(", ")}
+                    </h3>
+
+                    {/* Sign-up Count */}
+                    <p className="text-sm text-center text-gray-600 mb-4">
+                        報名人數: {Object.keys(activity.signedMembers).length}/{activity.maxSignNumber}
+                    </p>
+
+                    <button className="text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors">
+                        information
+                    </button>
+                </div>
+            </div>
         </li>
     );
 };

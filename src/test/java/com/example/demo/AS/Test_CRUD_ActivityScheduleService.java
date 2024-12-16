@@ -28,7 +28,7 @@ public class Test_CRUD_ActivityScheduleService {
 	    String update_ClassTime;
 	    
 	    // add
-	    activitySchedule.setDate(java.sql.Date.valueOf("2024-12-30"));
+//	    activitySchedule.setDate(java.sql.Date.valueOf("2024-12-30"));
 	    activitySchedule.setClassTime("11:00-12:00");
 	    activitySchedule.setMaxSignNumber(20);
 		

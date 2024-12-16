@@ -20,6 +20,16 @@ const api = axios.create({
 
 
 // member    // member    // member    // member    // member
+export const membe_signAS = async (memberId, ASId) => {    // 會員參與活動
+    try {
+        const signAS = await api.post(`/sign/${memberId}/${ASId}`);
+        console.log(signAS.data);
+        return signAS.data.data;
+    } catch (error) {
+        console.log("Error signAS: ", error);
+    }
+}
+
 export const get_membe_by_id = async (memberId) => {    // 取得特定會員
     try {
         const member = await api.get(`/member/${memberId}`);
@@ -88,7 +98,7 @@ export const get_activitySchedule_by_id = async (activityScheduleId) => {    // 
 export const get_all_activitySchedule = async () => {    // 取得所有活動
     try {
         const activityScheduleList = await api.get(`/activityschedule`);
-        console.log(activityScheduleList.data);
+        console.log(activityScheduleList.data.data);
         return activityScheduleList.data.data;
     } catch (error) {
         console.log("Error getAllActivitySchedule: ", error);

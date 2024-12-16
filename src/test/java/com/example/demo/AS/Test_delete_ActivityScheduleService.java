@@ -24,9 +24,10 @@ public class Test_delete_ActivityScheduleService {
 	@Test
 	void mix() {
 	    
-	    // delete
-	    activityScheduleService.deleteActivitySchedule(6L);
-	    
+		for (Long i = 1L; i < 38L; i++) {
+		    // 在這裡執行你的代碼
+			activityScheduleService.deleteActivitySchedule(i);
+		}
 	    
 	}
 	

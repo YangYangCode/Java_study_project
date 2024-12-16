@@ -4,13 +4,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import ActivitySchedules from "./pages/ActivitySchedules";
+// import ActivitySchedules from "./pages/ActivitySchedules";
+import ActivitySchedules from "./pages/ActivitySchedules_week";
 import ClassRoom from "./pages/ClassRooms";
 import ClassType from "./pages/ClassTypes";
 import Member from "./pages/Member";
 import FitnessInstructors from "./pages/FitnessInstructors";
 import ManagerActivityList from "./pages/ManagerActivityList";
-import AllAS from "./pages/AS";
 import Test from "./pages/forTest";
 
 
@@ -55,8 +55,8 @@ function App() {
             />
 
             <Route
-              path="/test"
-              element={<AllAS />}
+              path="/fortest"
+              element={<Test />}
             />
 
 

@@ -1,5 +1,6 @@
  package com.example.demo.model.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
@@ -40,7 +41,7 @@ public class ActivitySchedule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 活動編號
 	private Long id;
-	private Date date;				// 日期
+	private LocalDate date;				// 日期
 	private String classTime; 		// 時間
 	private Integer maxSignNumber;	// 可報名人數
 	

@@ -73,7 +73,6 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	                return dto;
 	            })
 	            .collect(Collectors.toList());
-
 	}
 	
 	

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { get_activitySchedule_by_id } from "../service/Service_AS";
+import { get_all_activitySchedule } from "../service/Service_AS";
 
 
 function Test() {
 
     const [test, setTest] = useState('');  // getMember
+    const [asList, setAsList] = useState([]); // 保存格式化后的数据
 
     const handleDelete = async () => {
         try {
-            const testInfo = await get_activitySchedule_by_id(2);
+            const testInfo = await get_all_activitySchedule(2);
             console.log(testInfo);
             setTest(testInfo);
         } catch (error) {
@@ -16,10 +17,13 @@ function Test() {
         }
     };
 
+    
+
     return (
         <div>
             <br/>
             <button onClick={handleDelete}>DO IT</button>
+            <button>get AS_data</button>
             <br/>
 
             <div>

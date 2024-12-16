@@ -1,5 +1,6 @@
 package com.example.demo.model.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ import lombok.Data;
 @Data
 public class ActivityScheduleDTO {
 	private Long id;
-	private Date date;
+	private LocalDate date;
 	private String classTime;
 	private Integer maxSignNumber;
 	private String information;			// 詳細資訊

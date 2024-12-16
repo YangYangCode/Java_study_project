@@ -28,6 +28,7 @@ import com.example.demo.service.MemberService;
  * GET    "/"     獲取所有會員	(X
  * GET    "/{id}" 獲取該會員
  * GET	  "/{id}" 獲取會員登入活動
+ * POST	  "/sign/{memberId}/{ASId}"	會員活動報名
  * POST   "/"     新增會員
  * PUT    "/{id}" 更新會員
  * DELETE "/{id}" 刪除會員
