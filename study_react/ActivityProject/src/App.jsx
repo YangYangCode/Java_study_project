@@ -11,6 +11,9 @@ import ClassType from "./pages/ClassTypes";
 import Member from "./pages/Member";
 import FitnessInstructors from "./pages/FitnessInstructors";
 import ManagerActivityList from "./pages/ManagerActivityList";
+import LoginPage from "./pages/Login";
+import Home from "./pages/Home";
+import AddAS from "./component/AddAS";
 import Test from "./pages/forTest";
 
 
@@ -23,6 +26,11 @@ function App() {
 
         <div className="">
           <Routes>
+
+            <Route
+              path="/"
+              element={<Home />}
+            />
 
             <Route
               path="/activityschedule"
@@ -55,8 +63,13 @@ function App() {
             />
 
             <Route
+              path="/login"
+              element={<LoginPage />}
+            />
+
+            <Route
               path="/fortest"
-              element={<Test />}
+              element={<AddAS />}
             />
 
 

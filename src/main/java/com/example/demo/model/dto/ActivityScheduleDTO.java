@@ -6,9 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class ActivityScheduleDTO {
 	private Long id;
@@ -24,5 +27,21 @@ public class ActivityScheduleDTO {
 	private Map<Long, String> signedMembers = new HashMap<>(); 	// 會員列表
 	
 	private Integer currentSignNumber = signedMembers.size(); 	// 已報名人數 - 會員列表數量
+
+	public ActivityScheduleDTO(LocalDate date, String classTime, Integer maxSignNumber, String information,
+			ActivityManagerDTO activityManager, ClassRoomDTO classRoom, ClassTypeDTO classType,
+			Map<Long, String> fitnessInstructors, Map<Long, String> signedMembers) {
+		super();
+		this.date = date;
+		this.classTime = classTime;
+		this.maxSignNumber = maxSignNumber;
+		this.information = information;
+		this.activityManager = activityManager;
+		this.classRoom = classRoom;
+		this.classType = classType;
+		this.fitnessInstructors = fitnessInstructors;
+		this.signedMembers = signedMembers;
+	}
+	
 	
 }

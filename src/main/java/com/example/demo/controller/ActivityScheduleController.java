@@ -69,6 +69,7 @@ public class ActivityScheduleController {
 	// 新增活動
 	@PostMapping
 	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> addActivitySchedule(@RequestBody ActivityScheduleDTO activityScheduleDTO) {
+		System.out.println(activityScheduleDTO);
 	    ActivityScheduleDTO newActivityScheduleDTO = activityScheduleService.saveActivitySchedule(activityScheduleDTO);
 	    return ResponseEntity.ok(ApiResponse.success("新增成功", newActivityScheduleDTO));
 	}

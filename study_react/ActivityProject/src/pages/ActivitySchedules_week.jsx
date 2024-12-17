@@ -39,11 +39,19 @@ function ActivitySchedules() {
     return (
         <div>
             <div className="text-5xl font-bold mb-4 text-center">12/16 - 12/22 活動</div>
-            <button className="text-xl font-bold mb-4 text-center">上周活動</button>
-            <button className="text-xl font-bold mb-4 text-center">下周活動</button>
+            
+            {/* 按鈕部分 */}
+            <br/>
+            <div className="flex justify-center">
+                <div className="w-[90vw] flex justify-center gap-4 mb-6">
+                    <button className="text-3xl font-bold">上周活動</button>
+                    <button className="text-3xl font-bold">下周活動</button>
+                </div>
+            </div>
+            <br/>
 
             <div className="min-h-screen flex justify-center">
-                <div className="w-[90vw] space-y-6">
+                <div className="w-[90vw] flex justify-center space-y-6">
                     <div className="flex flex-wrap gap-6">
                         {weekdays.map((weekday) => {
                             // 根據 weekday 渲染活動列表
