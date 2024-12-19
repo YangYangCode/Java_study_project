@@ -11,6 +11,6 @@ import com.example.demo.model.entity.FitnessInstructor;
 @Repository		// 教練
 public interface FitnessInstructorRepository extends JpaRepository<FitnessInstructor, Long> {
 
-//	List<FitnessInstructor> findByClassType(Long classTypeId);
+	Optional<FitnessInstructor> findByUsername(String username);
 
 }

@@ -19,6 +19,28 @@ const api = axios.create({
 // )
 
 
+
+// login    // login    // login    // login    // login    
+export const login = async (username, password, type) => {
+    try {
+        const login = await api.post(`/auth/login`, { "username": username, "password": password, "type": type })
+    } catch (error) {
+        console.log("Error login: ", error);
+
+    }
+}
+
+export const logout = async () => {
+    try {
+        const logout = await api.get(`/auth/logout`)
+    } catch (error) {
+        console.log("Error logout: ", error);
+
+    }
+}
+
+
+
 // member    // member    // member    // member    // member
 export const membe_signAS = async (memberId, ASId) => {    // 會員參與活動
     try {

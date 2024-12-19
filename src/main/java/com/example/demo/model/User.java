@@ -15,7 +15,7 @@ public abstract class User {
 	@Column(columnDefinition = "LONGTEXT")
 	private String imageBase64;
 	
-	/*
-	 * seter放在service層
+	/* *
+	 * Setter放在service層
 	 * */
 }

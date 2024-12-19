@@ -11,5 +11,6 @@ import com.example.demo.model.entity.Member;
 @Repository		// 會員
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
-//	List<Member> findByActivitySchedule(Long id);
+	Optional<Member> findByUsername(String username);
+	
 }

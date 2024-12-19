@@ -10,13 +10,12 @@ import com.example.demo.model.dto.BookingFormDTO;
 
 import lombok.Data;
 
-import com.example.demo.model.UserDTO;
 import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.FitnesslnstructorBookingForm;
 
 @Data
-public class FitnessInstructorDTO extends UserDTO {
+public class FitnessInstructorDTO extends UserCretDTO {
 	private Long id;		// *教練邊號
 	private String name;		// 教練姓名
 	

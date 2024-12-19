@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const ActivityScheduleDataTable = ({ activities }) => {
+const ActivityScheduleDataTable = ({ activities, handIsModalopen }) => {
 
     // console.log(activities);         // 資料陣列
 
@@ -14,8 +14,8 @@ const ActivityScheduleDataTable = ({ activities }) => {
 
     // 按钮点击处理函数
     const handleEditClick = (item) => {
-        console.log("table: ",item);
-        
+        console.log("table: ", item);
+
         // 通过 navigate 跳转到 "/updateactivityschedule" 页面，并传递 state
         navigate("/updateactivityschedule", {
             state: { item }  // 传递 item 数据
@@ -107,13 +107,21 @@ const ActivityScheduleDataTable = ({ activities }) => {
                                 <td className={tableCellClasses}>{item.classRoom.name}</td>
                                 <td className={tableCellClasses}>{item.maxSignNumber}</td>
                                 <td className={tableCellClasses}>
-                                    <Button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md">
+                                    <Button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md"
+                                        onClick={() => {
+                                            // 處理 item.signedMembers 並生成表格數據
+                                            const formattedContent = Object.entries(item.signedMembers).map(([id, name]) => ({ id, name }));
+                                            handIsModalopen(formattedContent); // 將格式化數據傳遞給模態視窗
+                                        }}
+                                    >
                                         人數：{Object.keys(item.signedMembers).length}
                                     </Button>
                                 </td>
                                 <td className={tableCellClasses}>
-                                    <Button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md">
-                                        information
+                                    <Button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md"
+                                        onClick={() => handIsModalopen(item.information)}
+                                    >
+                                        詳細內容
                                     </Button>
                                 </td>
                                 <td className="text-center py-2 px-4">
