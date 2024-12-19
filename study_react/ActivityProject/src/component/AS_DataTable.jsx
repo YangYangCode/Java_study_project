@@ -3,12 +3,24 @@ import $ from "jquery";
 import 'datatables.net-dt/css/dataTables.dataTables.min.css';
 import "datatables.net";
 import Button from '@mui/material/Button';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const ActivityScheduleDataTable = ({ activities }) => {
 
-    // 資料陣列
-    console.log(activities);
+    // console.log(activities);         // 資料陣列
+
+    const navigate = useNavigate();  // 获取 navigate 函数
+
+    // 按钮点击处理函数
+    const handleEditClick = (item) => {
+        console.log("table: ",item);
+        
+        // 通过 navigate 跳转到 "/updateactivityschedule" 页面，并传递 state
+        navigate("/updateactivityschedule", {
+            state: { item }  // 传递 item 数据
+        });
+    };
 
 
     // 初始化 DataTable
@@ -27,8 +39,12 @@ const ActivityScheduleDataTable = ({ activities }) => {
     return (
         <div className="min-h-screen flex justify-center">
             <div className="w-[90vw]">
-
-                <button className="bg-green-500 text-white px-4 py-2 mr-2 rounded-md">新增活動</button>
+                <Link
+                    to="/addactivityschedule"
+                    className="bg-green-500 text-white px-4 py-2 mr-2 rounded-md hover:bg-green-600 hover:underline inline-block text-center"
+                >
+                    新增活動
+                </Link>
 
                 <table id="example" className="display border w-full table-auto">
                     <thead className='border-r border-gray-900'>
@@ -101,8 +117,18 @@ const ActivityScheduleDataTable = ({ activities }) => {
                                     </Button>
                                 </td>
                                 <td className="text-center py-2 px-4">
-                                    <button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md">修改</button>
-                                    <button className="bg-red-500 text-white px-4 py-2 rounded-md">刪除</button>
+                                    <button
+                                        className="bg-blue-500 text-white px-4 py-2 mr-2 rounded-md"
+                                        onClick={() => handleEditClick(item)}  // 传递 item
+                                    >
+                                        修改
+                                    </button>
+                                    <button
+                                        className="bg-red-500 text-white px-4 py-2 rounded-md"
+                                        onClick={() => console.log(item)}
+                                    >
+                                        刪除
+                                    </button>
                                 </td>
                             </tr>
                         ))}

@@ -10,19 +10,20 @@ const ClassRoom = () => {
 
         <div className="a-class-room">
             <div className="grid grid-cols-12 gap-4 p-4">
-                <div className="col-span-2 bg-blue-300 p-4 text-center items-center">
+                <div className="col-span-2 bg-white p-4 text-center items-center border border-black">
                     <br />
-                    教室圖片<br />
+                    Image<br />
                     教室名稱<br />
                     <br />
                 </div>
 
                 {/* 時段按鈕 */}
-                <div className="col-span-10 bg-green-300 p-4">
+                <div className="col-span-10 bg-blue-200 p-4">
+                    <br></br>
                     {timePeriods.map((period, index) => (
                         <button
                             key={index}
-                            className="bg-red-400 mr-4"
+                            className="bg-blue-400 mr-4"
                         >
                             {period}
                         </button>

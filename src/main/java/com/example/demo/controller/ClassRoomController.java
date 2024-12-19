@@ -67,7 +67,8 @@ public class ClassRoomController {
 	// 新增教室
 	@PostMapping
 	public ResponseEntity<ApiResponse<ClassRoomDTO>> addClassRoom(@RequestBody ClassRoomDTO classRoomDTO) {
-	    ClassRoomDTO newClassRoomDTO = classRoomService.saveClassRoom(classRoomDTO);
+//		System.out.println(classRoomDTO);
+		ClassRoomDTO newClassRoomDTO = classRoomService.saveClassRoom(classRoomDTO);
 	    return ResponseEntity.ok(ApiResponse.success("新增成功", newClassRoomDTO));
 	}
 	

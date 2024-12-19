@@ -20,7 +20,7 @@ public class FitnessInstructorDTO extends UserDTO {
 	private Long id;		// *教練邊號
 	private String name;		// 教練姓名
 	
-	private BookingFormDTO BookingForm;		// 預約表
+//	private BookingFormDTO BookingForm;		// 預約表
 	 	
 //	private Set<Long> activityScheduleIds;
 //	private Set<ClassTypeDTO> classTypes; 	// 可帶課程類型

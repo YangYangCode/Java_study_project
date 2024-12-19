@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React from 'react';
 
 const CardItem = ({ activity }) => {  // 解構傳遞的 activity prop
@@ -5,7 +6,7 @@ const CardItem = ({ activity }) => {  // 解構傳遞的 activity prop
     return (
         <li className="list-none">
             <div className="w-[175px] rounded-lg border border-gray-200 bg-white shadow-sm">
-                <div className="p-4">
+                <div className="p-2">
 
                     {/* <p className="text-lg text-center font-semibold mb-2">
                         {activity.date}
@@ -39,9 +40,11 @@ const CardItem = ({ activity }) => {  // 解構傳遞的 activity prop
                         報名人數: {Object.keys(activity.signedMembers).length}/{activity.maxSignNumber}
                     </p>
 
-                    <button className="text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors">
-                        information
-                    </button>
+                    <Button className="w-full max-w-[150px] border border-gray-300 rounded-lg bg-white hover:bg-gray-100 transition-colors ring-2  focus:ring-blue-500">報名活動</Button>
+                    <br/>
+                    <Button className="w-full max-w-[150px] text-blue-600 hover:text-blue-800 text-sm font-semibold transition-colors border border-gray-300 ">
+                        詳細資訊
+                    </Button>
                 </div>
             </div>
         </li>

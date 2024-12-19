@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { get_all_activitySchedule } from "../service/Service_AS";
-import CardItem from "../component/AS_CardItem";
+import { get_all_activitySchedule } from "../../service/Service_AS";
+import CardItem from "../../component/AS_CardItem";
 
 function ActivitySchedules() {
 
@@ -38,17 +38,25 @@ function ActivitySchedules() {
 
     return (
         <div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <div className="text-5xl font-bold mb-4 text-center">12/16 - 12/22 活動</div>
-            
+
             {/* 按鈕部分 */}
-            <br/>
+            <br />
             <div className="flex justify-center">
                 <div className="w-[90vw] flex justify-center gap-4 mb-6">
-                    <button className="text-3xl font-bold">上周活動</button>
-                    <button className="text-3xl font-bold">下周活動</button>
+                    <button className="text-2xl font-bold border border-gray-300 rounded-lg px-4 py-2 ring-2 ring-gray-600 focus:ring-blue-500 transition-shadow">
+                        上周活動
+                    </button>
+                    <button className="text-2xl font-bold border border-gray-300 rounded-lg px-4 py-2 ring-2 ring-gray-600 focus:ring-blue-500 transition-shadow">
+                        下周活動
+                    </button>
                 </div>
             </div>
-            <br/>
+            <br />
 
             <div className="min-h-screen flex justify-center">
                 <div className="w-[90vw] flex justify-center space-y-6">
@@ -77,6 +85,11 @@ function ActivitySchedules() {
                     </div>
                 </div>
             </div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
         </div>
     );
 

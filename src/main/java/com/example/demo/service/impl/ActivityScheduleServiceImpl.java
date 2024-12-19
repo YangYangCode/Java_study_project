@@ -136,8 +136,10 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
 		
-		// 直接覆蓋
-		// classRoom
+	// 直接覆蓋
+	// 將 DTO 數值修改近 entity
+		modelMapper.map(activityScheduleDTO, activitySchedule);
+	// classRoom
 		ClassRoom classRoom = modelMapper.map(activityScheduleDTO.getClassRoom(), ClassRoom.class);
 		activitySchedule.setClassRoom(classRoom);
 	// classType
@@ -153,8 +155,9 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 				.collect(Collectors.toSet());
 		activitySchedule.setFitnessInstructors(FitnList);
 		
-	// 儲存活動
+	// 儲存活動		
 		activityScheduleRepository.save(activitySchedule);
+
 		
 	// 預約表變更
 		

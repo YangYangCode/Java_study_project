@@ -69,7 +69,7 @@ public class ActivityScheduleController {
 	// 新增活動
 	@PostMapping
 	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> addActivitySchedule(@RequestBody ActivityScheduleDTO activityScheduleDTO) {
-		System.out.println(activityScheduleDTO);
+//		System.out.println(activityScheduleDTO);
 	    ActivityScheduleDTO newActivityScheduleDTO = activityScheduleService.saveActivitySchedule(activityScheduleDTO);
 	    return ResponseEntity.ok(ApiResponse.success("新增成功", newActivityScheduleDTO));
 	}
@@ -77,7 +77,7 @@ public class ActivityScheduleController {
 	// 修改活動資訊
 	@PutMapping("/{id}")
 	public ResponseEntity<ApiResponse<ActivityScheduleDTO>> updateActivitySchedule(@PathVariable Long id, @RequestBody ActivityScheduleDTO activityScheduleDTO) {
-	    ActivityScheduleDTO updatedActivityScheduleDTO = activityScheduleService.updateActivitySchedule(activityScheduleDTO, id);
+		ActivityScheduleDTO updatedActivityScheduleDTO = activityScheduleService.updateActivitySchedule(activityScheduleDTO, id);
 	    return ResponseEntity.ok(ApiResponse.success("修改成功", updatedActivityScheduleDTO));
 	}
 
