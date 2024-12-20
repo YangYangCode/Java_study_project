@@ -26,15 +26,14 @@ function FitnessInstructors() {
     return (
 
         <div className="w-full">
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
             <div >
                 <h1 className="text-5xl text-center py-2 px-4 border-r border-gray-300">教練列表</h1>
             </div>
-            <Link
-                to="/addfitnessinstructor"
-                className="bg-green-500 text-white px-4 py-2 mr-2 rounded-md hover:bg-green-600 hover:underline inline-block text-center "
-            >
-                新增教練
-            </Link>
+            <br></br>
             <div className="min-h-screen flex justify-center">
                 <ul className="w-[90vw] flex justify-center flex-wrap gap-4">
                     {/* 遍歷 fitnessInstructors，為每個教練生成一個 CardItem */}

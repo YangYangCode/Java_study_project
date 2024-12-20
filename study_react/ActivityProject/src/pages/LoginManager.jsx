@@ -5,7 +5,7 @@ import { login } from "../service/Service_AS";
 function LoginPage({ onLogin }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [type, setType] = useState("member");
+    const [type, setType] = useState("activityManager");
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -15,11 +15,11 @@ function LoginPage({ onLogin }) {
     };
 
     return (
-        <div className="w-full max-w-md mx-auto mt-24 p-6 rounded-lg bg-gray-100 shadow-md">
-            <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">登入</h2>
+        <div className="w-full max-w-md mx-auto mt-24 p-6 rounded-lg bg-gray-800 shadow-md">
+            <h2 className="text-2xl font-bold text-center text-gray-200 mb-6">登入</h2>
             <form onSubmit={handleSubmit}>
                 {/* 下拉選單 */}
-                <label htmlFor="user_type" className="block text-sm font-bold text-gray-700 mb-2">
+                <label htmlFor="user_type" className="block text-sm font-bold text-gray-300 mb-2">
                     選擇用戶類型:
                 </label>
                 <select
@@ -27,15 +27,14 @@ function LoginPage({ onLogin }) {
                     name="user_type"
                     value={type}
                     onChange={(e) => setType(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 bg-gray-100"
+                    className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 mb-2 bg-gray-700 text-gray-200"
                 >
-                    <option value="member">會員</option>
-                    <option value="fitnessInstructor">教練</option>
+                    <option value="activityManager">管理員</option>
                 </select>
 
                 {/* 帳號輸入欄 */}
                 <div className="mb-4">
-                    <label htmlFor="username" className="block text-sm font-bold text-gray-700 mb-2">
+                    <label htmlFor="username" className="block text-sm font-bold text-gray-300 mb-2">
                         帳號：
                     </label>
                     <input
@@ -44,12 +43,12 @@ function LoginPage({ onLogin }) {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
-                        className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 {/* 密碼輸入欄 */}
                 <div className="mb-6">
-                    <label htmlFor="password" className="block text-sm font-bold text-gray-700 mb-2">
+                    <label htmlFor="password" className="block text-sm font-bold text-gray-300 mb-2">
                         密碼：
                     </label>
                     <input
@@ -58,7 +57,7 @@ function LoginPage({ onLogin }) {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
-                        className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full p-3 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 {/* 登入按鈕 */}
@@ -68,14 +67,6 @@ function LoginPage({ onLogin }) {
                 >
                     登入
                 </button>
-                <div className="flex justify-evenly items-center bg-gray-100 p-4 ">
-                    <button className="w-1/3  text-black py-2 px-4 rounded-lg hover:bg-blue-600 transition">
-                        會員註冊
-                    </button>
-                    <button className="w-1/3  text-black py-2 px-4 rounded-lg hover:bg-gray-600 transition">
-                        忘記密碼
-                    </button>
-                </div>
             </form>
         </div>
     );

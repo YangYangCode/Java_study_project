@@ -37,8 +37,8 @@ public class Test_CRUD_ActivityScheduleService {
 		ActivityManagerDTO AM_1 = new ActivityManagerDTO();
 		AM_1.setId(1L);
 		AM_1.setName("陳Manager");
-		AM_1.setUsername("manager");
-		AM_1.setPassword("1234");
+//		AM_1.setUsername("manager");
+//		AM_1.setPassword("1234");
 		activitySchedule.setActivityManager(AM_1);
 		
 		ClassRoomDTO classRoom_1 = new ClassRoomDTO();

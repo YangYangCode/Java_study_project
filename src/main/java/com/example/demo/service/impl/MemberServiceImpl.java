@@ -30,6 +30,13 @@ public class MemberServiceImpl implements MemberService{
 	private ActivityScheduleRepository activityScheduleRepository;
 	
 	
+	@Override
+	public List<MemberDTO> getAllMembers() {
+		return memberRepository.findAll().stream()
+				.map(member -> modelMapper.map(member, MemberDTO.class))
+				.collect(Collectors.toList());		
+	}
+	
 	@Override	// 找到指定會員
 	public Optional<MemberDTO> findMemberById(Long id) {
 	    Optional<Member> optMember = memberRepository.findById(id);
@@ -93,6 +100,27 @@ public class MemberServiceImpl implements MemberService{
 	    memberRepository.save(member);
 //	    return findActivityScheduleByMember(memberId);
 	}
+
+	@Override
+	public void cancelActivitySchedule(Long memberId, Long activityScheduleId) {
+		memberRepository.deleteSignAS(memberId, activityScheduleId);
+		
+//		// find entity by id
+//	    Member member = memberRepository.findById(memberId)
+//	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
+//	    ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
+//				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
+//	    member.getActivitySchedules().
+//	    remove(activitySchedule);
+////	    member.setActivitySchedules(member.getActivitySchedules().remove(activitySchedule));
+////	    activityScheduleRepository.save(activitySchedule);
+	    
+//	    memberRepository.save(member);
+
+	    
+	}
+
+
 	
 	
 //	@Override

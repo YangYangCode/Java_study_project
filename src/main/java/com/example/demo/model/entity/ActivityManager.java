@@ -3,6 +3,8 @@ package com.example.demo.model.entity;
 import java.util.List;
 
 import com.example.demo.model.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -29,6 +31,8 @@ public class ActivityManager extends User {
 	@Column(nullable = false)
 	private String name;		// 管理者姓名
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@JsonIgnore
+	@OneToMany(mappedBy = "activityManager", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
 	private List<ActivitySchedule> activitySchedules;
 }

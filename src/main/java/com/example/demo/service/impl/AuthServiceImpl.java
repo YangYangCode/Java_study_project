@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
-import com.example.demo.model.dto.UserCretDTO;
 import com.example.demo.model.dto.MemberDTO;
 import com.example.demo.model.entity.ActivityManager;
 import com.example.demo.model.entity.FitnessInstructor;

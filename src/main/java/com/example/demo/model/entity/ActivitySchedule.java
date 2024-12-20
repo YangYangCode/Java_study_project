@@ -52,12 +52,15 @@ public class ActivitySchedule {
 //	關聯
 	
 	@ManyToOne
+	@JsonManagedReference	// 管理方
 	private ActivityManager activityManager;
 			
 	@ManyToOne
+	@JsonManagedReference	// 管理方
 	private ClassRoom classRoom ;
 	
 	@ManyToOne
+	@JsonManagedReference	// 管理方
 	private ClassType classType ;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

@@ -8,4 +8,5 @@ import com.example.demo.model.entity.ClassType;
 @Repository		// 課程項目
 public interface ClassTypeRepository extends JpaRepository<ClassType, Long> {
 
+	
 }

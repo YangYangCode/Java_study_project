@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import BookingForm from "../component/BookingForm";
-import { get_AS_list_by_member_id, get_membe_by_id } from "../service/Service_AS";
+import BookingForm from "../../component/BookingForm";
+import { get_AS_list_by_member_id, get_membe_by_id } from "../../service/Service_AS";
 
 
 function Member() {
@@ -31,7 +31,7 @@ function Member() {
                 <br></br>
                 <br></br>
                 <div>
-                    <h1 className="text-5xl font-bold mb-4 text-center">教練時刻表</h1>
+                    <h1 className="text-5xl font-bold mb-4 text-center">每周行事曆</h1>
                     <BookingForm />
                 </div>
             </div>

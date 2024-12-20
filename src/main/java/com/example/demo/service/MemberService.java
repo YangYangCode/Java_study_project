@@ -2,12 +2,16 @@ package com.example.demo.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
+
 
 import com.example.demo.model.dto.ActivityScheduleDTO;
+
 import com.example.demo.model.dto.MemberDTO;
 
 public interface MemberService {
+	// 取得所有會員
+	List<MemberDTO> getAllMembers();
+
 	// 查詢單一會員
 	Optional<MemberDTO> findMemberById(Long id);
 	
@@ -25,6 +29,9 @@ public interface MemberService {
 	
 	// 報名活動
 	void signActivitySchedule(Long memberId, Long activityScheduleId);
+	
+	// 取消報名
+	void cancelActivitySchedule(Long memberId, Long activityScheduleId);
 	
 	
 //	// 新增活動

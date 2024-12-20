@@ -43,6 +43,12 @@ public class MemberController {
 	@Autowired 
 	private MemberService memberService;
 	
+	// 取得所有會員
+	@GetMapping
+	public ResponseEntity<ApiResponse<List<MemberDTO>>> getAllMember(){
+		return ResponseEntity.ok(ApiResponse.success("獲取會員清單成功", memberService.getAllMembers()));
+	}
+	
 	// 獲取特定會員
 	@GetMapping("/{id}")
 	public ResponseEntity<ApiResponse<MemberDTO>> getMember(@PathVariable Long id) {
@@ -64,6 +70,13 @@ public class MemberController {
 	public ResponseEntity<ApiResponse<Void>> signActivity(@PathVariable Long memberId, @PathVariable Long ASId){
 		memberService.signActivitySchedule(memberId, ASId);
 		return ResponseEntity.ok(ApiResponse.success("報名成功", null));
+	}
+	
+	// 取消報名
+	@PostMapping("/cancel/{memberId}/{ASId}")
+	public ResponseEntity<ApiResponse<Void>> cancelActivity(@PathVariable Long memberId, @PathVariable Long ASId){
+		memberService.cancelActivitySchedule(memberId, ASId);
+		return ResponseEntity.ok(ApiResponse.success("取消成功", null));
 	}
 
 	// 新增會員

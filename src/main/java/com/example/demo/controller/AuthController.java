@@ -17,7 +17,7 @@ import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
 import com.example.demo.model.dto.LoginRequest;
 import com.example.demo.model.dto.MemberDTO;
-import com.example.demo.model.dto.UserCretDTO;
+import com.example.demo.model.dto.UserCret;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.AuthService;
 
@@ -32,30 +32,48 @@ public class AuthController {
 	private AuthService authService;
 
 	@PostMapping("/login")
-	public ResponseEntity<ApiResponse<UserCretDTO>> login(@RequestBody LoginRequest request, HttpSession session) {
-		switch (type) {
+	public ResponseEntity<ApiResponse<UserCret>> login(@RequestBody LoginRequest request, HttpSession session) {
+//		System.out.println("username: "+request.getUsername());
+//		System.out.println("password: "+request.getPassword());
+//		System.out.println("type: "+request.getType());
+		
+		UserCret userCret = new UserCret();
+		
+		switch (request.getType()) {
 		case "member":
-			Optional<MemberDTO> optMemberDTO = authService.memberLogin(username, password);
+			Optional<MemberDTO> optMemberDTO = authService.memberLogin(request.getUsername(), request.getPassword());
 			if (optMemberDTO.isEmpty()) {
 				return ResponseEntity.status(404).body(ApiResponse.error(404, "登入失敗"));
 			}
-			session.setAttribute("memberDTO", optMemberDTO.get());
+			
+			userCret.setId(optMemberDTO.get().getId());
+			userCret.setType(request.getType());
+			
+			session.setAttribute("userCret", userCret);
 			return ResponseEntity.ok(ApiResponse.success("登入成功", null));
 
-		case "fitnessInstructors":
-			Optional<FitnessInstructorDTO> optFitnessInstructor = authService.fitnLogin(username, password);
+		case "fitnessInstructor":
+			Optional<FitnessInstructorDTO> optFitnessInstructor = authService.fitnLogin(request.getUsername(), request.getPassword());
 			if (optFitnessInstructor.isEmpty()) {
 				return ResponseEntity.status(404).body(ApiResponse.error(404, "登入失敗"));
 			}
-			session.setAttribute("memberDTO", optFitnessInstructor.get());
+			
+			userCret.setId(optFitnessInstructor.get().getId());
+			userCret.setType(request.getType());
+			
+			session.setAttribute("userCret", userCret);
 			return ResponseEntity.ok(ApiResponse.success("登入成功", null));
 
 		case "activityManager":
-			Optional<ActivityManagerDTO> optActivityManager = authService.managerLogin(username, password);
+			Optional<ActivityManagerDTO> optActivityManager = authService.managerLogin(request.getUsername(), request.getPassword());
 			if (optActivityManager.isEmpty()) {
 				return ResponseEntity.status(404).body(ApiResponse.error(404, "登入失敗"));
 			}
-			session.setAttribute("memberDTO", optActivityManager.get());
+			
+			userCret.setId(optActivityManager.get().getId());
+			userCret.setType(request.getType());
+			
+			session.setAttribute("userCret", userCret);
 			return ResponseEntity.ok(ApiResponse.success("登入成功", null));
 
 		}
@@ -66,6 +84,18 @@ public class AuthController {
 	public ResponseEntity<ApiResponse<String>> logout(HttpSession session) {
 		session.invalidate();
 		return ResponseEntity.ok(ApiResponse.success("登出結果", "登出成功"));
+	}
+	
+	@GetMapping("/isLoggedIn")
+	public ResponseEntity<ApiResponse<UserCret>> isLoggedIn(HttpSession session){
+		UserCret userCret = (UserCret)session.getAttribute("userCret");
+		if(userCret == null) {
+			UserCret falseUserCret = new UserCret();
+			falseUserCret.setIsLoggedIn(false);
+			return ResponseEntity.ok(ApiResponse.success("無登入資訊", falseUserCret));
+		}
+		userCret.setIsLoggedIn(true);
+		return ResponseEntity.ok(ApiResponse.success("用戶已登入", userCret));
 	}
 
 	

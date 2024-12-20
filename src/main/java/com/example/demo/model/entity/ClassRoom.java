@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -49,7 +50,8 @@ public class ClassRoom {
 	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
 	private List<ActivitySchedule> activitySchedules;
 	
 	@ManyToMany(fetch = FetchType.EAGER)

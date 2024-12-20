@@ -15,7 +15,7 @@ import com.example.demo.model.entity.ClassType;
 import com.example.demo.model.entity.FitnesslnstructorBookingForm;
 
 @Data
-public class FitnessInstructorDTO extends UserCretDTO {
+public class FitnessInstructorDTO {
 	private Long id;		// *教練邊號
 	private String name;		// 教練姓名
 	

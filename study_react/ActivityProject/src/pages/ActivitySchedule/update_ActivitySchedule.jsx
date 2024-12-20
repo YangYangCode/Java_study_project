@@ -13,8 +13,6 @@ const updateAS = ({ }) => {
     const { item } = location.state || {};  // 这里是你通过 state 传递的活动信息
 
 
-
-
     // 定義狀態來儲存從 API 獲得的活動資料
     const [classTypes, setClassTypes] = useState([]);
     const [classRooms, setClassRooms] = useState([]);
@@ -193,22 +191,21 @@ const updateAS = ({ }) => {
                         </Select>
                     </FormControl>
 
-                    {/* 在 Autocomplete component 中直接使用 fitnessInstructors */}
                     <Autocomplete
                         multiple
                         id="fitnessInstructors"
-                        options={fitnessInstructors} // 直接使用教練列表
-                        getOptionLabel={(option) => option.username} // 顯示教練名稱 (假設 `username` 是名稱字段)
-                        value={formASInput.fitnessInstructors} // 確保這是陣列
+                        options={fitnessInstructors} // 教練列表數據
+                        getOptionLabel={(option) => option.name || "未知教練"} // 確保返回教練名稱字串
+                        value={formASInput.fitnessInstructors} // 已選教練
                         onChange={(event, newValue) => {
                             setFormASInput({ ...formASInput, fitnessInstructors: newValue }); // 更新選中的教練
                         }}
                         renderTags={(value, getTagProps) =>
                             value.map((option, index) => (
                                 <Chip
-                                    key={option.id}  // 將 key 放到 Chip 元素上
-                                    label={option.username}  // 顯示教練名稱
-                                    {...getTagProps({ index })}  // 其他屬性
+                                    key={option.id || `option-${index}`} // 確保唯一性
+                                    label={option.name || "未知教練"}
+                                    {...getTagProps({ index })}
                                 />
                             ))
                         }

@@ -97,6 +97,8 @@ const AddAS = ({ }) => {
     // 計算今天和60天後的日期
     const today = new Date();
     const maxDate = new Date();
+    const minDate = new Date();
+    minDate.setDate(today.getDate() + 1);
     maxDate.setDate(today.getDate() + 60);
 
     // 將日期格式化為 YYYY-MM-DD
@@ -126,7 +128,20 @@ const AddAS = ({ }) => {
         try {
             console.log(formattedData);
             const response = await post_create_activitySchedule(formattedData);
+
             console.log(response);
+            if (response.message === "新增成功") {
+                alert("活動新增成功");
+
+                window.location.href = "/manageractivitylist";
+                // navigate("/manageractivitylist", {
+                //     state: { isLoggedIn, userCret }  // 传递数据
+                // });
+
+            } else {
+                alert("活動新增失敗");
+            }
+
         } catch (error) {
             console.error("Error creating activity schedule:", error);
         }
@@ -153,7 +168,7 @@ const AddAS = ({ }) => {
                         onChange={(event) => setFormASInput({ ...formASInput, date: event.target.value })}
                         InputLabelProps={{ shrink: true }}
                         inputProps={{
-                            min: formatDate(today), // 最早日期
+                            min: formatDate(minDate), // 最早日期
                             max: formatDate(maxDate) // 最晚日期
                         }}
                         fullWidth
@@ -181,22 +196,21 @@ const AddAS = ({ }) => {
                         </Select>
                     </FormControl>
 
-                    {/* 在 Autocomplete component 中直接使用 fitnessInstructors */}
                     <Autocomplete
                         multiple
                         id="fitnessInstructors"
-                        options={fitnessInstructors} // 直接使用教練列表
-                        getOptionLabel={(option) => option.username} // 顯示教練名稱 (假設 `username` 是名稱字段)
-                        value={formASInput.fitnessInstructors} // 確保這是陣列
+                        options={fitnessInstructors} // 教練列表數據
+                        getOptionLabel={(option) => option.name || "未知教練"} // 確保返回教練名稱字串
+                        value={formASInput.fitnessInstructors} // 已選教練
                         onChange={(event, newValue) => {
                             setFormASInput({ ...formASInput, fitnessInstructors: newValue }); // 更新選中的教練
                         }}
                         renderTags={(value, getTagProps) =>
                             value.map((option, index) => (
                                 <Chip
-                                    key={option.id}  // 將 key 放到 Chip 元素上
-                                    label={option.username}  // 顯示教練名稱
-                                    {...getTagProps({ index })}  // 其他屬性
+                                    key={option.id || `option-${index}`} // 確保唯一性
+                                    label={option.name || "未知教練"}
+                                    {...getTagProps({ index })}
                                 />
                             ))
                         }

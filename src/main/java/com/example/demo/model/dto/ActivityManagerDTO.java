@@ -8,7 +8,7 @@ import com.example.demo.model.entity.ActivitySchedule;
 import lombok.Data;
 
 @Data
-public class ActivityManagerDTO extends UserCretDTO {
+public class ActivityManagerDTO {
 
 	private Long id;		// *邊號
 	private String name;		// 管理者姓名

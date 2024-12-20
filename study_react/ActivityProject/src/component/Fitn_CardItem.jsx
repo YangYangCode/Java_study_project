@@ -31,7 +31,7 @@ const CardItem = ({ data }) => {
                     </Typography>
                 </CardContent>
                 <CardActions sx={{ color: 'text.secondary', fontSize: 20 }} className="flex justify-center">
-                    <Button size="small" sx={{ fontSize: 20 }}>教練預約表</Button>
+                    <Button size="small" sx={{ fontSize: 20 }}>教練資訊</Button>
                 </CardActions>
             </Card>
         </li>

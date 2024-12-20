@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ActivityScheduleDataTable from "../component/AS_DataTable";
-import { get_all_activitySchedule } from "../service/Service_AS";
+import ActivityScheduleDataTable from "../../component/AS_DataTable";
+import { get_all_activitySchedule } from "../../service/Service_AS";
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
 
@@ -39,10 +39,16 @@ function ManagerActivityList() {
     return (
 
         <div>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
             {/* DataTable */}
             <div>
                 <h1 className="text-6xl text-center font-semibold mb-2">活動清單</h1>
-                <ActivityScheduleDataTable activities={activities} handIsModalopen={handIsModalopen} setModalContent={setModalContent} />
+                <ActivityScheduleDataTable activities={activities} handIsModalopen={handIsModalopen} />
             </div>
 
             {isModalopen && (

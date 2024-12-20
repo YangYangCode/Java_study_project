@@ -8,6 +8,68 @@ const api = axios.create({
     }
 })
 
+const API_BASE_URL = "http://localhost:9001";
+
+/**
+ * 登入
+ * @param {string} username 用戶名
+ * @param {string} password 密碼\
+ * @param {string} type 類別
+ * @returns {Promise<Object>} 包含登入結果的 API 回應
+ */
+export const login = async (username, password, type) => {
+    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({ username, password, type }),
+    });
+
+    if (!response.ok) {
+        throw new Error("登入失敗");
+    }
+
+    return response.json();
+};
+
+/**
+ * 登出
+ * @returns {Promise<Object>} 包含登出結果的 API 回應
+ */
+export const logout = async () => {
+    const response = await fetch(`${API_BASE_URL}/auth/logout`, {
+        method: "GET",
+        credentials: "include",
+    });
+
+    if (!response.ok) {
+        throw new Error("登出失敗");
+    }
+
+    return response.json();
+};
+
+/**
+ * 檢查登入狀態
+ * @returns {Promise<Object>} 包含登入狀態的 API 回應
+ */
+export const checkLoginStatus = async () => {
+    const response = await fetch(`${API_BASE_URL}/auth/isLoggedIn`, {
+        method: "GET",
+        credentials: "include",
+    });
+
+    if (!response.ok) {
+        throw new Error("無法取得登入狀態");
+    }
+
+    return response.json();
+};
+
+
+
 // ApiClient.interceptors.request.use(
 //     (confug) => {
 
@@ -19,36 +81,56 @@ const api = axios.create({
 // )
 
 
-
 // login    // login    // login    // login    // login    
-export const login = async (username, password, type) => {
-    try {
-        const login = await api.post(`/auth/login`, { "username": username, "password": password, "type": type })
-    } catch (error) {
-        console.log("Error login: ", error);
+// export const login = async (username, password, type) => {
+//     try {                                                                                                           // 必須攜帶憑證
+//         const login = await api.post(`/auth/login`, { "username": username, "password": password, "type": type }, { withCredentials: true } )
+//         console.log(login.data);
+//     } catch (error) {
+//         console.log("Error login: ", error);
 
-    }
-}
+//     }
+// }
 
-export const logout = async () => {
-    try {
-        const logout = await api.get(`/auth/logout`)
-    } catch (error) {
-        console.log("Error logout: ", error);
-
-    }
-}
+// export const logout = async () => {
+//     try {
+//         const logout = await api.get(`/auth/logout`)
+//         console.log(logout.data);
+//     } catch (error) {
+//         console.log("Error logout: ", error);
+//     }
+// }
 
 
 
 // member    // member    // member    // member    // member
 export const membe_signAS = async (memberId, ASId) => {    // 會員參與活動
     try {
-        const signAS = await api.post(`/sign/${memberId}/${ASId}`);
+        const signAS = await api.post(`/member/sign/${memberId}/${ASId}`);
         console.log(signAS.data);
-        return signAS.data.data;
+        return signAS.data;
     } catch (error) {
         console.log("Error signAS: ", error);
+    }
+}
+
+export const membe_cancelAS = async (memberId, ASId) => {    // 會員取消活動
+    try {
+        const cancelAS = await api.post(`/member/cancel/${memberId}/${ASId}`);
+        console.log(cancelAS.data);
+        return cancelAS.data;
+    } catch (error) {
+        console.log("Error cancelAS: ", error);
+    }
+}
+
+export const get_all_member = async () => {    // 取得所有會員
+    try {
+        const memberList = await api.get(`/member`);
+        console.log(memberList.data);
+        return memberList.data.data;
+    } catch (error) {
+        console.log("Error getMemberList: ", error);
     }
 }
 

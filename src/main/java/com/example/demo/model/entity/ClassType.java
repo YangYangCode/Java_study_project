@@ -41,7 +41,8 @@ public class ClassType {
 	private String name;		// 課程名稱
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "classType", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
 	private List<ActivitySchedule> activitySchedules;
 	
 	@ManyToMany(mappedBy = "classTypes", fetch = FetchType.EAGER)

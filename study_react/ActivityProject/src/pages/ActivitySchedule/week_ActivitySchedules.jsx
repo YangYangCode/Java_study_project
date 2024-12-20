@@ -1,24 +1,37 @@
 import React, { useState, useEffect } from "react";
-import { get_all_activitySchedule } from "../../service/Service_AS";
+import { get_all_activitySchedule, get_AS_list_by_member_id } from "../../service/Service_AS";
 import CardItem from "../../component/AS_CardItem";
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle } from "@mui/material";
 
-function ActivitySchedules() {
+function ActivitySchedules({ isLoggedIn, userCret }) {
 
-    // 定義狀態來儲存從 API 獲得的活動資料
-    const [activities, setActivities] = useState([]);
+    const [activities, setActivities] = useState([]);       // 取得活動表
+    const [signedAS, setSignedAS] = useState([]);           // 取得指定會員活動表
+
+    const ASListData = async () => {
+        try {
+            const ASList = await get_all_activitySchedule();
+            setActivities(ASList);  // 將活動資料儲存進狀態
+        } catch (error) {
+            console.error("Error getAllAS:", error);  // 若有錯誤會在這裡處理
+        }
+    };
+
+    const SignASListData = async () => {
+        if (!userCret?.id) return; // 如果 userCret.id 不存在，跳過請求
+        try {
+            const ASList = await get_AS_list_by_member_id(userCret.id);
+            setSignedAS(ASList); // 儲存資料到狀態
+        } catch (error) {
+            console.error("Error getMemberSignedASList:", error); // 處理錯誤
+        }
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const ASList = await get_all_activitySchedule();
-                setActivities(ASList);  // 將活動資料儲存進狀態
-            } catch (error) {
-                console.error("Error getAllAS:", error);  // 若有錯誤會在這裡處理
-            }
-        };
-        fetchData();  // 呼叫 async 函數來取得資料
-        // console.log(ActivitiesWithWeekday);  // 注意：ActivitiesWithWeekday 此時不會包含資料
-    }, []);  // 空陣列表示只在組件首次渲染時觸發一次
+        ASListData();  
+        SignASListData(); 
+    }, []);  
+
 
     const weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"];        // 一周的日期映射
 
@@ -31,9 +44,18 @@ function ActivitySchedules() {
         return {
             ...activity,
             weekday: weekdayName  // 新增星期屬性
-
         };
     });
+
+    // Modal
+    const [isModalopen, setIsModalopen] = useState(false);  // 控制模態視窗開關
+    const [modalContent, setModalContent] = useState('');  // 儲存模態視窗內容
+    // 開啟模態視窗
+    const handIsModalopen = (content) => {
+        // console.log(content);
+        setModalContent(content);
+        setIsModalopen(true);
+    };
 
 
     return (
@@ -58,6 +80,28 @@ function ActivitySchedules() {
             </div>
             <br />
 
+            {isModalopen && (
+                <Dialog open={isModalopen} onClose={() => setIsModalopen(false)}
+                    fullWidth maxWidth="md">
+                    <Box className="bg-white p-6 rounded shadow-lg text-center">
+                        <DialogContent>
+                            <Box>
+                                <div>
+                                    <h1 className="2xl px-4 py-2">活動資訊</h1>
+                                    <br></br>
+                                    <p>{modalContent}</p>
+                                </div>
+                            </Box>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={() => setIsModalopen(false)} color="primary" variant="contained" >
+                                關閉
+                            </Button>
+                        </DialogActions>
+                    </Box>
+                </Dialog>
+            )}
+
             <div className="min-h-screen flex justify-center">
                 <div className="w-[90vw] flex justify-center space-y-6">
                     <div className="flex flex-wrap gap-6">
@@ -73,7 +117,9 @@ function ActivitySchedules() {
                                         {/* 如果有活動則垂直排列活動卡片，否則顯示「今日暫無活動」 */}
                                         {dayActivities.length > 0 ? (
                                             dayActivities.map((activity, index) => (
-                                                <CardItem key={index} activity={activity} />
+                                                <CardItem key={index} activity={activity}
+                                                    isLoggedIn={isLoggedIn} userCret={userCret} signedAS={signedAS} 
+                                                    handIsModalopen={handIsModalopen} SignASListData={SignASListData} />
                                             ))
                                         ) : (
                                             <span className="text-gray-500">今日暫無活動</span>

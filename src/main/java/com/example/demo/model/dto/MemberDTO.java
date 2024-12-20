@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-public class MemberDTO extends UserCretDTO {
+public class MemberDTO {
 	private Long id;	// *會員邊號
 	private String name;	// 會員名稱
 	

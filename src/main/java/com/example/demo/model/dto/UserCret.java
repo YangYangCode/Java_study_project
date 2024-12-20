@@ -3,9 +3,10 @@ package com.example.demo.model.dto;
 import lombok.Data;
 
 @Data
-public abstract class UserCretDTO {
+public class UserCret {
 	
 	private Long id;
 	private String type;
+	private Boolean isLoggedIn;
 	
 }

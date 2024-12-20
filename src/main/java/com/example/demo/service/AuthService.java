@@ -5,7 +5,6 @@ import java.util.Optional;
 import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
 import com.example.demo.model.dto.MemberDTO;
-import com.example.demo.model.dto.UserCretDTO;
 
 // 使用者帳號密碼管理
 public interface AuthService {
