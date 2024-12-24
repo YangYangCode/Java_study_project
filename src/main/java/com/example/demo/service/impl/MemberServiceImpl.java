@@ -119,50 +119,6 @@ public class MemberServiceImpl implements MemberService{
 
 	    
 	}
-
-
-	
-	
-//	@Override
-//	public Set<Long> addActivitySchedule(Long memberId, Long activityScheduleId) {
-//		// find entity by id
-//		Member member = memberRepository.findById(memberId)
-//				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
-//		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
-//				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-//		// add activitySchedule
-//		member.getActivityScheduleIds().add(activitySchedule.getId());
-//		// save member
-//		memberRepository.save(member);
-//		return member.getActivityScheduleIds();
-//	}
-//
-//	@Override
-//	public Set<Long> deleteActivitySchedule(Long memberId, Long activityScheduleId) {
-//		// find entity by id
-//		Member member = memberRepository.findById(memberId)
-//				.orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
-//		// delete activitySchedule
-//		member.getActivityScheduleIds().remove(activityScheduleId);
-//		memberRepository.save(member);
-//		return member.getActivityScheduleIds();
-//	}
-//
-//	@Override
-//	public List<ActivityScheduleDTO> findActivityScheduleByMember(Long memberId) {
-//	    // find entity by id
-//	    Member member = memberRepository.findById(memberId)
-//	            .orElseThrow(() -> new RuntimeException(String.format("member, id: %d 不存在。", memberId)));
-//	    // member -> memberASList
-//	    List<ActivityScheduleDTO> ASList = member.getActivityScheduleIds().stream()
-//	            .map(ASId -> {
-//	                ActivitySchedule activitySchedule = activityScheduleRepository.findById(ASId)
-//	                        .orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", ASId)));
-//	                return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
-//	            })
-//	            .collect(Collectors.toList());
-//	    return ASList;
-//	}
 	
 	
 	

@@ -63,7 +63,7 @@ public class ActivitySchedule {
 	@JsonManagedReference	// 管理方
 	private ClassType classType ;
 	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "fitness_instructor_id"))
 	@JsonManagedReference	// 管理方
 	private Set<FitnessInstructor> fitnessInstructors;

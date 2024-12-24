@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.example.demo.model.dto.booking.OneOfBooking;
 import com.example.demo.model.entity.ActivitySchedule;
-import com.example.demo.model.dto.BookingFormDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,5 +16,5 @@ public class MemberDTO {
 	private String name;	// 會員名稱
 	
 	private Set<ActivityScheduleDTO> activitySchedules; // 參加的活動
-	private BookingFormDTO BookingForm;
+	private OneOfBooking BookingForm;
 }

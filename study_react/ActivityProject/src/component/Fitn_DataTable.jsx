@@ -39,13 +39,12 @@ const FitnDataTable = ({ fitnessInstructors }) => {
     return (
         <div className="min-h-screen flex justify-center">
             <div className="w-[90vw]">
-                <Link
+                {/* <Link
                     to="/addfitnessInstructor"
                     className="bg-green-500 text-white px-4 py-2 mr-2 rounded-md hover:bg-green-600 hover:underline inline-block text-center"
                 >
                     新增教練
-                </Link>
-
+                </Link> */}
                 <table id="example" className="display border w-full table-auto">
                     <thead className='border-r border-gray-900'>
                         <tr>

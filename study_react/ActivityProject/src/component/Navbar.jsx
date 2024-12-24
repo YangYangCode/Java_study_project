@@ -107,7 +107,7 @@ function Navbar({ isLoggedIn, onLogout, userCret }) {
                         </Link>
                     </li>
                 )}
-                {userCret.type === "manager" && (
+                {userCret.type === "activityManager" && (
                     <li>
                         <Link to="/fortest" className="text-white hover:underline">
                             修改中

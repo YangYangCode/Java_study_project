@@ -18,6 +18,7 @@ import com.example.demo.model.dto.ActivityScheduleDTO;
 import com.example.demo.model.dto.ClassRoomDTO;
 import com.example.demo.model.dto.ClassTypeDTO;
 import com.example.demo.model.dto.MemberDTO;
+import com.example.demo.model.dto.booking.OneOfBooking;
 import com.example.demo.model.entity.ActivityManager;
 import com.example.demo.model.entity.ActivitySchedule;
 import com.example.demo.model.entity.ClassRoom;
@@ -53,6 +54,9 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	
 	@Autowired
 	private FitnessInstructorService fitnessInstructorService;
+	
+	@Autowired
+	private BookingServiceImpl bookingServiceImpl;
 
 	
 	@Override	// 取得所有活動
@@ -124,6 +128,24 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 		activitySchedule =  activityScheduleRepository.save(activitySchedule);
 		
 	// 預約表變更
+		// 製作共用 OneOfBooking
+		OneOfBooking oneOfBooking = new OneOfBooking();
+		oneOfBooking.setDate(activitySchedule.getDate());
+		oneOfBooking.setTimePeriod(activitySchedule.getClassTime());
+		
+		// 教練預約新增
+		FitnList.stream().forEach(fitn -> {
+			OneOfBooking fitnOfBooking = oneOfBooking;
+			fitnOfBooking.setType("fitnessInstructor");
+			fitnOfBooking.setTypeId(fitn.getId());
+			bookingServiceImpl.addBooking(fitnOfBooking);
+		});
+		
+		// 教室預約新增
+		OneOfBooking roomOfBooking = oneOfBooking;
+		roomOfBooking.setType("classRoom");
+		roomOfBooking.setTypeId(classRoom.getId());
+		bookingServiceImpl.addBooking(roomOfBooking);
 		
 		// return entity -> DTO
 		return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
@@ -158,21 +180,23 @@ public class ActivityScheduleServiceImpl implements ActivityScheduleService{
 	// 儲存活動		
 		activityScheduleRepository.save(activitySchedule);
 
-		
 	// 預約表變更
 		
 		return modelMapper.map(activitySchedule, ActivityScheduleDTO.class);
 	}
 
 	
+	@Transactional
 	@Override	// 刪除活動
 	public void deleteActivitySchedule(Long activityScheduleId) {
 		// 使用 id 找到 entity
 		ActivitySchedule activitySchedule = activityScheduleRepository.findById(activityScheduleId)
 				.orElseThrow(() -> new RuntimeException(String.format("activitySchedule, id: %d 不存在。", activityScheduleId)));
-
-	// 預約表變更
-		
+//		// 刪除教練關聯
+//		activityScheduleRepository.deleteASId_allFitnId(activityScheduleId);
+		// 刪除會員關聯
+		activityScheduleRepository.deleteASId_allMemberId(activityScheduleId);
+		// 刪除活動
 		activityScheduleRepository.deleteById(activityScheduleId);
 	}
 	

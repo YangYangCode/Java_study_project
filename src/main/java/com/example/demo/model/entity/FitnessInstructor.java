@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.example.demo.model.User;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -21,6 +22,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.MapKeyColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,10 +41,6 @@ public class FitnessInstructor extends User {
 	@Column(nullable = false)
 	private String name;		// 教練姓名
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "fitnesslnstructor_booking_form_id")
-	private FitnesslnstructorBookingForm fitnesslnstructorBookingForm;		// 預約表
-	
 	@ManyToMany(mappedBy = "fitnessInstructors", fetch = FetchType.EAGER)
 	@JsonBackReference	// 被管理方
 	private Set<ActivitySchedule> activitySchedules; 
@@ -52,7 +50,12 @@ public class FitnessInstructor extends User {
 	@JsonManagedReference	// 管理方
 	private Set<ClassType> classTypes; 	// 可帶課程類型
 	
-
+	@JsonIgnore
+	@OneToMany(mappedBy = "fitnessInstructor", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
+	private Set<FitnessInstructorBookingForm> fitnesslnstructorBookingForm;		// 預約表
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

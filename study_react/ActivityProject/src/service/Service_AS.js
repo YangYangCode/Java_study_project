@@ -1,12 +1,5 @@
 import axios from "axios";
 
-// 建立 Axios 實利  // 這會再請求加上 token
-const api = axios.create({
-    baseURL: "http://localhost:9001",
-    headers: {
-        "Content-Type": "application/json",
-    }
-})
 
 const API_BASE_URL = "http://localhost:9001";
 
@@ -81,26 +74,15 @@ export const checkLoginStatus = async () => {
 // )
 
 
-// login    // login    // login    // login    // login    
-// export const login = async (username, password, type) => {
-//     try {                                                                                                           // 必須攜帶憑證
-//         const login = await api.post(`/auth/login`, { "username": username, "password": password, "type": type }, { withCredentials: true } )
-//         console.log(login.data);
-//     } catch (error) {
-//         console.log("Error login: ", error);
 
-//     }
-// }
 
-// export const logout = async () => {
-//     try {
-//         const logout = await api.get(`/auth/logout`)
-//         console.log(logout.data);
-//     } catch (error) {
-//         console.log("Error logout: ", error);
-//     }
-// }
-
+// 建立 Axios 實利  // 這會再請求加上 token
+const api = axios.create({
+    baseURL: "http://localhost:9001",
+    headers: {
+        "Content-Type": "application/json",
+    }
+})
 
 
 // member    // member    // member    // member    // member
@@ -508,6 +490,43 @@ export const delete_fitnessInstructor_by_id = async (fitnessInstructorId) => {  
         console.log("Error deleteFitnessInstructor: ", error);
     }
 }
+
+
+
+
+
+
+// booking    // booking    // booking    // booking    // booking    
+export const get_all_bookingList_byType = async (ListOfBooking) => {    // 取得所有教練
+    try {
+        const allBooking = await api.get(`/booking/bookingList`, ListOfBooking);
+        console.log(allBooking.data);
+        return allBooking.data.data;
+    } catch (error) {
+        console.log("Error getAllBookingByType: ", error);
+    }
+}
+
+export const post_create_booking = async (OneOfBooking) => {    // 新增教練
+    try {
+        const response = await api.post(`/booking/addBooking`, OneOfBooking);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.log("Error createBooking: ", error);
+    }
+}
+
+export const delete_cancel_booking = async (OneOfBooking) => {    // 刪除教練
+    try {
+        const response = await api.delete(`/booking/cancelBooking${OneOfBooking}`);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        console.log("Error deleteBooking: ", error);
+    }
+}
+
 
 
 

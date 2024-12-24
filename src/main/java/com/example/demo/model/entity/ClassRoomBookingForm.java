@@ -1,11 +1,14 @@
 package com.example.demo.model.entity;
 
 import java.util.Date;
+import java.util.Objects;
 
 import com.example.demo.model.BookingForm;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,6 +20,29 @@ import lombok.NoArgsConstructor;
 @Entity	// 時間排表
 public class ClassRoomBookingForm extends BookingForm{
 	
-	@OneToOne(mappedBy = "classRoomBookingForm")
-	private ClassRoom ClassRoom;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JsonManagedReference	// 管理方
+	private ClassRoom classRoom;
+
+	@Override
+	public boolean equals(Object obj) {
+	    if (this == obj) return true;
+	    if (!super.equals(obj)) return false;
+	    if (getClass() != obj.getClass()) return false;
+	    ClassRoomBookingForm other = (ClassRoomBookingForm) obj;
+	    return Objects.equals(classRoom.getId(), other.classRoom.getId());
+	}
+
+	@Override
+	public int hashCode() {
+	    final int prime = 31;
+	    int result = super.hashCode();
+	    result = prime * result + Objects.hash(classRoom.getId());
+	    return result;
+	}
+
+	@Override
+	public String toString() {
+		return "ClassRoomBookingForm []";
+	}
 }

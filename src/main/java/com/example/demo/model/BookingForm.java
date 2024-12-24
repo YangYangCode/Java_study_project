@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -16,10 +17,7 @@ public abstract class BookingForm {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	// 時間排表
 	private Long id;
 	
-	private Date date;
+	private LocalDate date;
 	
 	private String timePeriod;
-	
-	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT true")
-	private Boolean booking; 
 }

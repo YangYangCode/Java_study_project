@@ -21,12 +21,14 @@ const ClassRoom = ({ classRooms }) => {
                             {/* 顯示 classRoom 的名稱 */}
                             <div>{classRoom?.name || '無名稱'}</div><br />
 
-                            {/* 顯示最大上限人數，若不存在則顯示 '無限制' */}
-                            <div>{classRoom?.classRoomSize ? `最大上限人數: ${classRoom.classRoomSize}` : '未設定'}</div><br />
+                            {/* 顯示最大上限人數，若不存在則顯示 '無限制'
+                            <div>{classRoom?.classRoomSize ? `最大上限人數: ${classRoom.classRoomSize}` : '未設定'}</div><br /> */}
                         </div>
 
                         {/* 時段按鈕 */}
                         <div className="col-span-10 bg-blue-200 p-4">
+                            <div>今日活動</div>
+                            改成放活動圖卡
                             <br />
                             {timePeriods?.map((period, periodIndex) => (
                                 <button key={periodIndex} className="bg-blue-400 mr-4">

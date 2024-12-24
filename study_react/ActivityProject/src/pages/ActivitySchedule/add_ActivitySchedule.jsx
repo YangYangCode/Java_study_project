@@ -196,6 +196,25 @@ const AddAS = ({ }) => {
                         </Select>
                     </FormControl>
 
+                    {/* 課程項目 */}
+                    <FormControl fullWidth>
+                        <InputLabel>課程項目</InputLabel>
+                        <Select
+                            name="classType"
+                            value={formASInput.classType}
+                            onChange={(event) => setFormASInput({ ...formASInput, classType: event.target.value })}
+                        >
+                            <MenuItem value="">
+                                <em>None</em>
+                            </MenuItem>
+                            {classTypes.map((type) => (
+                                <MenuItem key={type.id} value={type}>
+                                    {type.name}
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
+
                     <Autocomplete
                         multiple
                         id="fitnessInstructors"
@@ -223,25 +242,6 @@ const AddAS = ({ }) => {
                             />
                         )}
                     />
-
-                    {/* 課程項目 */}
-                    <FormControl fullWidth>
-                        <InputLabel>課程項目</InputLabel>
-                        <Select
-                            name="classType"
-                            value={formASInput.classType}
-                            onChange={(event) => setFormASInput({ ...formASInput, classType: event.target.value })}
-                        >
-                            <MenuItem value="">
-                                <em>None</em>
-                            </MenuItem>
-                            {classTypes.map((type) => (
-                                <MenuItem key={type.id} value={type}>
-                                    {type.name}
-                                </MenuItem>
-                            ))}
-                        </Select>
-                    </FormControl>
 
                     {/* 教室 */}
                     <FormControl fullWidth>

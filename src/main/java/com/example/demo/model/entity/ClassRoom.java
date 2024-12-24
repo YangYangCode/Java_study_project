@@ -1,3 +1,4 @@
+
 package com.example.demo.model.entity;
 
 import java.util.HashSet;
@@ -45,10 +46,6 @@ public class ClassRoom {
 	@Column(columnDefinition = "Integer default 0")
 	private Integer	classRoomSize;	// 大小(人數)
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "class_room_booking_form_id")
-	private ClassRoomBookingForm classRoomBookingForm;		// 預約表
-	
 	@JsonIgnore
 	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
 	@JsonBackReference	// 被管理方
@@ -59,5 +56,9 @@ public class ClassRoom {
 	@JsonManagedReference	// 管理方
 	private Set<ClassType> classTypes; 	// 可用課程類型
 
+	@JsonIgnore
+	@OneToMany(mappedBy = "classRoom", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
+	private Set<ClassRoomBookingForm> classRoomBookingForm;		// 預約表
 
 }

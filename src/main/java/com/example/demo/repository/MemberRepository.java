@@ -22,5 +22,10 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 	@Modifying
 	@Query(value = "DELETE FROM member_activity_schedules WHERE signed_members_id = :memberId AND activity_schedule_id = :activityScheduleId", nativeQuery = true)
 	void deleteSignAS(@Param("memberId") Long memberId, @Param("activityScheduleId") Long activityScheduleId);
+
+	@Transactional
+	@Modifying
+	@Query(value = "DELETE FROM member_activity_schedules WHERE signed_members_id = :memberId", nativeQuery = true)
+	void deleteMemberId_allASId(@Param("memberId") Long memberId);
 	
 }

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.dto.ActivityManagerDTO;
 import com.example.demo.model.dto.FitnessInstructorDTO;
-import com.example.demo.model.dto.LoginRequest;
 import com.example.demo.model.dto.MemberDTO;
-import com.example.demo.model.dto.UserCret;
+import com.example.demo.model.dto.user.LoginRequest;
+import com.example.demo.model.dto.user.UserCret;
 import com.example.demo.response.ApiResponse;
 import com.example.demo.service.AuthService;
 

@@ -6,6 +6,8 @@ import java.util.Objects;
 import java.util.Set;
 
 import com.example.demo.model.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
@@ -20,6 +22,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,13 +44,15 @@ public class Member extends User {
 	@Column(nullable = false)
 	private String name;	// 會員名稱
 	
-	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-	private MemberBookingForm memberBookingForm;
-	
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(inverseJoinColumns = @JoinColumn(name = "activity_schedule_id")) 
 	@JsonManagedReference	// 管理方
 	private Set<ActivitySchedule> activitySchedules; // 參加的活動
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "member", fetch = FetchType.EAGER)
+	@JsonBackReference	// 被管理方
+	private Set<MemberBookingForm> memberBookingForm;
 	
 
 }

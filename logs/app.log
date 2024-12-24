@@ -1,106 +1,479 @@
-2024-12-21T00:06:05.639+08:00  INFO 3144 --- [Java_study_project] [RMI TCP Connection(17)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2024-12-21T00:06:05.681+08:00  INFO 3144 --- [Java_study_project] [RMI TCP Connection(17)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T00:06:05.683+08:00  INFO 3144 --- [Java_study_project] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-21T00:06:05.693+08:00  INFO 3144 --- [Java_study_project] [RMI TCP Connection(17)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-21T00:06:08.592+08:00  INFO 17992 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 17992 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
-2024-12-21T00:06:08.595+08:00  INFO 17992 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T00:06:09.498+08:00  INFO 17992 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-21T00:06:09.613+08:00  INFO 17992 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 104 ms. Found 9 JPA repository interfaces.
-2024-12-21T00:06:10.264+08:00  INFO 17992 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
-2024-12-21T00:06:10.286+08:00  INFO 17992 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-21T00:06:10.287+08:00  INFO 17992 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-21T00:06:10.560+08:00  INFO 17992 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-12-21T00:06:10.569+08:00  INFO 17992 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-21T00:06:10.569+08:00  INFO 17992 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1916 ms
-2024-12-21T00:06:10.751+08:00  INFO 17992 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-21T00:06:10.825+08:00  INFO 17992 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-21T00:06:10.881+08:00  INFO 17992 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-21T00:06:11.272+08:00  INFO 17992 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-21T00:06:11.312+08:00  INFO 17992 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-21T00:06:11.505+08:00  INFO 17992 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@59371066
-2024-12-21T00:06:11.507+08:00  INFO 17992 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-21T00:06:13.037+08:00  INFO 17992 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-21T00:06:13.287+08:00  INFO 17992 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T00:06:13.732+08:00  INFO 17992 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-12-21T00:06:13.863+08:00  WARN 17992 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-21T00:06:14.343+08:00  INFO 17992 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
-2024-12-21T00:06:14.352+08:00  INFO 17992 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 6.348 seconds (process running for 7.173)
-2024-12-21T00:23:47.892+08:00  INFO 17992 --- [Java_study_project] [http-nio-9001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-21T00:23:47.892+08:00  INFO 17992 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-21T00:23:47.894+08:00  INFO 17992 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2024-12-21T00:56:59.567+08:00  INFO 17992 --- [Java_study_project] [RMI TCP Connection(61)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2024-12-21T00:56:59.595+08:00  INFO 17992 --- [Java_study_project] [RMI TCP Connection(61)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T00:56:59.598+08:00  INFO 17992 --- [Java_study_project] [RMI TCP Connection(61)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-21T00:56:59.602+08:00  INFO 17992 --- [Java_study_project] [RMI TCP Connection(61)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-21T00:57:04.173+08:00  INFO 30044 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 30044 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
-2024-12-21T00:57:04.176+08:00  INFO 30044 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T00:57:05.400+08:00  INFO 30044 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-21T00:57:05.551+08:00  INFO 30044 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 137 ms. Found 9 JPA repository interfaces.
-2024-12-21T00:57:06.339+08:00  INFO 30044 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
-2024-12-21T00:57:06.358+08:00  INFO 30044 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-21T00:57:06.358+08:00  INFO 30044 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-21T00:57:06.724+08:00  INFO 30044 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-12-21T00:57:06.745+08:00  INFO 30044 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-21T00:57:06.746+08:00  INFO 30044 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2511 ms
-2024-12-21T00:57:07.058+08:00  INFO 30044 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-21T00:57:07.155+08:00  INFO 30044 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-21T00:57:07.240+08:00  INFO 30044 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-21T00:57:07.708+08:00  INFO 30044 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-21T00:57:07.749+08:00  INFO 30044 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-21T00:57:07.965+08:00  INFO 30044 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@538aa83f
-2024-12-21T00:57:07.968+08:00  INFO 30044 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-21T00:57:09.697+08:00  INFO 30044 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-21T00:57:10.019+08:00  INFO 30044 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T00:57:10.554+08:00  INFO 30044 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-12-21T00:57:10.704+08:00  WARN 30044 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-21T00:57:11.277+08:00  INFO 30044 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
-2024-12-21T00:57:11.287+08:00  INFO 30044 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 7.726 seconds (process running for 8.588)
-2024-12-21T00:57:22.528+08:00  INFO 30044 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-21T00:57:22.528+08:00  INFO 30044 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-21T00:57:22.529+08:00  INFO 30044 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2024-12-21T01:13:24.682+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:13:24.682+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:13:28.103+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:13:28.109+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:04.431+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:04.437+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:06.099+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:06.104+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:07.287+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:07.296+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:21.558+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:14:21.574+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:15:30.187+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:15:30.189+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:16:37.311+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:16:37.318+08:00  WARN 30044 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2024-12-21T01:17:45.236+08:00  INFO 30044 --- [Java_study_project] [RMI TCP Connection(29)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2024-12-21T01:17:45.254+08:00  INFO 30044 --- [Java_study_project] [RMI TCP Connection(29)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T01:17:45.256+08:00  INFO 30044 --- [Java_study_project] [RMI TCP Connection(29)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-12-21T01:17:45.265+08:00  INFO 30044 --- [Java_study_project] [RMI TCP Connection(29)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-12-21T01:17:52.983+08:00  INFO 16840 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 16840 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
-2024-12-21T01:17:52.987+08:00  INFO 16840 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T01:17:54.559+08:00  INFO 16840 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-21T01:17:54.717+08:00  INFO 16840 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 9 JPA repository interfaces.
-2024-12-21T01:17:55.448+08:00  INFO 16840 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
-2024-12-21T01:17:55.467+08:00  INFO 16840 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-12-21T01:17:55.468+08:00  INFO 16840 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2024-12-21T01:17:55.786+08:00  INFO 16840 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
-2024-12-21T01:17:55.798+08:00  INFO 16840 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-12-21T01:17:55.799+08:00  INFO 16840 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2691 ms
-2024-12-21T01:17:56.036+08:00  INFO 16840 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-21T01:17:56.127+08:00  INFO 16840 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2024-12-21T01:17:56.198+08:00  INFO 16840 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-21T01:17:56.623+08:00  INFO 16840 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-21T01:17:56.667+08:00  INFO 16840 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-21T01:17:56.891+08:00  INFO 16840 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7f2ca6f8
-2024-12-21T01:17:56.894+08:00  INFO 16840 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-21T01:17:58.991+08:00  INFO 16840 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-12-21T01:17:59.302+08:00  INFO 16840 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-21T01:17:59.776+08:00  INFO 16840 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-12-21T01:17:59.904+08:00  WARN 16840 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-21T01:18:00.475+08:00  INFO 16840 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
-2024-12-21T01:18:00.484+08:00  INFO 16840 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 8.725 seconds (process running for 10.05)
-2024-12-21T01:22:30.555+08:00  INFO 16840 --- [Java_study_project] [http-nio-9001-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-12-21T01:22:30.555+08:00  INFO 16840 --- [Java_study_project] [http-nio-9001-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-12-21T01:22:30.557+08:00  INFO 16840 --- [Java_study_project] [http-nio-9001-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-24T09:47:54.940+08:00  INFO 9648 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 9648 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T09:47:54.968+08:00  INFO 9648 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T09:47:57.223+08:00  INFO 9648 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T09:47:57.457+08:00  INFO 9648 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 214 ms. Found 9 JPA repository interfaces.
+2024-12-24T09:47:58.532+08:00  INFO 9648 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T09:47:58.561+08:00  INFO 9648 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T09:47:58.561+08:00  INFO 9648 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T09:47:58.980+08:00  INFO 9648 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T09:47:58.996+08:00  INFO 9648 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T09:47:58.997+08:00  INFO 9648 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3868 ms
+2024-12-24T09:47:59.307+08:00  INFO 9648 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T09:47:59.454+08:00  INFO 9648 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T09:47:59.559+08:00  INFO 9648 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T09:48:00.296+08:00  INFO 9648 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T09:48:00.363+08:00  INFO 9648 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T09:48:00.684+08:00  INFO 9648 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@fd4459b
+2024-12-24T09:48:00.689+08:00  INFO 9648 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T09:48:03.030+08:00  INFO 9648 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T09:48:03.515+08:00  INFO 9648 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T09:48:04.482+08:00  INFO 9648 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T09:48:04.772+08:00  WARN 9648 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T09:48:05.539+08:00  INFO 9648 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T09:48:05.551+08:00  INFO 9648 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 12.099 seconds (process running for 15.449)
+2024-12-24T09:56:40.837+08:00  INFO 27836 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : Starting Test_classRoom_addBooking using Java 21.0.4 with PID 27836 (started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T09:56:40.842+08:00  INFO 27836 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T09:56:43.820+08:00  INFO 27836 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T09:56:44.216+08:00  INFO 27836 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 367 ms. Found 9 JPA repository interfaces.
+2024-12-24T09:56:45.569+08:00  INFO 27836 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T09:56:45.733+08:00  INFO 27836 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T09:56:45.835+08:00  INFO 27836 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T09:56:46.706+08:00  INFO 27836 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T09:56:46.806+08:00  INFO 27836 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T09:56:47.160+08:00  INFO 27836 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4abbe41c
+2024-12-24T09:56:47.163+08:00  INFO 27836 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T09:56:49.372+08:00  INFO 27836 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T09:56:49.667+08:00  INFO 27836 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T09:56:50.796+08:00  INFO 27836 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T09:56:51.585+08:00  WARN 27836 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T09:56:52.628+08:00  INFO 27836 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : Started Test_classRoom_addBooking in 12.903 seconds (process running for 15.625)
+2024-12-24T09:56:55.075+08:00  INFO 27836 --- [Java_study_project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T09:56:55.079+08:00  INFO 27836 --- [Java_study_project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T09:56:55.106+08:00  INFO 27836 --- [Java_study_project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T10:20:46.006+08:00  INFO 17504 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : Starting Test_classRoom_addBooking using Java 21.0.4 with PID 17504 (started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T10:20:46.010+08:00  INFO 17504 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T10:20:48.876+08:00  INFO 17504 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T10:20:49.194+08:00  INFO 17504 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 264 ms. Found 9 JPA repository interfaces.
+2024-12-24T10:20:50.897+08:00  INFO 17504 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T10:20:51.114+08:00  INFO 17504 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T10:20:51.228+08:00  INFO 17504 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T10:20:52.118+08:00  INFO 17504 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T10:20:52.186+08:00  INFO 17504 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T10:20:52.506+08:00  INFO 17504 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3d1c52f5
+2024-12-24T10:20:52.510+08:00  INFO 17504 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T10:20:54.595+08:00  INFO 17504 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T10:20:54.880+08:00  INFO 17504 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T10:20:56.073+08:00  INFO 17504 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T10:20:56.701+08:00  WARN 17504 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T10:20:57.757+08:00  INFO 17504 --- [Java_study_project] [main] c.e.d.booking.Test_classRoom_addBooking  : Started Test_classRoom_addBooking in 12.748 seconds (process running for 14.891)
+2024-12-24T10:21:00.707+08:00  INFO 17504 --- [Java_study_project] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T10:21:00.711+08:00  INFO 17504 --- [Java_study_project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T10:21:00.730+08:00  INFO 17504 --- [Java_study_project] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T11:11:43.596+08:00  INFO 9648 --- [Java_study_project] [http-nio-9001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T11:11:43.605+08:00  INFO 9648 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T11:11:43.656+08:00  INFO 9648 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 50 ms
+2024-12-24T11:16:45.795+08:00  INFO 9648 --- [Java_study_project] [RMI TCP Connection(99)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T11:16:45.827+08:00  INFO 9648 --- [Java_study_project] [RMI TCP Connection(99)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:16:45.831+08:00  INFO 9648 --- [Java_study_project] [RMI TCP Connection(99)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T11:16:45.836+08:00  INFO 9648 --- [Java_study_project] [RMI TCP Connection(99)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T11:17:00.469+08:00  INFO 32400 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 32400 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T11:17:00.472+08:00  INFO 32400 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T11:17:01.809+08:00  INFO 32400 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T11:17:01.971+08:00  INFO 32400 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 150 ms. Found 9 JPA repository interfaces.
+2024-12-24T11:17:03.067+08:00  INFO 32400 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T11:17:03.093+08:00  INFO 32400 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T11:17:03.093+08:00  INFO 32400 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T11:17:03.521+08:00  INFO 32400 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T11:17:03.535+08:00  INFO 32400 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T11:17:03.536+08:00  INFO 32400 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2975 ms
+2024-12-24T11:17:03.784+08:00  INFO 32400 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T11:17:03.922+08:00  INFO 32400 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T11:17:04.022+08:00  INFO 32400 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T11:17:04.592+08:00  INFO 32400 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T11:17:04.638+08:00  INFO 32400 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T11:17:04.874+08:00  INFO 32400 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d47b06
+2024-12-24T11:17:04.877+08:00  INFO 32400 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T11:17:06.975+08:00  INFO 32400 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T11:17:07.293+08:00  INFO 32400 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:17:07.781+08:00  INFO 32400 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T11:17:07.982+08:00  WARN 32400 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T11:17:08.540+08:00  INFO 32400 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T11:17:08.549+08:00  INFO 32400 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 9.009 seconds (process running for 10.58)
+2024-12-24T11:17:17.977+08:00  INFO 32400 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T11:17:17.977+08:00  INFO 32400 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T11:17:17.979+08:00  INFO 32400 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2024-12-24T11:21:56.002+08:00  INFO 32400 --- [Java_study_project] [RMI TCP Connection(15)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T11:21:56.021+08:00  INFO 32400 --- [Java_study_project] [RMI TCP Connection(15)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:21:56.023+08:00  INFO 32400 --- [Java_study_project] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T11:21:56.032+08:00  INFO 32400 --- [Java_study_project] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T11:22:03.139+08:00  INFO 32528 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 32528 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T11:22:03.144+08:00  INFO 32528 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T11:22:04.982+08:00  INFO 32528 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T11:22:05.159+08:00  INFO 32528 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 163 ms. Found 9 JPA repository interfaces.
+2024-12-24T11:22:05.984+08:00  INFO 32528 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T11:22:06.004+08:00  INFO 32528 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T11:22:06.004+08:00  INFO 32528 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T11:22:06.323+08:00  INFO 32528 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T11:22:06.335+08:00  INFO 32528 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T11:22:06.336+08:00  INFO 32528 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3059 ms
+2024-12-24T11:22:06.590+08:00  INFO 32528 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T11:22:06.689+08:00  INFO 32528 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T11:22:06.765+08:00  INFO 32528 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T11:22:07.323+08:00  INFO 32528 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T11:22:07.366+08:00  INFO 32528 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T11:22:07.578+08:00  INFO 32528 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43a59289
+2024-12-24T11:22:07.580+08:00  INFO 32528 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T11:22:09.525+08:00  INFO 32528 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T11:22:09.887+08:00  INFO 32528 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:22:10.405+08:00  INFO 32528 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T11:22:10.641+08:00  WARN 32528 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T11:22:11.260+08:00  INFO 32528 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T11:22:11.269+08:00  INFO 32528 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 9.32 seconds (process running for 11.68)
+2024-12-24T11:24:07.918+08:00  INFO 32528 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T11:24:07.919+08:00  INFO 32528 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T11:24:07.920+08:00  INFO 32528 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-24T11:26:19.435+08:00  INFO 32528 --- [Java_study_project] [RMI TCP Connection(12)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T11:26:19.453+08:00  INFO 32528 --- [Java_study_project] [RMI TCP Connection(12)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:26:19.457+08:00  INFO 32528 --- [Java_study_project] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T11:26:19.465+08:00  INFO 32528 --- [Java_study_project] [RMI TCP Connection(12)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T11:26:23.520+08:00  INFO 16756 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 16756 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T11:26:23.524+08:00  INFO 16756 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T11:26:24.760+08:00  INFO 16756 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T11:26:24.905+08:00  INFO 16756 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 134 ms. Found 9 JPA repository interfaces.
+2024-12-24T11:26:25.619+08:00  INFO 16756 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T11:26:25.641+08:00  INFO 16756 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T11:26:25.641+08:00  INFO 16756 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T11:26:25.975+08:00  INFO 16756 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T11:26:25.990+08:00  INFO 16756 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T11:26:25.991+08:00  INFO 16756 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2386 ms
+2024-12-24T11:26:26.217+08:00  INFO 16756 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T11:26:26.312+08:00  INFO 16756 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T11:26:26.388+08:00  INFO 16756 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T11:26:26.823+08:00  INFO 16756 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T11:26:26.863+08:00  INFO 16756 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T11:26:27.081+08:00  INFO 16756 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63e70bf9
+2024-12-24T11:26:27.083+08:00  INFO 16756 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T11:26:28.766+08:00  INFO 16756 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T11:26:29.066+08:00  INFO 16756 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T11:26:29.556+08:00  INFO 16756 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T11:26:29.776+08:00  WARN 16756 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T11:26:30.318+08:00  INFO 16756 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T11:26:30.327+08:00  INFO 16756 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 7.457 seconds (process running for 8.789)
+2024-12-24T11:26:33.632+08:00  INFO 16756 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T11:26:33.632+08:00  INFO 16756 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T11:26:33.635+08:00  INFO 16756 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-24T11:26:33.850+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('t' (code 116)): was expecting double-quote to start field name]
+2024-12-24T11:27:12.562+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('t' (code 116)): was expecting double-quote to start field name]
+2024-12-24T11:29:28.770+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.util.LinkedHashMap<java.lang.Long,java.util.Map<java.time.LocalDate,java.util.Map<java.lang.String,java.lang.Long>>>` from Array value (token `JsonToken.START_ARRAY`)]
+2024-12-24T11:35:53.744+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2024-12-24T11:41:37.120+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-12-24T11:42:12.992+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2024-12-24T13:59:24.296+08:00  WARN 16756 --- [Java_study_project] [http-nio-9001-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1451, SQLState: 23000
+2024-12-24T13:59:24.301+08:00 ERROR 16756 --- [Java_study_project] [http-nio-9001-exec-5] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))
+2024-12-24T13:59:24.351+08:00 ERROR 16756 --- [Java_study_project] [http-nio-9001-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))] [delete from activity_schedule where id=?]; SQL [delete from activity_schedule where id=?]; constraint [null]] with root cause
+
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:134) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:55) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.doStaticDelete(AbstractDeleteCoordinator.java:279) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.delete(AbstractDeleteCoordinator.java:87) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:131) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:633) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:500) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:385) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:663) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:413) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165) ~[spring-data-jpa-3.3.5.jar:3.3.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.14.jar:6.1.14]
+	at jdk.proxy2/jdk.proxy2.$Proxy133.deleteById(Unknown Source) ~[na:na]
+	at com.example.demo.service.impl.ActivityScheduleServiceImpl.deleteActivitySchedule(ActivityScheduleServiceImpl.java:176) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:716) ~[spring-aop-6.1.14.jar:6.1.14]
+	at com.example.demo.service.impl.ActivityScheduleServiceImpl$$SpringCGLIB$$0.deleteActivitySchedule(<generated>) ~[classes/:na]
+	at com.example.demo.controller.ActivityScheduleController.deleteActivitySchedule(ActivityScheduleController.java:87) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-12-24T14:11:26.584+08:00  INFO 16756 --- [Java_study_project] [RMI TCP Connection(173)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T14:11:26.611+08:00  INFO 16756 --- [Java_study_project] [RMI TCP Connection(173)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:11:26.616+08:00  INFO 16756 --- [Java_study_project] [RMI TCP Connection(173)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T14:11:26.619+08:00  INFO 16756 --- [Java_study_project] [RMI TCP Connection(173)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T14:11:39.082+08:00  INFO 19064 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 19064 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T14:11:39.086+08:00  INFO 19064 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T14:11:40.503+08:00  INFO 19064 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T14:11:40.636+08:00  INFO 19064 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 119 ms. Found 9 JPA repository interfaces.
+2024-12-24T14:11:41.481+08:00  INFO 19064 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T14:11:41.500+08:00  INFO 19064 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T14:11:41.500+08:00  INFO 19064 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T14:11:41.838+08:00  INFO 19064 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T14:11:41.850+08:00  INFO 19064 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T14:11:41.851+08:00  INFO 19064 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2685 ms
+2024-12-24T14:11:42.073+08:00  INFO 19064 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T14:11:42.167+08:00  INFO 19064 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T14:11:42.245+08:00  INFO 19064 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T14:11:42.694+08:00  INFO 19064 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T14:11:42.736+08:00  INFO 19064 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T14:11:42.975+08:00  INFO 19064 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@87aec6a
+2024-12-24T14:11:42.978+08:00  INFO 19064 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T14:11:44.708+08:00  INFO 19064 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T14:11:45.082+08:00  INFO 19064 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:11:45.570+08:00  INFO 19064 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T14:11:45.798+08:00  WARN 19064 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T14:11:46.415+08:00  INFO 19064 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T14:11:46.425+08:00  INFO 19064 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 8.034 seconds (process running for 9.428)
+2024-12-24T14:11:48.672+08:00  INFO 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T14:11:48.672+08:00  INFO 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T14:11:48.673+08:00  INFO 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-24T14:11:49.189+08:00  WARN 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1451, SQLState: 23000
+2024-12-24T14:11:49.190+08:00 ERROR 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))
+2024-12-24T14:11:49.206+08:00 ERROR 19064 --- [Java_study_project] [http-nio-9001-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))] [delete from activity_schedule where id=?]; SQL [delete from activity_schedule where id=?]; constraint [null]] with root cause
+
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`mydb`.`member_activity_schedules`, CONSTRAINT `FKmb4rnigv82qyo1cmaqgu6c1r8` FOREIGN KEY (`activity_schedule_id`) REFERENCES `activity_schedule` (`id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:912) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1054) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1003) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1312) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:988) ~[mysql-connector-j-8.3.0.jar:8.3.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:134) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:55) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.doStaticDelete(AbstractDeleteCoordinator.java:279) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.persister.entity.mutation.AbstractDeleteCoordinator.delete(AbstractDeleteCoordinator.java:87) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.action.internal.EntityDeleteAction.execute(EntityDeleteAction.java:131) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:633) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:500) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:385) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.5.3.Final.jar:6.5.3.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:663) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:413) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.14.jar:6.1.14]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:720) ~[spring-aop-6.1.14.jar:6.1.14]
+	at com.example.demo.service.impl.ActivityScheduleServiceImpl$$SpringCGLIB$$0.deleteActivitySchedule(<generated>) ~[classes/:na]
+	at com.example.demo.controller.ActivityScheduleController.deleteActivitySchedule(ActivityScheduleController.java:87) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at org.springframework.web.servlet.FrameworkServlet.doDelete(FrameworkServlet.java:936) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:596) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.1.14.jar:6.1.14]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.31.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.1.14.jar:6.1.14]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.31.jar:10.1.31]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
+2024-12-24T14:13:05.802+08:00  INFO 19064 --- [Java_study_project] [RMI TCP Connection(9)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T14:13:05.822+08:00  INFO 19064 --- [Java_study_project] [RMI TCP Connection(9)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:13:05.825+08:00  INFO 19064 --- [Java_study_project] [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T14:13:05.833+08:00  INFO 19064 --- [Java_study_project] [RMI TCP Connection(9)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T14:13:12.908+08:00  INFO 24924 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 24924 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T14:13:12.912+08:00  INFO 24924 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T14:13:14.385+08:00  INFO 24924 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T14:13:14.511+08:00  INFO 24924 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 111 ms. Found 9 JPA repository interfaces.
+2024-12-24T14:13:15.233+08:00  INFO 24924 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T14:13:15.254+08:00  INFO 24924 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T14:13:15.254+08:00  INFO 24924 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T14:13:15.543+08:00  INFO 24924 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T14:13:15.554+08:00  INFO 24924 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T14:13:15.554+08:00  INFO 24924 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2541 ms
+2024-12-24T14:13:15.760+08:00  INFO 24924 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T14:13:15.847+08:00  INFO 24924 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T14:13:15.904+08:00  INFO 24924 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T14:13:16.309+08:00  INFO 24924 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T14:13:16.345+08:00  INFO 24924 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T14:13:16.553+08:00  INFO 24924 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63bca84d
+2024-12-24T14:13:16.556+08:00  INFO 24924 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T14:13:18.109+08:00  INFO 24924 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T14:13:18.395+08:00  INFO 24924 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T14:13:18.843+08:00  INFO 24924 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T14:13:19.061+08:00  WARN 24924 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T14:13:19.587+08:00  INFO 24924 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T14:13:19.596+08:00  INFO 24924 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 7.447 seconds (process running for 8.774)
+2024-12-24T14:13:24.063+08:00  INFO 24924 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T14:13:24.063+08:00  INFO 24924 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T14:13:24.064+08:00  INFO 24924 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-24T16:12:18.264+08:00  INFO 24924 --- [Java_study_project] [RMI TCP Connection(127)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2024-12-24T16:12:18.289+08:00  INFO 24924 --- [Java_study_project] [RMI TCP Connection(127)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T16:12:18.291+08:00  INFO 24924 --- [Java_study_project] [RMI TCP Connection(127)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-12-24T16:12:18.293+08:00  INFO 24924 --- [Java_study_project] [RMI TCP Connection(127)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-12-24T16:12:32.448+08:00  INFO 3556 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Starting JavaStudyProjectApplication using Java 21.0.4 with PID 3556 (C:\Users\USER\Desktop\Java_Class\Java_study_project\target\classes started by USER in C:\Users\USER\Desktop\Java_Class\Java_study_project)
+2024-12-24T16:12:32.452+08:00  INFO 3556 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-12-24T16:12:33.664+08:00  INFO 3556 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-24T16:12:33.788+08:00  INFO 3556 --- [Java_study_project] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 9 JPA repository interfaces.
+2024-12-24T16:12:34.450+08:00  INFO 3556 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9001 (http)
+2024-12-24T16:12:34.466+08:00  INFO 3556 --- [Java_study_project] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-12-24T16:12:34.466+08:00  INFO 3556 --- [Java_study_project] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2024-12-24T16:12:34.764+08:00  INFO 3556 --- [Java_study_project] [main] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2024-12-24T16:12:34.776+08:00  INFO 3556 --- [Java_study_project] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-12-24T16:12:34.776+08:00  INFO 3556 --- [Java_study_project] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2233 ms
+2024-12-24T16:12:35.013+08:00  INFO 3556 --- [Java_study_project] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-24T16:12:35.101+08:00  INFO 3556 --- [Java_study_project] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2024-12-24T16:12:35.169+08:00  INFO 3556 --- [Java_study_project] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-24T16:12:35.627+08:00  INFO 3556 --- [Java_study_project] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-24T16:12:35.668+08:00  INFO 3556 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-12-24T16:12:35.973+08:00  INFO 3556 --- [Java_study_project] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3982206a
+2024-12-24T16:12:35.976+08:00  INFO 3556 --- [Java_study_project] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-12-24T16:12:37.880+08:00  INFO 3556 --- [Java_study_project] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-24T16:12:38.367+08:00  INFO 3556 --- [Java_study_project] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-24T16:12:38.965+08:00  INFO 3556 --- [Java_study_project] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-24T16:12:39.468+08:00  WARN 3556 --- [Java_study_project] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-12-24T16:12:40.854+08:00  INFO 3556 --- [Java_study_project] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9001 (http) with context path '/'
+2024-12-24T16:12:40.871+08:00  INFO 3556 --- [Java_study_project] [main] c.e.demo.JavaStudyProjectApplication     : Started JavaStudyProjectApplication in 9.125 seconds (process running for 10.797)
+2024-12-24T16:15:24.537+08:00  INFO 3556 --- [Java_study_project] [http-nio-9001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-12-24T16:15:24.537+08:00  INFO 3556 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-12-24T16:15:24.538+08:00  INFO 3556 --- [Java_study_project] [http-nio-9001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-12-24T16:17:21.652+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:23.958+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:24.282+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:31.648+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:31.675+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:38.182+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:17:38.193+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:23:40.528+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:23:54.051+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:24:04.767+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:24:07.621+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:24:15.930+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:24:20.828+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:24:20.830+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:27:59.643+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:02.159+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:06.209+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:09.248+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:09.254+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:28.422+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:28:28.425+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:31:07.679+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-9] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:31:09.912+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:31:14.649+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:31:14.653+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:32:19.527+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:32:21.917+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:32:26.696+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:32:26.700+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
+2024-12-24T16:32:51.443+08:00  WARN 3556 --- [Java_study_project] [http-nio-9001-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: Required request body is missing: public org.springframework.http.ResponseEntity<com.example.demo.response.ApiResponse<com.example.demo.model.dto.booking.ListOfBooking>> com.example.demo.controller.BookingController.getBookingList(com.example.demo.model.dto.booking.ListOfBooking)]
