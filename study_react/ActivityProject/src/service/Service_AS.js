@@ -499,7 +499,7 @@ export const delete_fitnessInstructor_by_id = async (fitnessInstructorId) => {  
 // booking    // booking    // booking    // booking    // booking    
 export const get_all_bookingList_byType = async (ListOfBooking) => {    // 取得所有教練
     try {
-        const allBooking = await api.get(`/booking/bookingList`, ListOfBooking);
+        const allBooking = await api.post(`/booking/bookingList`, ListOfBooking);
         console.log(allBooking.data);
         return allBooking.data.data;
     } catch (error) {

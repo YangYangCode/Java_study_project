@@ -24,8 +24,9 @@ public class BookingController {
 	private BookingService bookingService;
 	
 	// 預約清單
-	@GetMapping("/bookingList")
+	@PostMapping("/bookingList")
 	public ResponseEntity<ApiResponse<ListOfBooking>> getBookingList(@RequestBody ListOfBooking listOfBooking){
+//		System.out.println(listOfBooking);
 		return ResponseEntity.ok(ApiResponse.success("查詢預約清單成功", bookingService.getListOfBooking(listOfBooking)));
 	}
 	
